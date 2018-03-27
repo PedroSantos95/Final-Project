@@ -1,8 +1,8 @@
 {
-    "title": "Half Slider",
-    "name": "startbootstrap-half-slider",
+    "title": "Shop Item",
+    "name": "startbootstrap-shop-item",
     "version": "4.0.0",
-    "description": "A half page image slider HTML template built with Bootstrap",
+    "description": "A shop item HTML template built with Bootstrap",
     "keywords": [
         "css",
         "sass",
@@ -11,9 +11,9 @@
         "theme",
         "template"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/half-slider",
+    "homepage": "https://startbootstrap.com/template-overviews/shop-item",
     "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-half-slider/issues",
+        "url": "https://github.com/BlackrockDigital/startbootstrap-shop-item/issues",
         "email": "feedback@startbootstrap.com"
     },
     "license": "MIT",
@@ -23,7 +23,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-half-slider.git"
+        "url": "https://github.com/BlackrockDigital/startbootstrap-shop-item.git"
     },
     "dependencies": {
         "bootstrap": "4.0.0",
