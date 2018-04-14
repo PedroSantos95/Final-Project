@@ -1,95 +1,171 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+<head>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-            .full-height {
-                height: 100vh;
-            }
+    <title>Rally Sernancelhe Aguiar da Beira</title>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Bootstrap core CSS -->
+    {{--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">--}}
 
-            .position-ref {
-                position: relative;
-            }
+    <!-- Custom styles for this template -->
+    <link href="css/shop-item.css" rel="stylesheet">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+</head>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+<body>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Tempos Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Tempos
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Quem Somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contatos</a>
+                </li>
+            </ul>
         </div>
-    </body>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-4 col-lg-12">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 8%;">
+                <button class="btn btn-secondary" disabled>
+                    <a> PECS: </a>
+                </button>
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> 1
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> 2
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> 3
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option4" autocomplete="off"> 4
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option5" autocomplete="off"> 5
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option6" autocomplete="off"> 6
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option7" autocomplete="off"> 7
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option8" autocomplete="off"> 8
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option9" autocomplete="off"> 9
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option10" autocomplete="off"> 10
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-12">
+
+            <div class="alert alert-success alert-dismissible" style="margin-top: 2%">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Indicates a successful or positive action.
+            </div>
+
+
+        </div>
+        <div class="col-sm-4 col-sm-offset-4 col-lg-12" style="margin-top: 1%">
+            <table class="table table-striped table-bordered" id="datatable" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>Posicao</th>
+                    <th>Piloto</th>
+                    <th>Navegador</th>
+                    <th>Viatura</th>
+                    <th>Partida</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Posicao</th>
+                    <th>Piloto</th>
+                    <th>Navegador</th>
+                    <th>Viatura</th>
+                    <th>Partida</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>Total</th>
+                </tr>
+                </tfoot>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+    </div>
+
+</div>
+
+</div>
+
+<!-- Modal -->
+
+
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-6 bg-dark">
+
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/temposintermedios.js"></script>
+</body>
+
 </html>

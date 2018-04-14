@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return \File::get(public_path() . '/pages/index.html');
-});
-
-Route::get('/table', function () {
-    return \File::get(public_path() . '/pages/table.html');
+Route::get('/news', function (){
+   return view('news');
 });
