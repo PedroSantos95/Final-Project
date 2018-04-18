@@ -14,8 +14,18 @@ class CreateCarrosTable extends Migration
     public function up()
     {
         Schema::create('carros', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_carro');
+            $table->increments('id_rally');
+            $table->increments('piloto');
+            $table->increments('navegador');
+            $table->increments('nacionalidade');
+            $table->increments('equipa');
+            $table->increments('campeonato');
             $table->timestamps();
+        });
+
+        Schema::table('carros', function($table) {
+            $table->foreign('id_rally')->references('id_rally')->on('rally');
         });
     }
 

@@ -14,7 +14,9 @@ class CreateRallyTable extends Migration
     public function up()
     {
         Schema::create('rally', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_rally');
+            $table->integer('numero_pecs');
+            $table->string('local');
             $table->timestamps();
         });
     }

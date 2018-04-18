@@ -14,8 +14,27 @@ class CreateTemposIntermediosTable extends Migration
     public function up()
     {
         Schema::create('tempos_intermedios', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_pec');
+            $table->integer('id_rally');
+            $table->integer('id_carro');
+            $table->dateTime('tempoPartida', 2);
+            $table->dateTime('tempoIntermedio_1', 2);
+            $table->dateTime('tempoIntermedio_2', 2);
+            $table->dateTime('tempoIntermedio_3', 2);
+            $table->dateTime('tempoIntermedio_4', 2);
+            $table->dateTime('tempoIntermedio_5', 2);
+            $table->dateTime('tempoIntermedio_6', 2);
+            $table->dateTime('tempoIntermedio_7', 2);
+            $table->dateTime('tempoIntermedio_8', 2);
+            $table->dateTime('tempoIntermedio_9', 2);
+            $table->dateTime('tempoIntermedio_10', 2);
+            $table->dateTime('tempoChegada', 2);
             $table->timestamps();
+        });
+
+        Schema::table('tempos_intermedios', function($table) {
+            $table->foreign('id_rally')->references('id_rally')->on('rally');
+            $table->foreign('id_carro')->references('id_carro')->on('carros');
         });
     }
 
