@@ -15,12 +15,12 @@ class CreateCarrosTable extends Migration
     {
         Schema::create('carros', function (Blueprint $table) {
             $table->increments('id_carro');
-            $table->increments('id_rally');
-            $table->increments('piloto');
-            $table->increments('navegador');
-            $table->increments('nacionalidade');
-            $table->increments('equipa');
-            $table->increments('campeonato');
+            $table->integer('id_rally')->unsigned();
+            $table->string('piloto');
+            $table->string('navegador');
+            $table->string('nacionalidade');
+            $table->string('equipa');
+            $table->string('campeonato');
             $table->timestamps();
         });
 

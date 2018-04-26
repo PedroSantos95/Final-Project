@@ -15,15 +15,16 @@ class CreateConfigTable extends Migration
     {
         Schema::create('config', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pec');
+            $table->integer('id_pec')->unsigned();
             $table->integer('numero_tempos_intermedios');
-            $table->integer('numero_carro_referencia');
+            $table->integer('numero_carro_referencia')->unsigned();
             $table->timestamps();
         });
 
+
         Schema::table('config', function($table) {
-            $table->foreign('id_pec')->references('id_pec')->on('tempos_intermedios');
-            $table->foreign('numero_carro_referencia')->references('id_carro')->on('carros');
+            $table->foreign('id_pec')->references('id_pec')->on('tempos_intermedios')->onDelete('cascade');
+            $table->foreign('numero_carro_referencia')->references('id_carro')->on('carros')->onDelete('cascade');
 
         });
     }

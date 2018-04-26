@@ -15,8 +15,8 @@ class CreateTemposIntermediosTable extends Migration
     {
         Schema::create('tempos_intermedios', function (Blueprint $table) {
             $table->increments('id_pec');
-            $table->integer('id_rally');
-            $table->integer('id_carro');
+            $table->integer('id_rally')->unsigned();
+            $table->integer('id_carro')->unsigned();
             $table->dateTime('tempoPartida', 2);
             $table->dateTime('tempoIntermedio_1', 2);
             $table->dateTime('tempoIntermedio_2', 2);
@@ -33,8 +33,8 @@ class CreateTemposIntermediosTable extends Migration
         });
 
         Schema::table('tempos_intermedios', function($table) {
-            $table->foreign('id_rally')->references('id_rally')->on('rally');
-            $table->foreign('id_carro')->references('id_carro')->on('carros');
+            $table->foreign('id_rally')->references('id_rally')->on('rally')->onDelete('cascade');
+            $table->foreign('id_carro')->references('id_carro')->on('carros')->onDelete('cascade');
         });
     }
 

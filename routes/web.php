@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/news', function (){
-   return view('news');
-});
+Route::get('/news', 'MessageController@showMensagens');
+
+Route::get('/admin', 'MessageController@index')->name('adminBoard');
+
+Route::get('/admin/{id}/alterarEstado', 'MessageController@alterarEstadoMensagem')->name('alterarEstadoMensagem');
+
+Route::get('/admin/{id}/eliminarMensagem', 'MessageController@eliminarMensagem')->name('eliminarMensagem');
+
+Route::post('/admin', 'MessageController@create');
