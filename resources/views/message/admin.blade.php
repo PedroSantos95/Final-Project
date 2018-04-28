@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="utf-8" content="no-cache">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-
+    <title>Pagina Administrador</title>
     <style>
         hr.style-two {
             border: 0;
@@ -13,8 +12,6 @@
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
         }
     </style>
-
-
 </head>
 
 <body>
@@ -52,7 +49,6 @@
                         <input type="radio" name="tipo" value="acidentes" autocomplete="off"><img src="icons/crash.png" height="48" width="48">
                         Acidentes
                     </label>
-
                 </div>
 
                 {{--<label class="btn btn-secondary active">--}}

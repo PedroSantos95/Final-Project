@@ -54,7 +54,7 @@ class MessageController extends Controller
         }
 
         $mensagem = new Mensagem;
-        $mensagem->visivel = false;
+        $mensagem->visivel = true;
         $mensagem->tipo_noticia = $request['tipo'];
         $mensagem->titulo = $request['titulo'];
         $mensagem->informacao = $request['corpo'];
