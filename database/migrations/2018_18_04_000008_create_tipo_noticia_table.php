@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRallyTable extends Migration
+class CreateTipoNoticiaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,22 @@ class CreateRallyTable extends Migration
      */
     public function up()
     {
-        Schema::create('rally', function (Blueprint $table) {
-            $table->increments('id_rally');
+        Schema::create('tipo_noticia', function (Blueprint $table) {
+            $table->increments('id_tipoNoticia');
             $table->string('nome');
-            $table->date('dataInicio');
-            $table->date('dataFim');
-            $table->integer('numero_pecs');
-            $table->string('local');
             $table->timestamps();
         });
+
+
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('rally');
+        Schema::dropIfExists('tipo_noticia');
     }
 }

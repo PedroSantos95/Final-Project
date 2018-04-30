@@ -16,11 +16,17 @@ class CreateCarrosTable extends Migration
         Schema::create('carros', function (Blueprint $table) {
             $table->increments('id_carro');
             $table->integer('id_rally')->unsigned();
-            $table->string('piloto');
-            $table->string('navegador');
-            $table->string('nacionalidade');
-            $table->string('equipa');
-            $table->string('campeonato');
+            $table->string('marcaModelo');
+            $table->string('pilotoNome');
+            $table->string('pilotoNacionalidade');
+            $table->string('navegadorNome');
+            $table->string('navegadorNacionalidade');
+            $table->string('equipaNome');
+            $table->string('equipaNacionalidade');
+            $table->string('campeonatos');
+            $table->string('pilotoNavegador_FirstLastName');
+            $table->string('pilotoNavegador_FirstCharLastName');
+            $table->string('pilotoNavegador_ShortNames');
             $table->timestamps();
         });
 

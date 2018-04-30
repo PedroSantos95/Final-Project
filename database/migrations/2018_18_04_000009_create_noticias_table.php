@@ -16,8 +16,8 @@ class CreateNoticiasTable extends Migration
         Schema::create('noticias', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_rally')->unsigned()->nullable();
+            $table->integer('tipoNoticia')->unsigned()->nullable();
             $table->string('titulo');
-            $table->string('tipo_noticia');
             $table->boolean('visivel');
             $table->string('informacao');
             $table->timestamps();
@@ -25,6 +25,7 @@ class CreateNoticiasTable extends Migration
 
         Schema::table('noticias', function($table) {
             $table->foreign('id_rally')->references('id_rally')->on('rally')->onDelete('cascade');
+            $table->foreign('tipoNoticia')->references('id_tipoNoticia')->on('tipo_noticia')->onDelete('cascade');
         });
     }
 
