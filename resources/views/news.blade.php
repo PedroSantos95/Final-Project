@@ -11,98 +11,98 @@
 
     <title>Rally Sernancelhe Aguiar da Beira</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css">
+    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css">--}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .custom-datatable {
+            width:100%;
+            table-layout: fixed;
+        }
+        .custom-datatable td{
+            overflow: auto;
+        }
+    </style>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 </head>
 
 <body>
-
-
-{{--<nav class="navbar navbar-inverse">--}}
-{{--<div class="container-fluid">--}}
-{{--<div class="navbar-header">--}}
-{{--<a class="navbar-brand" href="#">Tempos Online</a>--}}
-{{--</div>--}}
-{{--<ul class="nav navbar-nav navbar-right">--}}
-{{--<li><a href="#"> Tempos</a></li>--}}
-{{--<li><a href="#"> Quem Somos</a></li>--}}
-{{--<li><a href="#"> Contatos</a></li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</nav>--}}
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">Tempos Online</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">TemposOnline</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav navbar-right ">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Tempos
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Quem Somos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contatos</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Todas os eventos...</button>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><span class="glyphicon glyphicon-comment"></span> Noticias</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Informações</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-time"></span> Tempos</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Acidentes</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    </nav>
 </div>
 
-<div class="container col-lg-6">
+{{--<div class="container">--}}
+    {{--<div class="row">--}}
+        {{--<div class="col-sm-4">--}}
+            {{--<div class="dropdown">--}}
+                {{--<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Todas os eventos...</button>--}}
+                {{--<ul class="dropdown-menu">--}}
+                    {{--<li><a href="#"><span class="glyphicon glyphicon-comment"></span> Noticias</a></li>--}}
+                    {{--<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Informações</a></li>--}}
+                    {{--<li><a href="#"><span class="glyphicon glyphicon-time"></span> Tempos</a></li>--}}
+                    {{--<li><a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Acidentes</a></li>--}}
+                {{--</ul>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
+
+<div class="container col-lg-7">
     <div style="margin-top: 1%">
-        <table class="table table-striped table-bordered" id="datatable" cellspacing="0" width="100%">
+
+        <div class="form-group">
+            <label for="exampleSelect"><strong>Tipo de Noticia</strong></label>
+            <select class="form-control col-lg-3" id="exampleSelect">
+                <option value="0" selected>Todos</option>
+                @foreach($tiposNoticia as $tipo)
+                <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <table class="table table-striped table-bordered custom-datatable"  id="datatable" cellspacing="0">
             <thead>
             <tr>
-                <th>Titulo</th>
                 <th>Tipo</th>
-                <th>Data</th>
-                <th>Ações</th>
+                <th style="width: {{100/5}}%">Titulo</th>
+                <th style="width: {{100/5}}%">Mensagem</th>
+                <th style="width: {{100/5}}%">Data</th>
+                <th style="width: {{100/5}}%">Ações</th>
             </tr>
             </thead>
             <tfoot>
-            @foreach ($mensagens as $mensagem)
-                @if($mensagem->visivel == true)
-                <tr>
-                    <th>{{$mensagem->titulo}}</th>
-                    <th>{{$mensagem->tipo_noticia}}</th>
-                    <th>{{$mensagem->created_at}}</th>
-                    <th><button data-toggle="modal" data-target="#mensagem" class="btn btn-info" onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}')">Detalhes</button></th>
-                </tr>
-                @endif
-            @endforeach
+            <tr>
+                <th>Tipo</th>
+                <th>Titulo</th>
+                <th>Mensagem</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
             </tfoot>
             <tbody>
-
+            {{--@foreach ($mensagens as $mensagem)--}}
+                {{--@if($mensagem->visivel == true)--}}
+                    {{--<tr>--}}
+                        {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
+                        {{--<th>{{$mensagem->titulo}}</th>--}}
+                        {{--<th>{{$mensagem->informacao}}</th>--}}
+                        {{--<th>{{$mensagem->created_at}}</th>--}}
+                        {{--<th>--}}
+                            {{--<button data-toggle="modal" data-target="#mensagem" class="btn btn-info"--}}
+                                    {{--onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}')">--}}
+                                {{--Detalhes--}}
+                            {{--</button>--}}
+                        {{--</th>--}}
+                    {{--</tr>--}}
+                {{--@endif--}}
+            {{--@endforeach--}}
             </tbody>
         </table>
     </div>
@@ -118,10 +118,10 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Titulo</h4>
+                <h4 id="modal-title" class="modal-title" style="word-wrap: break-word;">Titulo</h4>
             </div>
             <div class="modal-body">
-                <p class="informacao_modal">Nao Titulo</p>
+                <p id="informacao-modal" class="informacao_modal" style="word-wrap: break-word;">Nao Titulo</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -132,14 +132,39 @@
 </div>
 
 
+{{--<script>--}}
+    {{--function updateModalInfo(informacao) {--}}
+        {{--$('.informacao_modal').text(informacao);--}}
+    {{--}--}}
+{{--</script>--}}
+
+{{--<script>--}}
+    {{--function updateModalHeader(titulo) {--}}
+        {{--$('.modal-title').html(titulo);--}}
+    {{--}--}}
+{{--</script>--}}
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
 <script>
-    function updateModalInfo(informacao) {
-        $('.informacao_modal').text(informacao);
+    function updateModalInfo(string) {
+        console.log(string);
+        document.getElementById('informacao-modal').innerText = string;
+    }
+
+    function updateModalHeader(string) {
+        console.log(string);
+        document.getElementById('modal-title').innerText = string;
     }
 </script>
 
-<script>
-    function updateModalHeader(titulo) {
-        $('.modal-title').html(titulo);
-    }
-</script>
+{{--<script type="text/javascript" charset="utf8"--}}
+        {{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
+<script src="/js/noticias.js"></script>
+
