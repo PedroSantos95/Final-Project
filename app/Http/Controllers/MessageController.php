@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Mensagem;
+use App\Http\TipoNoticia;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -17,15 +18,18 @@ class MessageController extends Controller
 {
     public function index()
     {
-        $mensagens = Mensagem::orderBy('created_at','desc')->get();
+        $mensagens = Mensagem::orderBy('created_at','desc')->paginate(6);
+        $tiposNoticia = TipoNoticia::all();
 
-        return view('message.admin', compact('mensagens'));
+        return view('message.admin', compact('mensagens'), compact('tiposNoticia'));
     }
 
     public function showMensagens()
     {
         $mensagens = Mensagem::orderBy('created_at','desc')->get();
-        return view('news', compact('mensagens'));
+        $tiposNoticia = TipoNoticia::all();
+
+        return view('news', compact('mensagens'), compact('tiposNoticia'));
     }
 
     public function eliminarMensagem($id)
@@ -52,11 +56,13 @@ class MessageController extends Controller
             return view('message.admin', ['error' => 'Todos os campos têm que estar preenchidos']);
         }
 
+        $tipoNoticia = TipoNoticia::find($request['tipo']);
+
         $mensagem = new Mensagem;
         $mensagem->visivel = true;
-        $mensagem->tipo_noticia = $request['tipo'];
         $mensagem->titulo = $request['titulo'];
         $mensagem->informacao = $request['corpo'];
+        $mensagem->tipoNoticia()->associate($tipoNoticia);
 /*
         switch ($mensagem->tipo_noticia){
             case 'noticias':

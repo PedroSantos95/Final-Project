@@ -15,4 +15,7 @@ class Mensagem extends Model
 {
     protected $table = 'noticias';
 
+    public function tipoNoticia(){
+        return $this->belongsTo('App\Http\TipoNoticia');
+    }
 }
