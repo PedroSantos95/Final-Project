@@ -19,6 +19,7 @@ class CreateTipoNoticiaTable extends Migration
             $table->string('path_black');
             $table->string('nome');
             $table->timestamps();
+            
         });
 
 
