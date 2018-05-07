@@ -24,3 +24,8 @@ Route::get('/admin/{id}/alterarEstado', 'MessageController@alterarEstadoMensagem
 Route::get('/admin/{id}/eliminarMensagem', 'MessageController@eliminarMensagem')->name('eliminarMensagem');
 
 Route::post('/admin', 'MessageController@create');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

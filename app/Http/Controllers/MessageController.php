@@ -32,6 +32,7 @@ class MessageController extends Controller
         return view('news', compact('mensagens'), compact('tiposNoticia'));
     }
 
+
     public function eliminarMensagem($id)
     {
         $mensagem = Mensagem::where('id', $id)->first();
