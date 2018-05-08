@@ -38,7 +38,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('tempos')}}">Tempos
                     </a>
                 </li>
@@ -47,11 +47,17 @@
                     <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>
+                    <a class="nav-link active" href="{{route('adminBoard')}}">Administrador</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('login')}}">Login</a>
-                </li>
+                @if(Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('login')}}">Login</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
