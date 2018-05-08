@@ -12,17 +12,18 @@
     <title>Rally Sernancelhe Aguiar da Beira</title>
 
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css">--}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .custom-datatable {
-            width:100%;
+            width: 100%;
             table-layout: fixed;
         }
-        .custom-datatable td{
+
+        .custom-datatable td {
             overflow: auto;
         }
     </style>
-
 
 
 </head>
@@ -39,19 +40,19 @@
 </div>
 
 {{--<div class="container">--}}
-    {{--<div class="row">--}}
-        {{--<div class="col-sm-4">--}}
-            {{--<div class="dropdown">--}}
-                {{--<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Todas os eventos...</button>--}}
-                {{--<ul class="dropdown-menu">--}}
-                    {{--<li><a href="#"><span class="glyphicon glyphicon-comment"></span> Noticias</a></li>--}}
-                    {{--<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Informações</a></li>--}}
-                    {{--<li><a href="#"><span class="glyphicon glyphicon-time"></span> Tempos</a></li>--}}
-                    {{--<li><a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Acidentes</a></li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+{{--<div class="row">--}}
+{{--<div class="col-sm-4">--}}
+{{--<div class="dropdown">--}}
+{{--<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Todas os eventos...</button>--}}
+{{--<ul class="dropdown-menu">--}}
+{{--<li><a href="#"><span class="glyphicon glyphicon-comment"></span> Noticias</a></li>--}}
+{{--<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Informações</a></li>--}}
+{{--<li><a href="#"><span class="glyphicon glyphicon-time"></span> Tempos</a></li>--}}
+{{--<li><a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Acidentes</a></li>--}}
+{{--</ul>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
 {{--</div>--}}
 
 <div class="container col-lg-7">
@@ -62,15 +63,15 @@
             <select class="form-control col-lg-3" id="exampleSelect">
                 <option value="0" selected>Todos</option>
                 @foreach($tiposNoticia as $tipo)
-                <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
+                    <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
                 @endforeach
             </select>
         </div>
 
-        <table class="table table-striped table-bordered custom-datatable"  id="datatable" cellspacing="0">
+        <table class="table table-striped table-bordered custom-datatable" id="datatable" cellspacing="0">
             <thead>
             <tr>
-                <th>Tipo</th>
+                <th style="width: {{100/5}}%">Tipo</th>
                 <th style="width: {{100/5}}%">Titulo</th>
                 <th style="width: {{100/5}}%">Mensagem</th>
                 <th style="width: {{100/5}}%">Data</th>
@@ -88,20 +89,20 @@
             </tfoot>
             <tbody>
             {{--@foreach ($mensagens as $mensagem)--}}
-                {{--@if($mensagem->visivel == true)--}}
-                    {{--<tr>--}}
-                        {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
-                        {{--<th>{{$mensagem->titulo}}</th>--}}
-                        {{--<th>{{$mensagem->informacao}}</th>--}}
-                        {{--<th>{{$mensagem->created_at}}</th>--}}
-                        {{--<th>--}}
-                            {{--<button data-toggle="modal" data-target="#mensagem" class="btn btn-info"--}}
-                                    {{--onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}')">--}}
-                                {{--Detalhes--}}
-                            {{--</button>--}}
-                        {{--</th>--}}
-                    {{--</tr>--}}
-                {{--@endif--}}
+            {{--@if($mensagem->visivel == true)--}}
+            {{--<tr>--}}
+            {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
+            {{--<th>{{$mensagem->titulo}}</th>--}}
+            {{--<th>{{$mensagem->informacao}}</th>--}}
+            {{--<th>{{$mensagem->created_at}}</th>--}}
+            {{--<th>--}}
+            {{--<button data-toggle="modal" data-target="#mensagem" class="btn btn-info"--}}
+            {{--onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}')">--}}
+            {{--Detalhes--}}
+            {{--</button>--}}
+            {{--</th>--}}
+            {{--</tr>--}}
+            {{--@endif--}}
             {{--@endforeach--}}
             </tbody>
         </table>
@@ -133,24 +134,33 @@
 
 
 {{--<script>--}}
-    {{--function updateModalInfo(informacao) {--}}
-        {{--$('.informacao_modal').text(informacao);--}}
-    {{--}--}}
+{{--function updateModalInfo(informacao) {--}}
+{{--$('.informacao_modal').text(informacao);--}}
+{{--}--}}
 {{--</script>--}}
 
 {{--<script>--}}
-    {{--function updateModalHeader(titulo) {--}}
-        {{--$('.modal-title').html(titulo);--}}
-    {{--}--}}
+{{--function updateModalHeader(titulo) {--}}
+{{--$('.modal-title').html(titulo);--}}
+{{--}--}}
 {{--</script>--}}
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-<script src="//code.jquery.com/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
+
+
 
 <script>
     function updateModalInfo(string) {
@@ -165,6 +175,6 @@
 </script>
 
 {{--<script type="text/javascript" charset="utf8"--}}
-        {{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
+{{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
 <script src="/js/noticias.js"></script>
 

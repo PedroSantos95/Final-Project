@@ -2,6 +2,23 @@
     'use strict';
 
     var table = $('#datatable').DataTable({
+        "language": {
+            "sProcessing":   "A processar...",
+            "sLengthMenu":   "Mostrar _MENU_ registos",
+            "sZeroRecords":  "Não foram encontrados resultados",
+            "sInfo":         "A mostrar de _START_ até _END_ de _TOTAL_ registos",
+            "sInfoEmpty":    "A mostrar de 0 até 0 de 0 registos",
+            "sInfoFiltered": "(filtrado de _MAX_ registos no total)",
+            "sInfoPostFix":  "",
+            "sSearch":       "Procurar:",
+            "sUrl":          "",
+            "oPaginate": {
+                "sFirst":    "Primeiro",
+                "sPrevious": "Anterior",
+                "sNext":     "Seguinte",
+                "sLast":     "Último"
+            }
+        },
         ajax: {
             headers: {
                 "Accept": "application/json",
@@ -14,7 +31,7 @@
             {
                 data: null,
                 render: function (data) {
-                    return '<img src="icons/' + data.path + '" height="48" width="48">';
+                    return '<img src="icons/' + data.path + '" height="32" width="32">';
                 }
             },
             {
@@ -47,5 +64,7 @@
         table.ajax.url('/api/news?tipo='+tipo);
         table.ajax.reload();
     });
+
+
 
 })();
