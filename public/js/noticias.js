@@ -57,13 +57,33 @@
         ]
     });
 
-    var selectTipo = document.getElementById('exampleSelect');
-    selectTipo.addEventListener("change", function updateTable () {
-        let tipo = this.options[this.selectedIndex].value;
+    // var clickUpdateTable = function(input) {
+    //     return alert(input);
+    //
+    //     let tipo = input.value;
+    //
+    //     table.ajax.url('/api/news?tipo=' + tipo);
+    //     table.ajax.reload();
+    // };
 
-        table.ajax.url('/api/news?tipo='+tipo);
-        table.ajax.reload();
-    });
+    let radios = document.getElementsByClassName('selecao-tipo');
+    for(let i=0; i<radios.length; i++){
+        radios[i].addEventListener("click", function clickUpdate (){
+            let tipo = radios[i].id;
+
+            table.ajax.url('/api/news?tipo='+tipo);
+            table.ajax.reload();
+        });
+
+    }
+
+    // let clickUpdateTable = document.getElementById('type');
+    // clickUpdateTable.addEventListener("click", function clickUpdate (input) {
+    //     let tipo = input.value;
+    //
+    //     table.ajax.url('/api/news?tipo='+tipo);
+    //     table.ajax.reload();
+    // });
 
 
 

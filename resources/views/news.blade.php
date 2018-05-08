@@ -62,16 +62,23 @@
 
 <div class="container col-lg-7" style="padding-top: 70px; padding-bottom: 20px">
     <div style="margin-top: 1%">
-
         <div>
             <label><strong>Tipo de noticia</strong></label><br>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-dark active">
+                    <div class="selecao-tipo" id="0">
+                        <input id="type" type="radio" name="tipo" value="0" autocomplete="off"
+                               checked><img src="icons/all.png" height="32" width="32"> Todos
+                    </div>
+
+                </label>
                 @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
-                    <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
-                        <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
-                                {{ $i == 0 ? 'checked' : '' }}>
-                        <img src="icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
-                        {{$tiposNoticia[$i]->nome}}
+                    <label class="btn btn-dark">
+                        <div class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
+                            <input id="type" type="radio" name="tipo"  autocomplete="off">
+                            <img src="icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                            {{$tiposNoticia[$i]->nome}}
+                        </div>
                     </label>
                 @endfor
             </div>
@@ -169,7 +176,6 @@
 <script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
 
 
-
 <script>
     function updateModalInfo(string) {
         console.log(string);
@@ -182,7 +188,9 @@
     }
 </script>
 
+<script src="/js/noticias.js"></script>
+
 {{--<script type="text/javascript" charset="utf8"--}}
 {{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
-<script src="/js/noticias.js"></script>
+
 
