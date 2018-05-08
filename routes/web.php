@@ -13,9 +13,9 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('tempos');
 
-Route::get('/news', 'MessageController@showMensagens');
+Route::get('/news', 'MessageController@showMensagens')->name('noticias');
 
 Route::get('/admin', 'MessageController@index')->name('adminBoard');
 
@@ -27,5 +27,7 @@ Route::post('/admin', 'MessageController@create');
 
 
 Auth::routes();
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');

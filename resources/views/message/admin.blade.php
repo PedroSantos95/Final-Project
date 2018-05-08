@@ -15,17 +15,44 @@
 </head>
 
 <body>
-<div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">TemposOnline</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Tempos Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-    </nav>
-</div>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('tempos')}}">Tempos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
+                    <span class="sr-only">(current)</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{route('adminBoard')}}">Administrador</a>
+                </li>
+                @if(Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('login')}}">Login</a>
+                    </li>
+                @endif
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<div class="container col-lg-6">
+@if(Auth::check())
+<div class="container col-lg-6" style="padding-top: 70px">
     <h3>Inserir uma mensagem</h3>
 </div>
 <div class="container col-lg-6">
@@ -149,8 +176,9 @@
         </table>
         {{$mensagens->links()}}
     </div>
-</div>
 
+</div>
+@endif
 
 <!-- Modal -->
 <div id="mensagem" class="modal fade" role="dialog">
