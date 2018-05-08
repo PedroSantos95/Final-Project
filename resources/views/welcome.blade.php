@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('tempos')}}">Tempos
+                    <a class="nav-link active" href="{{route('tempos')}}">Tempos
                     </a>
                 </li>
                 <li class="nav-item">
@@ -47,7 +47,7 @@
                     <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route('adminBoard')}}">Administrador</a>
+                    <a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>
                 </li>
                 @if(Auth::check())
                     <li class="nav-item">

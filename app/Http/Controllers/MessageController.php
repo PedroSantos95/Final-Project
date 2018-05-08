@@ -32,6 +32,26 @@ class MessageController extends Controller
         return view('news', compact('mensagens'), compact('tiposNoticia'));
     }
 
+    public function editarMensagem($id)
+    {
+        $mensagem = Mensagem::findOrFail($id);
+        $tiposNoticia = TipoNoticia::all();
+
+        return view('message/edit',compact('mensagem'), compact('tiposNoticia'));
+    }
+
+    public function guardarMensagem(Request $request, $id){
+
+        $mensagem = Mensagem::findOrFail($id);
+        $mensagem->titulo = $request->get('titulo');
+        $mensagem->informacao = $request->get('corpo');
+        $mensagem->tipo_noticia_id = $request->get('tipo');
+        $mensagem->created_at = Carbon::now();
+        $mensagem->save();
+
+        return redirect()->route('adminBoard');
+
+    }
 
     public function eliminarMensagem($id)
     {

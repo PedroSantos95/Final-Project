@@ -23,8 +23,11 @@ Route::get('/admin/{id}/alterarEstado', 'MessageController@alterarEstadoMensagem
 
 Route::get('/admin/{id}/eliminarMensagem', 'MessageController@eliminarMensagem')->name('eliminarMensagem');
 
-Route::post('/admin', 'MessageController@create');
+Route::get('/admin/{id}/editarMensagem', 'MessageController@editarMensagem')->name('editarMensagem');
 
+Route::post('/admin/{id}/guardarMensagem', 'MessageController@guardarMensagem')->name('guardarMensagem');
+
+Route::post('/admin', 'MessageController@create');
 
 Auth::routes();
 
