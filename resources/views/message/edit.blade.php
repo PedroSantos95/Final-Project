@@ -84,7 +84,7 @@
                           maxlength="255">{{$mensagem->informacao}}</textarea>
             </div>
             {{ csrf_field() }}
-            <input type="submit" class="btn btn-dark" value="Editar">
+                <input type="submit" class="btn btn-dark" value="Editar" onclick="functionAlert()" >
         </form>
     </div>
 
@@ -93,7 +93,6 @@
 
 @endif
 
-<!-- Modal -->
 <div id="mensagem" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -111,6 +110,13 @@
 
     </div>
 </div>
+
+<script>
+    function functionAlert(){
+        var w = alert("Noticia Alterada com sucesso!");
+        setTimeout(function () { w.close(); }, 1);
+    }
+</script>
 
 <script>
     function updateModalInfo(informacao) {

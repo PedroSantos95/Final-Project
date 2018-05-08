@@ -90,7 +90,7 @@
         </div>
         {{ csrf_field() }}
 
-        <input type="submit" class="btn btn-dark" value="Submit">
+        <input type="submit" class="btn btn-dark" onclick="functionAlert()" value="Submeter">
     </form>
 </div>
 
@@ -216,6 +216,13 @@
         if(tipo==4){
             $('.modal-tipo').html("Tipo de Noticia: Tempos");
         }
+    }
+</script>
+
+<script>
+    function functionAlert(){
+        var w = alert("Noticia Criada com sucesso!");
+        setTimeout(function () { w.close(); }, 1);
     }
 </script>
 
