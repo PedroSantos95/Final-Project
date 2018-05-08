@@ -68,22 +68,6 @@
                         {{$tiposNoticia[$i]->nome}}
                     </label>
                 @endfor
-
-                {{--<label class="btn btn-primary active">--}}
-                {{--<input type="radio" name="tipo" value="informacoes" autocomplete="off"><img src="icons/info.png"--}}
-                {{--height="48" width="48">--}}
-                {{--Informações--}}
-                {{--</label>--}}
-                {{--<label class="btn btn-primary ">--}}
-                {{--<input type="radio" name="tipo" value="tempos" autocomplete="off"><img src="icons/time.png"--}}
-                {{--height="48" width="48">--}}
-                {{--Tempos--}}
-                {{--</label>--}}
-                {{--<label class="btn btn-primary ">--}}
-                {{--<input type="radio" name="tipo" value="acidentes" autocomplete="off"><img src="icons/crash.png"--}}
-                {{--height="48" width="48">--}}
-                {{--Acidentes--}}
-                {{--</label>--}}
             </div>
 
         </div>

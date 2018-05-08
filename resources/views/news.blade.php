@@ -40,11 +40,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="{{route('tempos')}}">Tempos
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
                     <span class="sr-only">(current)</span>
                 </li>
@@ -57,37 +57,25 @@
             </ul>
         </div>
     </div>
+
 </nav>
 
-{{--<div class="container">--}}
-{{--<div class="row">--}}
-{{--<div class="col-sm-4">--}}
-{{--<div class="dropdown">--}}
-{{--<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Todas os eventos...</button>--}}
-{{--<ul class="dropdown-menu">--}}
-{{--<li><a href="#"><span class="glyphicon glyphicon-comment"></span> Noticias</a></li>--}}
-{{--<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>Informações</a></li>--}}
-{{--<li><a href="#"><span class="glyphicon glyphicon-time"></span> Tempos</a></li>--}}
-{{--<li><a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Acidentes</a></li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-<div class="container col-lg-7" style="padding-top: 70px">
+<div class="container col-lg-7" style="padding-top: 70px; padding-bottom: 20px">
     <div style="margin-top: 1%">
 
-        <div class="form-group">
-            <label for="exampleSelect"><strong>Tipo de Noticia</strong></label>
-            <select class="form-control col-lg-3" id="exampleSelect">
-                <option value="0" selected>Todos</option>
-                @foreach($tiposNoticia as $tipo)
-                    <option value="{{$tipo->id}}">{{$tipo->nome}}</option>
-                @endforeach
-            </select>
-        </div>
-
+        <div>
+            <label><strong>Tipo de noticia</strong></label><br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
+                    <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
+                        <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
+                                {{ $i == 0 ? 'checked' : '' }}>
+                        <img src="icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                        {{$tiposNoticia[$i]->nome}}
+                    </label>
+                @endfor
+            </div>
+            <br><br>
         <table class="table table-striped table-bordered custom-datatable" id="datatable" cellspacing="0">
             <thead>
             <tr>
@@ -128,7 +116,7 @@
         </table>
     </div>
 </div>
-
+</div>
 
 </body>
 
