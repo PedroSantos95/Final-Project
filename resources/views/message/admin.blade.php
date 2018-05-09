@@ -90,7 +90,7 @@
         </div>
         {{ csrf_field() }}
 
-        <input type="submit" class="btn btn-dark" value="Submit">
+        <input type="submit" class="btn btn-dark" onclick="functionAlert()" value="Submeter">
     </form>
 </div>
 
@@ -140,11 +140,14 @@
                     </td>
                     <td style="overflow: hidden">
                         <button data-toggle="modal" data-target="#mensagem" class="btn btn-info btn-sm"
-                                onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}')">
+                                onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}'); updateModalTipoNoticia('{{$mensagem->tipo_noticia_id}}');
+                                        updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
                             Detalhes
                         </button>
                         <a class="btn btn-danger btn-sm"
                            href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}">Eliminar</a>
+                        <a class="btn btn-warning btn-sm"
+                           href="{{route('editarMensagem', ['id' => $mensagem->id])}}">Editar</a>
                         @if($mensagem->visivel == true)
                             <a class="btn btn-primary btn-sm"
                                href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Esconder</a>
@@ -173,7 +176,10 @@
                 <h4 class="modal-title" style="word-wrap: break-word;">Titulo</h4>
             </div>
             <div class="modal-body">
-                <p class="informacao_modal" style="word-wrap: break-word;">Nao Titulo</p>
+                <p class="informacao_modal" style="word-wrap: break-word;">Informacao</p>
+                <p class="modal-tipo" style="word-wrap: break-word;">Tipo Noticia</p>
+                <p class="modal-visivel" style="word-wrap: break-word;">Visivel</p>
+                <p class="modal-created_at" style="word-wrap: break-word;">Created_at</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -186,13 +192,54 @@
 
 <script>
     function updateModalInfo(informacao) {
-        $('.informacao_modal').text(informacao);
+        $('.informacao_modal').text("Texto da Noticia: " + informacao);
     }
 </script>
 
 <script>
     function updateModalHeader(titulo) {
-        $('.modal-title').html(titulo);
+        $('.modal-title').html("Titulo da Noticia: " + titulo);
+    }
+</script>
+
+<script>
+    function updateModalTipoNoticia(tipo) {
+        if(tipo==1){
+            $('.modal-tipo').html("Tipo de Noticia: Informações");
+        }
+        if(tipo==2){
+            $('.modal-tipo').html("Tipo de Noticia: Noticias");
+        }
+        if(tipo==3){
+            $('.modal-tipo').html("Tipo de Noticia: Acidentes");
+        }
+        if(tipo==4){
+            $('.modal-tipo').html("Tipo de Noticia: Tempos");
+        }
+    }
+</script>
+
+<script>
+    function functionAlert(){
+        var w = alert("Noticia Criada com sucesso!");
+        setTimeout(function () { w.close(); }, 1);
+    }
+</script>
+
+<script>
+    function updateModalCreatedAt(created_at) {
+        $('.modal-created_at').html("Noticia criada: "+created_at);
+    }
+</script>
+
+<script>
+    function updateModalVisivel(visivel) {
+        if(visivel == 1){
+            $('.modal-visivel').html("A noticia não se encontra visivel para os utilizadores!");
+        }
+        if(visivel == 0){
+            $('.modal-visivel').html("A noticia encontra-se visivel para os utilizadores!");
+        }
     }
 </script>
 
