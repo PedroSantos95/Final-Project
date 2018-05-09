@@ -2,6 +2,7 @@
     'use strict';
 
     var table = $('#datatable').DataTable({
+        "scrollX": "200px",
         "language": {
             "sProcessing":   "A processar...",
             "sLengthMenu":   "Mostrar _MENU_ registos",

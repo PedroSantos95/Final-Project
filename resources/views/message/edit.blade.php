@@ -64,7 +64,7 @@
                         <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
                             <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
                                     {{ $i == 0 ? 'checked' : '' }}>
-                            <img src="icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                            <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
                             {{$tiposNoticia[$i]->nome}}
                         </label>
                     @endfor
@@ -75,7 +75,7 @@
 
             <div class="form-group">
                 <label for=""><strong>Titulo da Mensagem</strong></label>
-                <input required value="{{$mensagem->titulo}}"type="text" class="form-control" name="titulo" placeholder="Titulo" maxlength="30">
+                <input required value="{{$mensagem->titulo}}" type="text" class="form-control" name="titulo" placeholder="Titulo" maxlength="30">
 
             </div>
             <div class="form-group">

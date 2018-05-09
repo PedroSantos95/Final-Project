@@ -32,10 +32,11 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
-                    <span class="sr-only">(current)</span>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{{route('adminBoard')}}">Administrador</a>
+                    <span class="sr-only">(current)</span>
                 </li>
                 @if(Auth::check())
                 <li class="nav-item">
@@ -64,7 +65,7 @@
                     <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
                         <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
                                 {{ $i == 0 ? 'checked' : '' }}>
-                        <img src="icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                        <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
                         {{$tiposNoticia[$i]->nome}}
                     </label>
                 @endfor
