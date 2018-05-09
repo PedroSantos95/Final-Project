@@ -20,12 +20,12 @@
             overflow: auto;
         }
 
-        table{
+        table {
             width: 50%;
         }
 
         @media only screen and (max-width: 900px) {
-            .one{
+            .one {
                 display: none;
             }
         }
@@ -58,10 +58,10 @@
                     <span class="sr-only">(current)</span>
                 </li>
                 @if(Auth::check())
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
-                </li>
-                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                    </li>
+                @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}">Login</a>
                     </li>
@@ -72,119 +72,123 @@
 </nav>
 
 @if(Auth::check())
-<div class="container col-lg-6" style="padding-top: 70px">
-    <h3>Inserir uma mensagem</h3>
-</div>
-<div class="container col-lg-6">
-    <form action="" method="POST">
-        <div>
-            <label><strong>Tipo de noticia</strong></label><br>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
-                    <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
-                        <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
-                                {{ $i == 0 ? 'checked' : '' }}>
-                        <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
-                        {{$tiposNoticia[$i]->nome}}
-                    </label>
-                @endfor
-            </div>
-
-        </div>
-        <br>
-        {{--<select class="form-control" name="tipo" style="height: 100%" required>--}}
-        {{--<option value="" disabled selected>Selecione o tipo de noticia</option>--}}
-        {{--<option value="noticias">Noticias</option>--}}
-        {{--<option value="informacoes">Informações</option>--}}
-        {{--<option value="tempos">Tempos</option>--}}
-        {{--<option value="acidentes">Acidentes</option>--}}
-        {{--</select>--}}
-        <div class="form-group">
-            <label for=""><strong>Titulo da Mensagem</strong></label>
-            <input required type="text" class="form-control" name="titulo" placeholder="Titulo" maxlength="30">
-        </div>
-        <div class="form-group">
-            <label for=""><strong>Mensagem</strong></label>
-            <textarea required type="text" name="corpo" class="form-control" placeholder="Mensagem"
-                      maxlength="255"></textarea>
-        </div>
-        {{ csrf_field() }}
-
-        <input type="submit" class="btn btn-dark" onclick="functionAlert()" value="Submeter">
-    </form>
-</div>
-
-<br>
-<hr class="style-two">
-
-<div class="container col-lg-8">
-    <div style="margin-top: 1%">
-        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" style="width: 100%; text-align: center">
-            <thead>
-            <tr>
-                <th>Tipo</th>
-                <th>Titulo</th>
-                <th class="one">Mensagem</th>
-                <th class="one">Data</th>
-                <th class="one" width="10%">Visivel</th>
-                <th>Ações</th>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr>
-                <th>Tipo</th>
-                <th>Titulo</th>
-                <th class="one">Mensagem</th>
-                <th class="one">Data</th>
-                <th class="one">Visivel</th>
-                <th>Ações</th>
-            </tr>
-            </tfoot>
-            <tbody>
-            @foreach ($mensagens as $mensagem)
-                <tr>
-
-                    <td>{{$mensagem->tipoNoticia->nome}}</td>
-                    <td style="overflow: auto">{{$mensagem->titulo}}</td>
-                    {{--<th>{{$mensagem->tipo_noticia}}</th>--}}
-                    {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
-                    <td style="overflow: auto" class="one">{{$mensagem->informacao}}</td>
-                    <td style="overflow: hidden" class="one">{{$mensagem->created_at}}</td>
-                    <td style="overflow: hidden" class="one">
-                        @if($mensagem->visivel == true)
-                            Sim
-                        @endif
-                        @if($mensagem->visivel == false)
-                            Nao
-                        @endif
-                    </td>
-                    <td style="overflow: hidden">
-                        <button data-toggle="modal" data-target="#mensagem" class="btn btn-outline-info btn-sm"
-                                onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}'); updateModalTipoNoticia('{{$mensagem->tipo_noticia_id}}');
-                                        updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
-                            Detalhes
-                        </button>
-                        <a class="btn btn-outline-danger btn-sm"
-                           href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}">Eliminar</a>
-                        <a class="btn btn-outline-dark btn-sm"
-                           href="{{route('editarMensagem', ['id' => $mensagem->id])}}">Editar</a>
-                        @if($mensagem->visivel == true)
-                            <a class="btn btn-outline-dark btn-sm"
-                               href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Esconder</a>
-                        @endif
-                        @if($mensagem->visivel == false)
-                            <a class="btn btn-outline-dark btn-sm"
-                               href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Mostrar</a>
-                        @endif
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        {{$mensagens->links()}}
+    <div class="container col-lg-6" style="padding-top: 70px;text-align: center;">
+        <h3>Inserir uma mensagem</h3>
     </div>
+    <div class="container col-lg-6">
+        <form action="" method="POST">
+            <div style="text-align: center;">
+                <label><strong>Tipo de noticia</strong></label>
+                <div class="wrapper text-center">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
+                            <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
+                                <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
+                                        {{ $i == 0 ? 'checked' : '' }}>
+                                <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                                {{$tiposNoticia[$i]->nome}}
+                            </label>
+                        @endfor
+                    </div>
+                </div>
 
-</div>
+
+            </div>
+            <br>
+            {{--<select class="form-control" name="tipo" style="height: 100%" required>--}}
+            {{--<option value="" disabled selected>Selecione o tipo de noticia</option>--}}
+            {{--<option value="noticias">Noticias</option>--}}
+            {{--<option value="informacoes">Informações</option>--}}
+            {{--<option value="tempos">Tempos</option>--}}
+            {{--<option value="acidentes">Acidentes</option>--}}
+            {{--</select>--}}
+            <div class="form-group" style="text-align: center;">
+                <label for=""><strong>Titulo da Mensagem</strong></label>
+                <input required type="text" class="form-control" name="titulo" placeholder="Titulo" maxlength="30">
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <label for=""><strong>Mensagem</strong></label>
+                <textarea required type="text" name="corpo" class="form-control" placeholder="Mensagem"
+                          maxlength="255"></textarea>
+            </div>
+            {{ csrf_field() }}
+
+            <input type="submit" class="btn btn-outline-dark" onclick="functionAlert()" value="Submeter">
+        </form>
+    </div>
+    <br>
+    <hr class="style-two">
+
+    <div class="container col-lg-10">
+        <div style="margin-top: 1%">
+            <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable"
+                   cellspacing="0" style="width: 100%; text-align: center">
+                <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Titulo</th>
+                    <th class="one">Mensagem</th>
+                    <th class="one">Data</th>
+                    <th class="one" width="10%">Visivel</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Titulo</th>
+                    <th class="one">Mensagem</th>
+                    <th class="one">Data</th>
+                    <th class="one">Visivel</th>
+                    <th>Ações</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                @foreach ($mensagens as $mensagem)
+                    <tr>
+
+                        <td class="block">{{$mensagem->tipoNoticia->nome}}</td>
+                        <td style="overflow: auto">{{$mensagem->titulo}}</td>
+                        {{--<th>{{$mensagem->tipo_noticia}}</th>--}}
+                        {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
+                        <td style="overflow: auto" class="one">{{$mensagem->informacao}}</td>
+                        <td style="overflow: hidden" class="one">{{$mensagem->created_at}}</td>
+                        <td style="overflow: hidden" class="one">
+                            @if($mensagem->visivel == true)
+                                Sim
+                            @endif
+                            @if($mensagem->visivel == false)
+                                Nao
+                            @endif
+                        </td>
+                        <td style="overflow: hidden">
+                            <button data-toggle="modal" data-target="#mensagem"
+                                    class="btn btn-outline-info btn-sm col-lg-5"
+                                    onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}'); updateModalTipoNoticia('{{$mensagem->tipo_noticia_id}}');
+                                            updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
+                                Detalhes
+                            </button>
+                            <a class="btn btn-outline-danger btn-sm col-lg-5"
+                               href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}">Eliminar</a>
+                            <a class="btn btn-outline-dark btn-sm col-lg-5"
+                               href="{{route('editarMensagem', ['id' => $mensagem->id])}}">Editar</a>
+                            @if($mensagem->visivel == true)
+                                <a class="btn btn-outline-dark btn-sm col-lg-5"
+                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Esconder</a>
+                            @endif
+                            @if($mensagem->visivel == false)
+                                <a class="btn btn-outline-dark btn-sm col-lg-5"
+                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Mostrar</a>
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            {{$mensagens->links()}}
+        </div>
+
+    </div>
 @endif
 
 <!-- Modal -->
@@ -224,38 +228,40 @@
 
 <script>
     function updateModalTipoNoticia(tipo) {
-        if(tipo==1){
+        if (tipo == 1) {
             $('.modal-tipo').html("Tipo de Noticia: Informações");
         }
-        if(tipo==2){
+        if (tipo == 2) {
             $('.modal-tipo').html("Tipo de Noticia: Noticias");
         }
-        if(tipo==3){
+        if (tipo == 3) {
             $('.modal-tipo').html("Tipo de Noticia: Acidentes");
         }
-        if(tipo==4){
+        if (tipo == 4) {
             $('.modal-tipo').html("Tipo de Noticia: Tempos");
         }
     }
 </script>
 
 <script>
-    function functionAlert(){
+    function functionAlert() {
         var w = alert("Noticia Criada com sucesso!");
-        setTimeout(function () { w.close(); }, 1);
+        setTimeout(function () {
+            w.close();
+        }, 1);
     }
 </script>
 
 <script>
     function updateModalCreatedAt(created_at) {
-        $('.modal-created_at').html("Noticia criada: "+created_at);
+        $('.modal-created_at').html("Noticia criada: " + created_at);
     }
 </script>
 
 <script>
     function updateModalVisivel(visivel) {
         visibility = visivel == 1 ? 'encontra-se' : 'não se encontra';
-        $('.modal-visivel').html("A noticia "+ visibility +" visivel para os utilizadores!");
+        $('.modal-visivel').html("A noticia " + visibility + " visivel para os utilizadores!");
     }
 </script>
 
@@ -273,7 +279,7 @@
 <script src="//code.jquery.com/jquery.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 {{--<script type="text/javascript" charset="utf8"--}}
-        {{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
+{{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
 <script src="/js/mensagens.js"></script>
