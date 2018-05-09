@@ -85,6 +85,7 @@
             </div>
             {{ csrf_field() }}
                 <input type="submit" class="btn btn-dark" value="Editar" onclick="functionAlert()" >
+                <a href="/admin" class="btn btn-danger" >Cancelar</a>
         </form>
     </div>
 

@@ -11,7 +11,30 @@
             height: 1px;
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
         }
+
+        .custom-datatable {
+            table-layout: fixed;
+        }
+
+        .custom-datatable td {
+            overflow: auto;
+        }
+
+        table{
+            width: 50%;
+        }
+        td, th{
+            border: 1px solid orange;
+        }
+
+
+        @media only screen and (max-width: 900px) {
+            .one{
+                display: none;
+            }
+        }
     </style>
+
 </head>
 
 <body>
@@ -100,24 +123,24 @@
 
 <div class="container col-lg-10">
     <div style="margin-top: 1%">
-        <table class="table table-striped table-bordered" id="datatable" cellspacing="0" style="width: 100%; table-layout: fixed">
+        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" style="width: 100%">
             <thead>
             <tr>
-                <th style="width: {{100/6}}%">Tipo</th>
-                <th style="width: {{100/6}}%">Titulo</th>
-                <th style="width: {{100/6}}%">Mensagem</th>
-                <th style="width: {{100/6}}%">Data</th>
-                <th style="width: {{100/18}}%">Visivel</th>
-                <th style="width: {{100/5}}%">Ações</th>
+                <th style="width: 18%">Tipo</th>
+                <th>Titulo</th>
+                <th class="one">Mensagem</th>
+                <th class="one">Data</th>
+                <th class="one">Visivel</th>
+                <th>Ações</th>
             </tr>
             </thead>
             <tfoot>
             <tr>
                 <th>Tipo</th>
                 <th>Titulo</th>
-                <th>Mensagem</th>
-                <th>Data</th>
-                <th>Visivel</th>
+                <th class="one">Mensagem</th>
+                <th class="one">Data</th>
+                <th class="one">Visivel</th>
                 <th>Ações</th>
             </tr>
             </tfoot>
@@ -125,13 +148,13 @@
             @foreach ($mensagens as $mensagem)
                 <tr>
 
-                    <td style="overflow: hidden">{{$mensagem->tipoNoticia->nome}}</td>
+                    <td>{{$mensagem->tipoNoticia->nome}}</td>
                     <td style="overflow: auto">{{$mensagem->titulo}}</td>
                     {{--<th>{{$mensagem->tipo_noticia}}</th>--}}
                     {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
-                    <td style="overflow: auto">{{$mensagem->informacao}}</td>
-                    <td style="overflow: hidden">{{$mensagem->created_at}}</td>
-                    <td style="overflow: hidden">
+                    <td style="overflow: auto" class="one">{{$mensagem->informacao}}</td>
+                    <td style="overflow: hidden" class="one">{{$mensagem->created_at}}</td>
+                    <td style="overflow: hidden" class="one">
                         @if($mensagem->visivel == true)
                             Sim
                         @endif
@@ -235,12 +258,8 @@
 
 <script>
     function updateModalVisivel(visivel) {
-        if(visivel == 1){
-            $('.modal-visivel').html("A noticia não se encontra visivel para os utilizadores!");
-        }
-        if(visivel == 0){
-            $('.modal-visivel').html("A noticia encontra-se visivel para os utilizadores!");
-        }
+        visibility = visivel == 1 ? 'encontra-se' : 'não se encontra';
+        $('.modal-visivel').html("A noticia "+ visibility +" visivel para os utilizadores!");
     }
 </script>
 
@@ -257,11 +276,10 @@
 
 <script src="//code.jquery.com/jquery.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" charset="utf8"
-        src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+{{--<script type="text/javascript" charset="utf8"--}}
+        {{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
 <script src="/js/mensagens.js"></script>
 
 </body>

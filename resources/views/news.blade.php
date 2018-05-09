@@ -16,7 +16,6 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .custom-datatable {
-            width: 100%;
             table-layout: fixed;
         }
 
@@ -88,14 +87,15 @@
                 @endfor
             </div>
 <br>
-        <table class="table table-striped table-bordered custom-datatable" id="datatable" cellspacing="0">
+            <br>
+        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th style="width: {{100/5}}%">Tipo</th>
-                <th style="width: {{100/5}}%">Titulo</th>
-                <th style="width: {{100/5}}%">Mensagem</th>
-                <th style="width: {{100/5}}%">Data</th>
-                <th style="width: {{100/5}}%">Ações</th>
+                <th style="width: 75px">Tipo</th>
+                <th>Titulo</th>
+                <th>Mensagem</th>
+                <th>Data</th>
+                <th>Ações</th>
             </tr>
             </thead>
             <tfoot>
