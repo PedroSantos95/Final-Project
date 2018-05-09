@@ -48,7 +48,7 @@
             {
                 data: null,
                 render: function (data) {
-                    let button = '<button data-toggle="modal" data-target="#mensagem" class="btn btn-info btn-sm" onclick="updateModalHeader(\'';
+                    let button = '<button data-toggle="modal" data-target="#mensagem" class="btn btn-outline-info btn-sm" onclick="updateModalHeader(\'';
                     button = button + data.titulo;
                     button = button + '\'); updateModalInfo(\'';
                     button = button + data.informacao;

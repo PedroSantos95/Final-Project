@@ -23,10 +23,6 @@
         table{
             width: 50%;
         }
-        td, th{
-            border: 1px solid orange;
-        }
-
 
         @media only screen and (max-width: 900px) {
             .one{
@@ -121,16 +117,16 @@
 <br>
 <hr class="style-two">
 
-<div class="container col-lg-10">
+<div class="container col-lg-8">
     <div style="margin-top: 1%">
-        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" style="width: 100%">
+        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" style="width: 100%; text-align: center">
             <thead>
             <tr>
-                <th style="width: 18%">Tipo</th>
+                <th>Tipo</th>
                 <th>Titulo</th>
                 <th class="one">Mensagem</th>
                 <th class="one">Data</th>
-                <th class="one">Visivel</th>
+                <th class="one" width="10%">Visivel</th>
                 <th>Ações</th>
             </tr>
             </thead>
@@ -163,21 +159,21 @@
                         @endif
                     </td>
                     <td style="overflow: hidden">
-                        <button data-toggle="modal" data-target="#mensagem" class="btn btn-info btn-sm"
+                        <button data-toggle="modal" data-target="#mensagem" class="btn btn-outline-info btn-sm"
                                 onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}'); updateModalTipoNoticia('{{$mensagem->tipo_noticia_id}}');
                                         updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
                             Detalhes
                         </button>
-                        <a class="btn btn-danger btn-sm"
+                        <a class="btn btn-outline-danger btn-sm"
                            href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}">Eliminar</a>
-                        <a class="btn btn-warning btn-sm"
+                        <a class="btn btn-outline-dark btn-sm"
                            href="{{route('editarMensagem', ['id' => $mensagem->id])}}">Editar</a>
                         @if($mensagem->visivel == true)
-                            <a class="btn btn-primary btn-sm"
+                            <a class="btn btn-outline-dark btn-sm"
                                href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Esconder</a>
                         @endif
                         @if($mensagem->visivel == false)
-                            <a class="btn btn-primary btn-sm"
+                            <a class="btn btn-outline-dark btn-sm"
                                href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Mostrar</a>
                         @endif
                     </td>

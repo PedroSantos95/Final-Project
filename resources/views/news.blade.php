@@ -14,6 +14,8 @@
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css">--}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <style>
         .custom-datatable {
             table-layout: fixed;
@@ -88,10 +90,10 @@
             </div>
 <br>
             <br>
-        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" width="100%">
+        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" width="100%" style="text-align: center">
             <thead>
             <tr>
-                <th style="width: 75px">Tipo</th>
+                <th style="width: 10%">Tipo</th>
                 <th>Titulo</th>
                 <th>Mensagem</th>
                 <th>Data</th>
@@ -178,7 +180,7 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
+{{--<script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>--}}
 
 
 <script>
