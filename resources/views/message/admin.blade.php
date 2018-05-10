@@ -73,12 +73,19 @@
 
 @if(Auth::check())
     <div class="container col-lg-6" style="padding-top: 70px;text-align: center;">
+        <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Mensagem submetida com sucesso</strong>
+        </div>
         <h3>Inserir uma mensagem</h3>
     </div>
     <div class="container col-lg-6">
         <form action="" method="POST">
             <div style="text-align: center;">
                 <label><strong>Tipo de noticia</strong></label>
+
                 <div class="wrapper text-center">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
@@ -256,12 +263,20 @@
 </script>
 
 <script>
-    function functionAlert() {
-        var w = alert("Noticia Criada com sucesso!");
-        setTimeout(function () {
-            w.close();
-        }, 1);
+    let saved = 0;
+    saved = {{$saved}};
+    let alert = document.getElementById("alert");
+    if(saved === 1){
+        alert.style.display='';
     }
+</script>
+
+<script>
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 4000);
 </script>
 
 <script>

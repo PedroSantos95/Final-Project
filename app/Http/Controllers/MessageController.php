@@ -16,13 +16,13 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    public function index()
+    public function index($saved = 0)
     {
         $mensagens = Mensagem::orderBy('created_at','desc')->paginate(6);
         $tiposNoticia = TipoNoticia::all();
         $tamanhoImagem = env('IMAGE_SIZE','');
 
-        return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem'));
+        return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem', 'saved'));
     }
 
     public function showMensagens()
@@ -101,10 +101,16 @@ class MessageController extends Controller
                 break;
         }
 */
-        $mensagem->save();
+
+        if($mensagem->save()){
+            $saved = 1;
+        }
+        else{
+            $saved = -1;
+        }
 
 //        return view('message.admin', ['error' => '']);
-        return redirect()->action('MessageController@index');
+        return $this->index($saved);
     }
 
 
