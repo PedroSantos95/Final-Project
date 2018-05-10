@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration {
             array(
                 'name' => 'admin',
                 'email' => 'admin@admin.com',
-                'password' => 'admin'
+                'password' => 'admin123'
             )
         );
 	}

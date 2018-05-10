@@ -72,26 +72,27 @@
 </nav>
 
 @if(Auth::check())
-    <div class="container col-lg-6" style="padding-top: 70px;text-align: center;">
+    <div class="container col-lg-6" style="padding-top: 70px;text-align: center; padding-bottom: 20px;">
         <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             <strong>Mensagem submetida com sucesso</strong>
         </div>
-        <h3>Inserir uma mensagem</h3>
+    </div>
+    <div style="text-align: center">
+        <h3>Noticias | Admin</h3>
     </div>
     <div class="container col-lg-6">
         <form action="" method="POST">
-            <div style="text-align: center;">
-                <label><strong>Tipo de noticia</strong></label>
+            <div style="text-align: left;">
 
-                <div class="wrapper text-center">
+                <label style="padding-top: 10px; padding-right: 10px; text-align-all: left "><strong>Tipo de noticia: </strong></label>
+                <div class="wrapper text-left">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
-                            <label class="btn btn-outline-info    {{ $i == 0 ? 'active' : '' }}">
-                                <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
-                                        {{ $i == 0 ? 'checked' : '' }}>
+                            <label class="btn btn-outline-info">
+                                <input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
                                 <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                                 {{$tiposNoticia[$i]->nome}}
                             </label>
@@ -102,19 +103,12 @@
 
             </div>
             <br>
-            {{--<select class="form-control" name="tipo" style="height: 100%" required>--}}
-            {{--<option value="" disabled selected>Selecione o tipo de noticia</option>--}}
-            {{--<option value="noticias">Noticias</option>--}}
-            {{--<option value="informacoes">Informações</option>--}}
-            {{--<option value="tempos">Tempos</option>--}}
-            {{--<option value="acidentes">Acidentes</option>--}}
-            {{--</select>--}}
-            <div class="form-group" style="text-align: center;">
-                <label for=""><strong>Titulo da Mensagem</strong></label>
+            <div class="form-group" style="text-align: left;">
+                <label for="" style="padding-right: 20px;"><strong>Titulo da Mensagem:</strong></label>
                 <input required type="text" class="form-control" name="titulo" placeholder="Titulo" maxlength="30">
             </div>
-            <div class="form-group" style="text-align: center;">
-                <label for=""><strong>Mensagem</strong></label>
+            <div class="form-group" style="text-align: left;">
+                <label for=""><strong>Mensagem:</strong></label>
                 <textarea required type="text" name="corpo" class="form-control" placeholder="Mensagem"
                           maxlength="255"></textarea>
             </div>
@@ -124,6 +118,8 @@
         </form>
     </div>
     <br>
+
+
     <hr class="style-two">
 
     <div class="container col-lg-10">
@@ -169,24 +165,24 @@
                             @endif
                         </td>
                         <td style="overflow: hidden">
-                            <button data-toggle="modal" data-target="#mensagem"
-                                    class="btn btn-outline-info btn-sm col-lg-5"
+                            <a data-toggle="modal" data-target="#mensagem" style="padding-right: 10px"
+
                                     onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}'); updateModalTipoNoticia('{{$mensagem->tipo_noticia_id}}');
                                             updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
-                                Detalhes
-                            </button>
-                            <a class="btn btn-outline-danger btn-sm col-lg-5"
-                               href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}">Eliminar</a>
-                            <a class="btn btn-outline-dark btn-sm col-lg-5"
-                               href="{{route('editarMensagem', ['id' => $mensagem->id])}}">Editar</a>
+                                <img height="32" width="32"src="icons/loupe.png">
+                            </a>
+                            <a style="padding-right: 10px"
+                               href="{{route('editarMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/edit.png"></a>
                             @if($mensagem->visivel == true)
-                                <a class="btn btn-outline-dark btn-sm col-lg-5"
-                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Esconder</a>
+                                <a style="padding-right: 10px"
+                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/hide.png"></a>
                             @endif
                             @if($mensagem->visivel == false)
-                                <a class="btn btn-outline-dark btn-sm col-lg-5"
-                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}">Mostrar</a>
+                                <a style="padding-right: 10px"
+                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/view.png"></a>
                             @endif
+                            <a style="padding-right: 10px"
+                               href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/cancel.png"></a>
                         </td>
                     </tr>
                 @endforeach

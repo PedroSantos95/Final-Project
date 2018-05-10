@@ -3,32 +3,10 @@
 
 
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Rally Sernancelhe Aguiar da Beira</title>
-
-    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css">--}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-    <style>
-        .custom-datatable {
-            table-layout: fixed;
-        }
-
-        .custom-datatable td {
-            overflow: auto;
-        }
-    </style>
-
-
+    <meta charset="utf-8" content="no-cache">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>Pagina Administrador</title>
 </head>
-
 <body>
 
 <!-- Navigation -->
@@ -75,7 +53,7 @@
                     <input id="type" type="radio" name="tipo" value="0" autocomplete="off"
                            checked><img src="icons/all_black.png" height="32" width="32"> Todos
                 </div>
-            </label>
+            </label >
             @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                 <label class="btn btn-outline-info">
                     <div class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
@@ -117,7 +95,6 @@
         </tbody>
     </table>
 </div>
-
 </body>
 
 
@@ -141,19 +118,6 @@
 </div>
 
 
-{{--<script>--}}
-{{--function updateModalInfo(informacao) {--}}
-{{--$('.informacao_modal').text(informacao);--}}
-{{--}--}}
-{{--</script>--}}
-
-{{--<script>--}}
-{{--function updateModalHeader(titulo) {--}}
-{{--$('.modal-title').html(titulo);--}}
-{{--}--}}
-{{--</script>--}}
-
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -166,7 +130,6 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-{{--<script src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>--}}
 
 
 <script>
@@ -182,8 +145,5 @@
 </script>
 
 <script src="/js/noticias.js"></script>
-
-{{--<script type="text/javascript" charset="utf8"--}}
-{{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
 
 
