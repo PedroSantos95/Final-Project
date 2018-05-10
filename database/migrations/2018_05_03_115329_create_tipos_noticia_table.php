@@ -14,7 +14,7 @@ class CreateTiposNoticiaTable extends Migration {
 	{
 		Schema::create('tipos_noticia', function(Blueprint $table)
 		{
-			$table->increments('id')->primary();
+			$table->increments('id');
 			$table->string('nome', 100);
 			$table->string('path_white', 100);
 			$table->string('path_black', 100);

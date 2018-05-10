@@ -20,8 +20,9 @@ class MessageController extends Controller
     {
         $mensagens = Mensagem::orderBy('created_at','desc')->paginate(6);
         $tiposNoticia = TipoNoticia::all();
+        $tamanhoImagem = env('IMAGE_SIZE','');
 
-        return view('message.admin', compact('mensagens'), compact('tiposNoticia'));
+        return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem'));
     }
 
     public function showMensagens()
@@ -29,7 +30,7 @@ class MessageController extends Controller
         $mensagens = Mensagem::orderBy('created_at','desc')->get();
         $tiposNoticia = TipoNoticia::all();
 
-        return view('news', compact('mensagens'), compact('tiposNoticia'));
+        return view('news', compact('mensagens', 'tiposNoticia'));
     }
 
     public function editarMensagem($id)
@@ -37,7 +38,7 @@ class MessageController extends Controller
         $mensagem = Mensagem::findOrFail($id);
         $tiposNoticia = TipoNoticia::all();
 
-        return view('message/edit',compact('mensagem'), compact('tiposNoticia'));
+        return view('message/edit',compact('mensagem','tiposNoticia'));
     }
 
     public function guardarMensagem(Request $request, $id){

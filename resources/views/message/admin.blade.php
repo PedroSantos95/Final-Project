@@ -85,23 +85,15 @@
                             <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
                                 <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
                                         {{ $i == 0 ? 'checked' : '' }}>
-                                <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                                <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="{{$tamanhoImagem}}" width="{{$tamanhoImagem}}">
                                 {{$tiposNoticia[$i]->nome}}
                             </label>
                         @endfor
                     </div>
                 </div>
 
-
             </div>
             <br>
-            {{--<select class="form-control" name="tipo" style="height: 100%" required>--}}
-            {{--<option value="" disabled selected>Selecione o tipo de noticia</option>--}}
-            {{--<option value="noticias">Noticias</option>--}}
-            {{--<option value="informacoes">Informações</option>--}}
-            {{--<option value="tempos">Tempos</option>--}}
-            {{--<option value="acidentes">Acidentes</option>--}}
-            {{--</select>--}}
             <div class="form-group" style="text-align: center;">
                 <label for=""><strong>Titulo da Mensagem</strong></label>
                 <input required type="text" class="form-control" name="titulo" placeholder="Titulo" maxlength="30">
