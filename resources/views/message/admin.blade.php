@@ -82,10 +82,10 @@
                 <div class="wrapper text-center">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
-                            <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
+                            <label class="btn btn-outline-info    {{ $i == 0 ? 'active' : '' }}">
                                 <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
                                         {{ $i == 0 ? 'checked' : '' }}>
-                                <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                                <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                                 {{$tiposNoticia[$i]->nome}}
                             </label>
                         @endfor
@@ -113,7 +113,7 @@
             </div>
             {{ csrf_field() }}
 
-            <input type="submit" class="btn btn-outline-dark" onclick="functionAlert()" value="Submeter">
+            <input type="submit" class="btn btn-outline-info" onclick="functionAlert()" value="Submeter">
         </form>
     </div>
     <br>
@@ -200,13 +200,25 @@
                 <h4 class="modal-title" style="word-wrap: break-word;">Titulo</h4>
             </div>
             <div class="modal-body">
-                <p class="informacao_modal" style="word-wrap: break-word;">Informacao</p>
-                <p class="modal-tipo" style="word-wrap: break-word;">Tipo Noticia</p>
-                <p class="modal-visivel" style="word-wrap: break-word;">Visivel</p>
-                <p class="modal-created_at" style="word-wrap: break-word;">Created_at</p>
+                <p>
+                    <strong><span style="word-wrap: break-word;">Tipo Noticia: </span></strong>
+                    <span class="modal-tipo" style="word-wrap: break-word"></span>
+                </p>
+                <p>
+                    <strong><span style="word-wrap: break-word;">Texto da Noticia: </span></strong>
+                    <span class="informacao_modal" style="word-wrap: break-word"></span>
+                </p>
+                <p>
+                    <strong><span style="word-wrap: break-word;"></span></strong>
+                    <span class="modal-visivel" style="word-wrap: break-word"></span>
+                </p>
+                <p>
+                    <strong><span style="word-wrap: break-word;">Created_at: </span></strong>
+                    <span class="modal-created_at" style="word-wrap: break-word"></span>
+                </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
             </div>
         </div>
 
@@ -216,29 +228,29 @@
 
 <script>
     function updateModalInfo(informacao) {
-        $('.informacao_modal').text("Texto da Noticia: " + informacao);
+        $('.informacao_modal').text(informacao);
     }
 </script>
 
 <script>
     function updateModalHeader(titulo) {
-        $('.modal-title').html("Titulo da Noticia: " + titulo);
+        $('.modal-title').html( titulo);
     }
 </script>
 
 <script>
     function updateModalTipoNoticia(tipo) {
         if (tipo == 1) {
-            $('.modal-tipo').html("Tipo de Noticia: Informações");
+            $('.modal-tipo').html("Informações");
         }
         if (tipo == 2) {
-            $('.modal-tipo').html("Tipo de Noticia: Noticias");
+            $('.modal-tipo').html("Noticias");
         }
         if (tipo == 3) {
-            $('.modal-tipo').html("Tipo de Noticia: Acidentes");
+            $('.modal-tipo').html("Acidentes");
         }
         if (tipo == 4) {
-            $('.modal-tipo').html("Tipo de Noticia: Tempos");
+            $('.modal-tipo').html("Tempos");
         }
     }
 </script>
@@ -254,7 +266,7 @@
 
 <script>
     function updateModalCreatedAt(created_at) {
-        $('.modal-created_at').html("Noticia criada: " + created_at);
+        $('.modal-created_at').html(created_at);
     }
 </script>
 

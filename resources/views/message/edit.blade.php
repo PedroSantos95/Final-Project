@@ -52,19 +52,19 @@
 </nav>
 
 @if(Auth::check())
-    <div class="container col-lg-6" style="padding-top: 70px">
+    <div class="container col-lg-6" style="padding-top: 70px; text-align: center">
         <h3>Editar mensagem</h3>
     </div>
     <div class="container col-lg-6">
         <form method="POST" action="{{route('guardarMensagem' , ['id' => $mensagem->id])}}">
-            <div>
+            <div style="text-align: center">
                 <label><strong>Tipo de noticia</strong></label><br>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
-                        <label class="btn btn-dark    {{ $i == 0 ? 'active' : '' }}">
+                        <label class="btn btn-outline-info    {{ $i == 0 ? 'active' : '' }}">
                             <input type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off"
                                     {{ $i == 0 ? 'checked' : '' }}>
-                            <img src="/icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
+                            <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                             {{$tiposNoticia[$i]->nome}}
                         </label>
                     @endfor
@@ -73,19 +73,19 @@
             </div>
             <br>
 
-            <div class="form-group">
+            <div class="form-group" style="text-align: center">
                 <label for=""><strong>Titulo da Mensagem</strong></label>
                 <input required value="{{$mensagem->titulo}}" type="text" class="form-control" name="titulo" placeholder="Titulo" maxlength="30">
 
             </div>
-            <div class="form-group">
+            <div class="form-group" style="text-align: center;">
                 <label for=""><strong>Mensagem</strong></label>
                 <textarea required type="text" name="corpo" class="form-control" placeholder="Mensagem"
                           maxlength="255">{{$mensagem->informacao}}</textarea>
             </div>
             {{ csrf_field() }}
-                <input type="submit" class="btn btn-dark" value="Editar" onclick="functionAlert()" >
-                <a href="/admin" class="btn btn-danger" >Cancelar</a>
+                <input type="submit" class="btn btn-outline-info" value="Editar" onclick="functionAlert()" >
+                <a href="/admin" class="btn btn-outline-danger" >Cancelar</a>
         </form>
     </div>
 

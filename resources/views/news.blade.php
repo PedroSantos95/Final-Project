@@ -66,70 +66,56 @@
     </div>
 </nav>
 
-<div class="container col-lg-7" style="padding-top: 70px; padding-bottom: 20px">
-    <div style="margin-top: 1%">
-        <div>
-            <label><strong>Tipo de noticia</strong></label><br>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-dark active">
-                    <div class="selecao-tipo" id="0">
-                        <input id="type" type="radio" name="tipo" value="0" autocomplete="off"
-                               checked><img src="icons/all.png" height="32" width="32"> Todos
+<div class="container col-lg-6" style="padding-top: 70px; padding-bottom: 20px; margin-top: 1%">
+    <div style="text-align: center;">
+        <label><strong>Tipo de noticia</strong></label><br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-info active">
+                <div class="selecao-tipo" id="0">
+                    <input id="type" type="radio" name="tipo" value="0" autocomplete="off"
+                           checked><img src="icons/all_black.png" height="32" width="32"> Todos
+                </div>
+            </label>
+            @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
+                <label class="btn btn-outline-info">
+                    <div class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
+                        <input id="type" type="radio" name="tipo" autocomplete="off">
+                        <img src="icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
+                        {{$tiposNoticia[$i]->nome}}
                     </div>
-
                 </label>
-                @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
-                    <label class="btn btn-dark">
-                        <div class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
-                            <input id="type" type="radio" name="tipo"  autocomplete="off">
-                            <img src="icons/{{$tiposNoticia[$i]->path_white}}" height="32" width="32">
-                            {{$tiposNoticia[$i]->nome}}
-                        </div>
-                    </label>
-                @endfor
-            </div>
-<br>
-            <br>
-        <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable" cellspacing="0" width="100%" style="text-align: center">
-            <thead>
-            <tr>
-                <th style="width: 10%">Tipo</th>
-                <th>Titulo</th>
-                <th>Mensagem</th>
-                <th>Data</th>
-                <th>Ações</th>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr>
-                <th>Tipo</th>
-                <th>Titulo</th>
-                <th>Mensagem</th>
-                <th>Data</th>
-                <th>Ações</th>
-            </tr>
-            </tfoot>
-            <tbody>
-            {{--@foreach ($mensagens as $mensagem)--}}
-            {{--@if($mensagem->visivel == true)--}}
-            {{--<tr>--}}
-            {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
-            {{--<th>{{$mensagem->titulo}}</th>--}}
-            {{--<th>{{$mensagem->informacao}}</th>--}}
-            {{--<th>{{$mensagem->created_at}}</th>--}}
-            {{--<th>--}}
-            {{--<button data-toggle="modal" data-target="#mensagem" class="btn btn-info"--}}
-            {{--onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}')">--}}
-            {{--Detalhes--}}
-            {{--</button>--}}
-            {{--</th>--}}
-            {{--</tr>--}}
-            {{--@endif--}}
-            {{--@endforeach--}}
-            </tbody>
-        </table>
+            @endfor
+        </div>
     </div>
 </div>
+<br>
+<br>
+<div class="container col-lg-8">
+    <table class="table table-striped table-bordered custom-datatable display responsive nowrap"
+           id="datatable" cellspacing="0"
+           style="width:100%; text-align: center">
+        <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Titulo</th>
+            <th>Mensagem</th>
+            <th>Data</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Tipo</th>
+            <th>Titulo</th>
+            <th>Mensagem</th>
+            <th>Data</th>
+            <th>Ações</th>
+        </tr>
+        </tfoot>
+        <tbody>
+
+        </tbody>
+    </table>
 </div>
 
 </body>
@@ -147,7 +133,7 @@
                 <p id="informacao-modal" class="informacao_modal" style="word-wrap: break-word;">Nao Titulo</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
             </div>
         </div>
 
