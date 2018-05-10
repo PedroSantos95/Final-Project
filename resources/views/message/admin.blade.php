@@ -169,10 +169,10 @@
 
                                     onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}'); updateModalTipoNoticia('{{$mensagem->tipo_noticia_id}}');
                                             updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
-                                <img height="32" width="32"src="icons/loupe.png">
+                                <img height="28" width="28"src="icons/loupe.png">
                             </a>
                             <a style="padding-right: 10px"
-                               href="{{route('editarMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/edit.png"></a>
+                               href="{{route('editarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/edit.png"></a>
                             @if($mensagem->visivel == true)
                                 <a style="padding-right: 10px"
                                    href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/hide.png"></a>
@@ -182,7 +182,7 @@
                                    href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/view.png"></a>
                             @endif
                             <a style="padding-right: 10px"
-                               href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/cancel.png"></a>
+                               href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/cancel.png"></a>
                         </td>
                     </tr>
                 @endforeach
