@@ -21,6 +21,14 @@ class CreateUsersTable extends Migration {
 			$table->string('remember_token', 100)->nullable();
 			$table->timestamps();
 		});
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'admin',
+                'email' => 'admin@admin.com',
+                'password' => 'admin'
+            )
+        );
 	}
 
 

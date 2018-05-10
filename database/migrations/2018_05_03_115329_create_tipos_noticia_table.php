@@ -14,11 +14,44 @@ class CreateTiposNoticiaTable extends Migration {
 	{
 		Schema::create('tipos_noticia', function(Blueprint $table)
 		{
-			$table->increments('id')->primary();
+			$table->increments('id');
 			$table->string('nome', 100);
 			$table->string('path_white', 100);
 			$table->string('path_black', 100);
 		});
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'acidente',
+                'path_white' => 'crash_white.png',
+                'path_black' => 'crash_black.png'
+            )
+        );
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'tempo',
+                'path_white' => 'time_white.png',
+                'path_black' => 'time_black.png'
+            )
+        );
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'noticias',
+                'path_white' => 'news_white.png',
+                'path_black' => 'news_black.png'
+            )
+        );
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'informacao',
+                'path_white' => 'info_white.png',
+                'path_black' => 'info_black.png'
+            )
+        );
+
 	}
 
 
