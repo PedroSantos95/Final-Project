@@ -48,25 +48,16 @@
             {
                 data: null,
                 render: function (data) {
-                    let button = '<button data-toggle="modal" data-target="#mensagem" class="btn btn-outline-info btn-sm" onclick="updateModalHeader(\'';
+                    let button = '<a data-toggle="modal" data-target="#mensagem" onclick="updateModalHeader(\'';
                     button = button + data.titulo;
                     button = button + '\'); updateModalInfo(\'';
                     button = button + data.informacao;
-                    button = button + '\')"> Detalhes</button>';
+                    button = button + '\')"> <img height="28" width="30"src="icons/loupe.png"></a>';
                     return button;
                 }
             }
         ]
     });
-
-    // var clickUpdateTable = function(input) {
-    //     return alert(input);
-    //
-    //     let tipo = input.value;
-    //
-    //     table.ajax.url('/api/news?tipo=' + tipo);
-    //     table.ajax.reload();
-    // };
 
     let radios = document.getElementsByClassName('selecao-tipo');
     for(let i=0; i<radios.length; i++){
@@ -78,15 +69,4 @@
         });
 
     }
-
-    // let clickUpdateTable = document.getElementById('type');
-    // clickUpdateTable.addEventListener("click", function clickUpdate (input) {
-    //     let tipo = input.value;
-    //
-    //     table.ajax.url('/api/news?tipo='+tipo);
-    //     table.ajax.reload();
-    // });
-
-
-
 })();

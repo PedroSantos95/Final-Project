@@ -5,7 +5,12 @@
 <head>
     <meta charset="utf-8" content="no-cache">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Pagina Administrador</title>
+    <title>Noticias</title>
+    <style type="text/css">
+        a:hover {
+            cursor:pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -44,61 +49,62 @@
     </div>
 </nav>
 
-<div class="container col-lg-6" style="padding-top: 70px; padding-bottom: 20px; margin-top: 1%">
-    <div style="text-align: center;">
-        <label><strong>Tipo de noticia</strong></label><br>
+<div class="container col-lg-6" style="padding-top: 80px;text-align: center;">
+    <h3>Noticias</h3>
+</div>
+<div class="container col-lg-8" style="margin-top: 1%;">
+    <div style="text-align: left;">
+        <label><strong>Tipo de noticia:</strong></label><br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-outline-info active">
                 <div class="selecao-tipo" id="0">
-                    <input id="type" type="radio" name="tipo" value="0" autocomplete="off"
+                    <input  id="type" type="radio" name="tipo" value="0" autocomplete="off"
                            checked><img src="icons/all_black.png" height="32" width="32"> Todos
                 </div>
             </label >
             @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                 <label class="btn btn-outline-info">
-                    <div class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
+                    <div  style="text-align: left;" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
                         <input id="type" type="radio" name="tipo" autocomplete="off">
                         <img src="icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                         {{$tiposNoticia[$i]->nome}}
                     </div>
                 </label>
             @endfor
+
         </div>
     </div>
 </div>
 <br>
 <br>
-<div class="container col-lg-8">
-    <table class="table table-striped table-bordered custom-datatable display responsive nowrap"
+<div class="container col-lg-8" >
+    <table  style="text-align: left;" class="table table-striped table-bordered custom-datatable display responsive nowrap"
            id="datatable" cellspacing="0"
-           style="width:100%; text-align: center">
+           style="width:100%; text-align: left">
         <thead>
         <tr>
-            <th>Tipo</th>
-            <th>Titulo</th>
-            <th>Mensagem</th>
-            <th>Data</th>
-            <th>Ações</th>
+            <th style="text-align: left;">Tipo</th>
+            <th style="text-align: left;">Titulo</th>
+            <th style="text-align: left;">Mensagem</th>
+            <th style="text-align: left;">Data</th>
+            <th style="text-align: left;">Ações</th>
         </tr>
         </thead>
         <tfoot>
         <tr>
-            <th>Tipo</th>
-            <th>Titulo</th>
-            <th>Mensagem</th>
-            <th>Data</th>
-            <th>Ações</th>
+            <th style="text-align: left;">Tipo</th>
+            <th style="text-align: left;">Titulo</th>
+            <th style="text-align: left;">Mensagem</th>
+            <th style="text-align: left;">Data</th>
+            <th style="text-align: left;">Ações</th>
         </tr>
         </tfoot>
         <tbody>
 
         </tbody>
     </table>
-</div>
-</body>
 
-
-<!-- Modal -->
+</div><!-- Modal -->
 <div id="mensagem" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -110,7 +116,7 @@
                 <p id="informacao-modal" class="informacao_modal" style="word-wrap: break-word;">Nao Titulo</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Fechar</button>
             </div>
         </div>
 
@@ -133,14 +139,14 @@
 
 
 <script>
-    function updateModalInfo(string) {
-        console.log(string);
-        document.getElementById('informacao-modal').innerText = string;
+    function updateModalInfo(informacao) {
+        $('.informacao_modal').text(informacao);
     }
+</script>
 
-    function updateModalHeader(string) {
-        console.log(string);
-        document.getElementById('modal-title').innerText = string;
+<script>
+    function updateModalCreatedAt(created_at) {
+        $('.modal-created_at').html(created_at);
     }
 </script>
 

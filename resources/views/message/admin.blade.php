@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" content="no-cache">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Pagina Administrador</title>
+    <title>Pagina Administrador Gestão Mensagens</title>
     <style>
         hr.style-two {
             border: 0;
@@ -28,6 +28,11 @@
             .one {
                 display: none;
             }
+        }
+    </style>
+    <style type="text/css">
+        a:hover {
+            cursor:pointer;
         }
     </style>
 

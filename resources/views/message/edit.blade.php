@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" content="no-cache">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <title>Pagina Administrador</title>
+    <title>Pagina Administrador Editar Mensagem</title>
     <style>
         hr.style-two {
             border: 0;
