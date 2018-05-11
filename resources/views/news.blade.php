@@ -137,7 +137,6 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-
 <script>
     function updateModalInfo(informacao) {
         $('.informacao_modal').text(informacao);

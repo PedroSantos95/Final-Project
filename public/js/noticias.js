@@ -52,7 +52,7 @@
                     button = button + data.titulo;
                     button = button + '\'); updateModalInfo(\'';
                     button = button + data.informacao;
-                    button = button + '\')"> <img height="28" width="30"src="icons/loupe.png"></a>';
+                    button = button + '\')"><img height="28" width="30"src="icons/loupe.png"></a>';
                     return button;
                 }
             }
