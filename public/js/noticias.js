@@ -38,7 +38,10 @@
                 data: 'titulo'
             },
             {
-                data: 'informacao'
+                data: null,
+                render: function (data) {
+                    return '<div style="max-width: 400px; word-wrap: break-word">'+ data.informacao +'</div>'
+                }
             },
             {
                 data: 'updated_at'
