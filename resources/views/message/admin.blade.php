@@ -128,48 +128,59 @@
                    cellspacing="0" style="width: 100%; text-align: center">
                 <thead>
                 <tr>
-                    <th>Tipo</th>
-                    <th>Titulo</th>
-                    <th class="one">Mensagem</th>
-                    <th class="one">Data</th>
-                    <th class="one" width="10%">Visivel</th>
-                    <th>Ações</th>
+                    <th style="text-align: left">Tipo</th>
+                    <th style="text-align: left">Titulo</th>
+                    <th style="text-align: left" class="one">Mensagem</th>
+                    <th style="text-align: left" class="one">Data</th>
+                    <th style="text-align: left" class="one" width="10%">Estado</th>
+                    <th style="text-align: left" >Opções</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
-                    <th>Tipo</th>
-                    <th>Titulo</th>
-                    <th class="one">Mensagem</th>
-                    <th class="one">Data</th>
-                    <th class="one">Visivel</th>
-                    <th>Ações</th>
+                    <th style="text-align: left">Tipo</th>
+                    <th style="text-align: left">Titulo</th>
+                    <th style="text-align: left" class="one">Mensagem</th>
+                    <th style="text-align: left" class="one">Data</th>
+                    <th style="text-align: left" class="one">Estado</th>
+                    <th style="text-align: left">Opções</th>
                 </tr>
                 </tfoot>
                 <tbody>
                 @foreach ($mensagens as $mensagem)
                     <tr>
 
-                        <td class="block">{{$mensagem->tipoNoticia->nome}}</td>
-                        <td style="overflow: auto">{{$mensagem->titulo}}</td>
-                        {{--<th>{{$mensagem->tipo_noticia}}</th>--}}
-                        {{--<th><img src="icons/{{$mensagem->tipoNoticia->path_black}}" height="48" width="48"></th>--}}
-                        <td style="overflow: auto" class="one">{{$mensagem->informacao}}</td>
-                        <td style="overflow: hidden" class="one">{{$mensagem->created_at}}</td>
-                        <td style="overflow: hidden" class="one">
+                        <td class="block">
+                                @if ( $mensagem->tipoNoticia->nome == "Noticias")
+                                <img align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">
+                                @endif
+                                @if ( $mensagem->tipoNoticia->nome == "Acidente")
+                                    <img align="left" hspace="20" src="/icons/crash_black.png" height="32" width="32">
+                                @endif
+                                @if ( $mensagem->tipoNoticia->nome == "Tempo")
+                                    <img align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">
+                                @endif
+                                @if ( $mensagem->tipoNoticia->nome == "Informacao")
+                                    <img align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">
+                                @endif
+                        </td>
+                        <td style="overflow: auto; text-align: left; padding-left: 20px">{{$mensagem->titulo}}</td>
+                        <td style="overflow: auto; text-align: left; padding-left: 20px" class="one">{{$mensagem->informacao}}</td>
+                        <td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">{{$mensagem->created_at}}</td>
+                        <td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">
                             @if($mensagem->visivel == true)
-                                Sim
+                                Visivel
                             @endif
                             @if($mensagem->visivel == false)
-                                Nao
+                                Oculto
                             @endif
                         </td>
                         <td style="overflow: hidden">
                             <a data-toggle="modal" data-target="#mensagem" style="padding-right: 10px"
 
-                                    onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}'); updateModalTipoNoticia('{{$mensagem->tipo_noticia_id}}');
+                                    onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}', '{{$mensagem->tipo_noticia_id}}');
                                             updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
-                                <img height="28" width="28"src="icons/loupe.png">
+                                <img height="28" width="30"src="icons/loupe.png">
                             </a>
                             <a style="padding-right: 10px"
                                href="{{route('editarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/edit.png"></a>
@@ -188,7 +199,9 @@
                 @endforeach
                 </tbody>
             </table>
-            {{$mensagens->links()}}
+            <div style="float: right">
+                {{$mensagens->links()}}
+            </div>
         </div>
 
     </div>
@@ -202,26 +215,24 @@
             <div class="modal-header">
                 <h4 class="modal-title" style="word-wrap: break-word;">Titulo</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="margin-bottom: -20px">
                 <p>
-                    <strong><span style="word-wrap: break-word;">Tipo Noticia: </span></strong>
-                    <span class="modal-tipo" style="word-wrap: break-word"></span>
-                </p>
-                <p>
-                    <strong><span style="word-wrap: break-word;">Texto da Noticia: </span></strong>
+                    <strong><span style="word-wrap: break-word;">Corpo da noticia</span></strong>
+                    <br>
                     <span class="informacao_modal" style="word-wrap: break-word"></span>
                 </p>
-                <p>
+                <p style="float: right">
                     <strong><span style="word-wrap: break-word;"></span></strong>
                     <span class="modal-visivel" style="word-wrap: break-word"></span>
                 </p>
-                <p>
-                    <strong><span style="word-wrap: break-word;">Created_at: </span></strong>
-                    <span class="modal-created_at" style="word-wrap: break-word"></span>
-                </p>
+                <div style="padding-bottom: -50px">
+                    <p>
+                        <span class="modal-created_at" style="word-wrap: break-word"></span>
+                    </p>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Fechar</button>
             </div>
         </div>
 
@@ -236,25 +247,34 @@
 </script>
 
 <script>
-    function updateModalHeader(titulo) {
-        $('.modal-title').html( titulo);
+    function updateModalHeader(titulo, tipo) {
+        if(tipo==1){
+            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">');
+        }
+        if(tipo==4){
+            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">');
+        }
+        if(tipo==2){
+            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/crash_black.png" height="32" width="32">');
+        }
+        if(tipo==3){
+            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">');
+        }
     }
 </script>
 
 <script>
-    function updateModalTipoNoticia(tipo) {
-        if (tipo == 1) {
-            $('.modal-tipo').html("Informações");
-        }
-        if (tipo == 2) {
-            $('.modal-tipo').html("Noticias");
-        }
-        if (tipo == 3) {
-            $('.modal-tipo').html("Acidentes");
-        }
-        if (tipo == 4) {
-            $('.modal-tipo').html("Tempos");
-        }
+    function updateModalCreatedAt(created_at) {
+        $('.modal-created_at').html(created_at);
+    }
+</script>
+
+<script>
+    function updateModalVisivel(visivel) {
+        visibility = visivel == 1 ?
+            '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/view.png" height="32" width="32">' :
+            '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/hide.png" height="32" width="32">';
+        $('.modal-visivel').html(visibility);
     }
 </script>
 
@@ -273,19 +293,6 @@
             $(this).remove();
         });
     }, 4000);
-</script>
-
-<script>
-    function updateModalCreatedAt(created_at) {
-        $('.modal-created_at').html(created_at);
-    }
-</script>
-
-<script>
-    function updateModalVisivel(visivel) {
-        visibility = visivel == 1 ? 'encontra-se' : 'não se encontra';
-        $('.modal-visivel').html("A noticia " + visibility + " visivel para os utilizadores!");
-    }
 </script>
 
 <script>

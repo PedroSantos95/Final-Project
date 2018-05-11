@@ -85,22 +85,6 @@ class MessageController extends Controller
         $mensagem->titulo = $request['titulo'];
         $mensagem->informacao = $request['corpo'];
         $mensagem->tipoNoticia()->associate($tipoNoticia);
-/*
-        switch ($mensagem->tipo_noticia){
-            case 'noticias':
-                $mensagem->path = 'news.png';
-                break;
-            case 'informacoes':
-                $mensagem->path = 'info.png';
-                break;
-            case 'tempos':
-                $mensagem->path = 'time.png';
-                break;
-            case 'acidentes':
-                $mensagem->path = 'crash.png';
-                break;
-        }
-*/
 
         if($mensagem->save()){
             $saved = 1;
@@ -109,7 +93,6 @@ class MessageController extends Controller
             $saved = -1;
         }
 
-//        return view('message.admin', ['error' => '']);
         return $this->index($saved);
     }
 
