@@ -80,9 +80,8 @@
 <br>
 <br>
 <div class="container col-lg-8">
-    <table class="table table-striped table-bordered custom-datatable display dt-responsive nowrap"
-           id="datatable" cellspacing="0"
-           style="width:100%; text-align: left">
+    <table class="table table-striped table-bordered custom-datatable display responsive"
+           id="datatable" cellspacing="0" style="width: 100%;text-align: left">
         <thead>
         <tr>
             <th style="text-align: left;">Tipo</th>
