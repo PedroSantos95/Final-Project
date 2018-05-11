@@ -37,7 +37,7 @@
             {
                 data: null,
                 render: function (data) {
-                    return '<div style="max-width: 100px; word-wrap: break-word">'+ data.titulo +'</div>'
+                    return '<div style="max-width: 150px; word-wrap: break-word">'+ data.titulo +'</div>'
                 }
             },
             {
