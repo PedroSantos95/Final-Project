@@ -87,7 +87,7 @@
             <th style="text-align: left;">Titulo</th>
             <th style="text-align: left;">Mensagem</th>
             <th style="text-align: left;">Data</th>
-            <th style="text-align: left;">Ações</th>
+            <th style="text-align: left;">Opções</th>
         </tr>
         </thead>
         <tfoot>
@@ -96,7 +96,7 @@
             <th style="text-align: left;">Titulo</th>
             <th style="text-align: left;">Mensagem</th>
             <th style="text-align: left;">Data</th>
-            <th style="text-align: left;">Ações</th>
+            <th style="text-align: left;">Opções</th>
         </tr>
         </tfoot>
         <tbody>
