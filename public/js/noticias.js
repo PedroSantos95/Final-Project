@@ -35,12 +35,15 @@
                 }
             },
             {
-                data: 'titulo'
+                data: null,
+                render: function (data) {
+                    return '<div style="max-width: 100px; word-wrap: break-word">'+ data.titulo +'</div>'
+                }
             },
             {
                 data: null,
                 render: function (data) {
-                    return '<div style="max-width: 400px; word-wrap: break-word">'+ data.informacao +'</div>'
+                    return '<div style="max-width: 380px; word-wrap: break-word">'+ data.informacao +'</div>'
                 }
             },
             {
