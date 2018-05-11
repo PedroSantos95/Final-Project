@@ -5,10 +5,12 @@
 <head>
     <meta charset="utf-8" content="no-cache">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
     <title>Noticias</title>
     <style type="text/css">
         a:hover {
-            cursor:pointer;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -58,13 +60,13 @@
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-outline-info active">
                 <div class="selecao-tipo" id="0">
-                    <input  id="type" type="radio" name="tipo" value="0" autocomplete="off"
+                    <input id="type" type="radio" name="tipo" value="0" autocomplete="off"
                            checked><img src="icons/all_black.png" height="32" width="32"> Todos
                 </div>
-            </label >
+            </label>
             @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                 <label class="btn btn-outline-info">
-                    <div  style="text-align: left;" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
+                    <div style="text-align: left;" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
                         <input id="type" type="radio" name="tipo" autocomplete="off">
                         <img src="icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                         {{$tiposNoticia[$i]->nome}}
@@ -77,8 +79,8 @@
 </div>
 <br>
 <br>
-<div class="container col-lg-8" >
-    <table  style="text-align: left;" class="table table-striped table-bordered custom-datatable display responsive nowrap"
+<div class="container col-lg-8">
+    <table class="table table-striped table-bordered custom-datatable display dt-responsive nowrap"
            id="datatable" cellspacing="0"
            style="width:100%; text-align: left">
         <thead>
@@ -110,10 +112,23 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <h4 id="modal-title" class="modal-title" style="word-wrap: break-word;">Titulo</h4>
+                <h4 class="modal-title" style="word-wrap: break-word;">Titulo</h4>
             </div>
-            <div class="modal-body">
-                <p id="informacao-modal" class="informacao_modal" style="word-wrap: break-word;">Nao Titulo</p>
+            <div class="modal-body" style="margin-bottom: -20px">
+                <p>
+                    <strong><span style="word-wrap: break-word;">Mensagem: </span></strong>
+                    <br>
+                    <span class="informacao_modal" style="word-wrap: break-word"></span>
+                </p>
+                <p style="float: right">
+                    <strong><span style="word-wrap: break-word;"></span></strong>
+                    <span class="modal-visivel" style="word-wrap: break-word"></span>
+                </p>
+                <div style="padding-bottom: -50px">
+                    <p>
+                        <span class="modal-created_at" style="word-wrap: break-word"></span>
+                    </p>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Fechar</button>
@@ -140,6 +155,14 @@
 <script>
     function updateModalInfo(informacao) {
         $('.informacao_modal').text(informacao);
+    }
+</script>
+
+
+<script>
+    function updateModalHeader(titulo, icon) {
+        $('.modal-title').html(titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/' + icon + '" height="32" width="32">');
+
     }
 </script>
 

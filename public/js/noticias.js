@@ -2,8 +2,6 @@
     'use strict';
 
     var table = $('#datatable').DataTable({
-        responsive: true,
-        "autoWidth": true,
         "language": {
             "sProcessing":   "A processar...",
             "sLengthMenu":   "Mostrar _MENU_ registos",
@@ -49,10 +47,12 @@
                 data: null,
                 render: function (data) {
                     let button = '<a data-toggle="modal" data-target="#mensagem" onclick="updateModalHeader(\'';
-                    button = button + data.titulo;
+                    button = button + data.titulo + '\',\'' + data.path;
                     button = button + '\'); updateModalInfo(\'';
                     button = button + data.informacao;
-                    button = button + '\')"><img height="28" width="30"src="icons/loupe.png"></a>';
+                    button = button + '\'); updateModalCreatedAt(\'';
+                    button = button + data.updated_at;
+                    button = button + '\') "><img height="28" width="30" src="icons/loupe.png"></a>';
                     return button;
                 }
             }
