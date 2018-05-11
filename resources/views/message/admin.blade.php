@@ -72,7 +72,7 @@
 </nav>
 
 @if(Auth::check())
-    <div class="container col-lg-6" style="padding-top: 70px;text-align: center; padding-bottom: 20px;">
+    <div class="container col-lg-6" style="padding-top: 65px;text-align: center; padding-bottom: 20px;">
         <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -192,7 +192,7 @@
                                 <a style="padding-right: 10px"
                                    href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/view.png"></a>
                             @endif
-                            <a style="padding-right: 10px"
+                            <a onclick="return confirm('Deseja eliminar a noticia selecionada»??');" style="padding-right: 10px"
                                href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/cancel.png"></a>
                         </td>
                     </tr>
