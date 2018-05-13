@@ -59,14 +59,14 @@
         <label><strong>Tipo de noticia:</strong></label><br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-outline-info active">
-                <div class="selecao-tipo" id="0">
+                <div style="width: 110px; text-align: left" class="selecao-tipo" id="0">
                     <input id="type" type="radio" name="tipo" value="0" autocomplete="off"
                            checked><img src="icons/all_black.png" height="32" width="32"> Todos
                 </div>
             </label>
             @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                 <label class="btn btn-outline-info">
-                    <div style="text-align: left;" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
+                    <div style="text-align: left; width: 110px" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
                         <input id="type" type="radio" name="tipo" autocomplete="off">
                         <img src="icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                         {{$tiposNoticia[$i]->nome}}

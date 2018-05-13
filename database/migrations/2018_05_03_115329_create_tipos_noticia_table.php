@@ -22,7 +22,7 @@ class CreateTiposNoticiaTable extends Migration {
 
         DB::table('tipos_noticia')->insert(
             array(
-                'nome' => 'Noticias',
+                'nome' => 'Notícias',
                 'path_white' => 'news_white.png',
                 'path_black' => 'news_black.png'
             )
@@ -46,7 +46,7 @@ class CreateTiposNoticiaTable extends Migration {
 
         DB::table('tipos_noticia')->insert(
             array(
-                'nome' => 'Informacao',
+                'nome' => 'Informação',
                 'path_white' => 'info_white.png',
                 'path_black' => 'info_black.png'
             )

@@ -93,10 +93,10 @@
             <div style="text-align: left;">
 
                 <label style="padding-top: 10px; padding-right: 10px; text-align-all: left "><strong>Tipo de noticia: </strong></label>
-                <div class="wrapper text-left">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <div  class="wrapper text-left">
+                    <div  class="btn-group btn-group-toggle" data-toggle="buttons">
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
-                            <label class="btn btn-outline-info">
+                            <label style="width: 140px" class="btn btn-outline-info">
                                 <input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
                                 <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                                 {{$tiposNoticia[$i]->nome}}
@@ -155,8 +155,8 @@
                 @foreach ($mensagens as $mensagem)
                     <tr>
 
-                        <td class="block">
-                                @if ( $mensagem->tipoNoticia->nome == "Noticias")
+                        <td  class="block">
+                                @if ( $mensagem->tipoNoticia->nome == "Notícias")
                                 <img align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">
                                 @endif
                                 @if ( $mensagem->tipoNoticia->nome == "Acidente")
@@ -165,7 +165,7 @@
                                 @if ( $mensagem->tipoNoticia->nome == "Tempo")
                                     <img align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">
                                 @endif
-                                @if ( $mensagem->tipoNoticia->nome == "Informacao")
+                                @if ( $mensagem->tipoNoticia->nome == "Informação")
                                     <img align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">
                                 @endif
                         </td>
@@ -197,7 +197,7 @@
                                 <a style="padding-right: 10px"
                                    href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/view.png"></a>
                             @endif
-                            <a onclick="return confirm('Deseja eliminar a noticia selecionada»??');" style="padding-right: 10px"
+                            <a onclick="return confirm('Deseja eliminar a notí  cia selecionada?');" style="padding-right: 10px"
                                href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/cancel.png"></a>
                         </td>
                     </tr>
