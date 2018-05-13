@@ -210,7 +210,16 @@
         </div>
 
     </div>
-@endif
+@else
+    <div style="margin-top: 90px">
+        <div style="text-align: center">
+            <h2>Erro Autenticação</h2>
+        </div>
+        <div style="text-align: center; margin-top: 30px">
+            <h3>Página apenas para administradores, por favor faça log in!</h3>
+        </div>
+    </div>
+    @endif
 
 <!-- Modal -->
 <div id="mensagem" class="modal fade" role="dialog">
