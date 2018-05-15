@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/news', 'api\NewsController@index');
+
+Route::get('/admin', 'api\AdminController@index');

@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" content="no-cache">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
     <title>Pagina Administrador Gestão Mensagens</title>
     <style>
         hr.style-two {
@@ -129,79 +131,69 @@
 
     <div class="container col-lg-10">
         <div style="margin-top: 1%">
-            <table class="table table-striped table-bordered custom-datatable display responsive nowrap" id="datatable"
+            <table class="table table-striped table-bordered custom-datatable display nowrap" id="datatable"
                    cellspacing="0" style="width: 100%; text-align: center">
                 <thead>
                 <tr>
-                    <th style="text-align: left">Tipo</th>
-                    <th style="text-align: left">Titulo</th>
-                    <th style="text-align: left" class="one">Mensagem</th>
-                    <th style="text-align: left" class="one">Data</th>
-                    <th style="text-align: left" class="one" width="10%">Estado</th>
-                    <th style="text-align: left" >Opções</th>
+                    <th style="text-align: center">Tipo</th>
+                    <th style="text-align: center">Titulo</th>
+                    <th style="text-align: center">Mensagem</th>
+                    <th style="text-align: center">Data</th>
+                    <th style="text-align: center" width="10%">Estado</th>
+                    <th style="text-align: center" >Opções</th>
                 </tr>
                 </thead>
-                <tfoot>
-                <tr>
-                    <th style="text-align: left">Tipo</th>
-                    <th style="text-align: left">Titulo</th>
-                    <th style="text-align: left" class="one">Mensagem</th>
-                    <th style="text-align: left" class="one">Data</th>
-                    <th style="text-align: left" class="one">Estado</th>
-                    <th style="text-align: left">Opções</th>
-                </tr>
-                </tfoot>
                 <tbody>
-                @foreach ($mensagens as $mensagem)
-                    <tr>
+                {{--@foreach ($mensagens as $mensagem)--}}
+                    {{--<tr>--}}
 
-                        <td class="block">
-                                @if ( $mensagem->tipoNoticia->nome == "Noticias")
-                                <img align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">
-                                @endif
-                                @if ( $mensagem->tipoNoticia->nome == "Acidente")
-                                    <img align="left" hspace="20" src="/icons/crash_black.png" height="32" width="32">
-                                @endif
-                                @if ( $mensagem->tipoNoticia->nome == "Tempo")
-                                    <img align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">
-                                @endif
-                                @if ( $mensagem->tipoNoticia->nome == "Informacao")
-                                    <img align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">
-                                @endif
-                        </td>
-                        <td style="overflow: auto; text-align: left; padding-left: 20px">{{$mensagem->titulo}}</td>
-                        <td style="overflow: auto; text-align: left; padding-left: 20px" class="one">{{$mensagem->informacao}}</td>
-                        <td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">{{$mensagem->created_at}}</td>
-                        <td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">
-                            @if($mensagem->visivel == true)
-                                Visivel
-                            @endif
-                            @if($mensagem->visivel == false)
-                                Oculto
-                            @endif
-                        </td>
-                        <td style="overflow: hidden">
-                            <a data-toggle="modal" data-target="#mensagem" style="padding-right: 10px"
+                        {{--<td class="block">--}}
+                                {{--@if ( $mensagem->tipoNoticia->nome == "Noticias")--}}
+                                {{--<img align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">--}}
+                                {{--@endif--}}
+                                {{--@if ( $mensagem->tipoNoticia->nome == "Acidente")--}}
+                                    {{--<img align="left" hspace="20" src="/icons/crash_black.png" height="32" width="32">--}}
+                                {{--@endif--}}
+                                {{--@if ( $mensagem->tipoNoticia->nome == "Tempo")--}}
+                                    {{--<img align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">--}}
+                                {{--@endif--}}
+                                {{--@if ( $mensagem->tipoNoticia->nome == "Informacao")--}}
+                                    {{--<img align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">--}}
+                                {{--@endif--}}
+                        {{--</td>--}}
+                        {{--<td style="overflow: auto; text-align: left; padding-left: 20px">{{$mensagem->titulo}}</td>--}}
+                        {{--<td style="overflow: auto; text-align: left; padding-left: 20px" class="one">{{$mensagem->informacao}}</td>--}}
+                        {{--<td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">{{$mensagem->created_at}}</td>--}}
+                        {{--<td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">--}}
+                            {{--@if($mensagem->visivel == true)--}}
+                                {{--Visivel--}}
+                            {{--@endif--}}
+                            {{--@if($mensagem->visivel == false)--}}
+                                {{--Oculto--}}
+                            {{--@endif--}}
+                        {{--</td>--}}
+                        {{--<td style="overflow: hidden">--}}
+                            {{--<a data-toggle="modal" data-target="#mensagem" style="padding-right: 10px"--}}
 
-                                    onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}', '{{$mensagem->tipo_noticia_id}}');
-                                            updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">
-                                <img height="28" width="30"src="icons/loupe.png">
-                            </a>
-                            <a style="padding-right: 10px"
-                               href="{{route('editarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/edit.png"></a>
-                            @if($mensagem->visivel == true)
-                                <a style="padding-right: 10px"
-                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/hide.png"></a>
-                            @endif
-                            @if($mensagem->visivel == false)
-                                <a style="padding-right: 10px"
-                                   href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/view.png"></a>
-                            @endif
-                            <a onclick="return confirm('Deseja eliminar a noticia selecionada»??');" style="padding-right: 10px"
-                               href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/cancel.png"></a>
-                        </td>
-                    </tr>
-                @endforeach
+                                    {{--onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}', '{{$mensagem->tipo_noticia_id}}');--}}
+                                            {{--updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">--}}
+                                {{--<img height="28" width="30"src="icons/loupe.png">--}}
+                            {{--</a>--}}
+                            {{--<a style="padding-right: 10px"--}}
+                               {{--href="{{route('editarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/edit.png"></a>--}}
+                            {{--@if($mensagem->visivel == true)--}}
+                                {{--<a style="padding-right: 10px"--}}
+                                   {{--href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/hide.png"></a>--}}
+                            {{--@endif--}}
+                            {{--@if($mensagem->visivel == false)--}}
+                                {{--<a style="padding-right: 10px"--}}
+                                   {{--href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/view.png"></a>--}}
+                            {{--@endif--}}
+                            {{--<a onclick="return confirm('Deseja eliminar a noticia selecionada»??');" style="padding-right: 10px"--}}
+                               {{--href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/cancel.png"></a>--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
+                {{--@endforeach--}}
                 </tbody>
             </table>
             <div style="float: right">
@@ -317,6 +309,6 @@
 {{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
-<script src="/js/mensagens.js"></script>
+<script src="/js/admin.js"></script>
 
 </body>

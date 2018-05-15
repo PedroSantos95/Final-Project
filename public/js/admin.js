@@ -3,7 +3,6 @@
 
     var table = $('#datatable').DataTable({
         "bInfo" : false,
-        responsive: true,
         "language": {
             "sProcessing":   "A processar...",
             "sLengthMenu":   "Mostrar _MENU_ registos",
@@ -26,7 +25,7 @@
                 "Accept": "application/json",
                 "Content-Type": "application/json",
             },
-            url: '/api/news',
+            url: '/api/admin',
             dataSrc: ''
         },
         columns: [
@@ -58,16 +57,47 @@
                 // data: 'updated_at'
             },
             {
+                className: "one",
+                data:null,
+                render: function (data) {
+                    return '<div>'+ data.visivelBonito +'</div>'
+                }
+                // data: 'updated_at'
+            },
+            {
                 data: null,
                 render: function (data) {
-                    let button = '<a data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
-                    button = button + data.titulo + '\',\'' + data.path;
-                    button = button + '\'); updateModalInfo(\'';
-                    button = button + data.informacao;
-                    button = button + '\'); updateModalCreatedAt(\'';
-                    button = button + data.updated_at;
-                    button = button + '\') "><img height="28" width="30" src="icons/loupe.png"></a>';
-                    return button;
+                    let modal = '<a style="padding-right:10px" data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
+                    modal = modal + data.titulo + '\',\'' + data.path;
+                    modal = modal + '\'); updateModalInfo(\'';
+                    modal = modal + data.informacao;
+                    modal = modal + '\'); updateModalCreatedAt(\'';
+                    modal = modal + data.updated_at;
+                    modal = modal + '\'); updateModalVisivel(\'';
+                    modal = modal + data.visivel;
+                    modal = modal + '\') "><img height="28" width="30" src="icons/loupe.png"></a>';
+                    
+                    let edit = '<a style="padding-right: 10px" href="';
+                    edit = edit + '/admin/' + data.id + '/editarMensagem';
+                    edit = edit + '"><img height="25" width="25" src="icons/edit.png"></a>';
+
+                    let eliminate = '<a onclick="return confirm(\'Deseja eliminar a noticia selecionada??\');" style="padding-right: 10px" href="';
+                    eliminate = eliminate + '/admin/'+ data.id +'/eliminarMensagem';
+                    eliminate = eliminate + '"><img height="25" width="25" src="icons/cancel.png"></a>';
+
+                    let visibility = '<a style="padding-right: 10px" href="';
+                    visibility = visibility + '/admin/'+ data.id +'/alterarEstado';
+                    visibility = visibility + '"><img height="32" width="32"src="';
+
+
+                    if(data.visivel == 1) {
+                        visibility = visibility + 'icons/hide.png">'
+                    }else{
+                        visibility = visibility + 'icons/view.png">'
+                    }
+                    visibility = visibility + '</a>';
+
+                    return modal+edit+eliminate+visibility;
                 }
             }
         ]

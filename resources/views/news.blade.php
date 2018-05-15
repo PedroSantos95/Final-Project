@@ -12,7 +12,21 @@
         a:hover {
             cursor: pointer;
         }
+
+        table {
+            width: 50%;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .one {
+                display: none;
+            }
+        }
+
     </style>
+
+
+
 </head>
 <body>
 
@@ -52,7 +66,7 @@
 </nav>
 
 <div class="container col-lg-6" style="padding-top: 80px;text-align: center;">
-    <h3>Noticias</h3>
+    <h3>Notícias</h3>
 </div>
 <div class="container col-lg-8" style="margin-top: 1%;">
     <div style="text-align: left;">
@@ -66,7 +80,7 @@
             </label>
             @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                 <label class="btn btn-outline-info">
-                    <div style="text-align: left;" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
+                    <div style="text-align: left" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
                         <input id="type" type="radio" name="tipo" autocomplete="off">
                         <img src="icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                         {{$tiposNoticia[$i]->nome}}
@@ -81,25 +95,17 @@
 <br>
 <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
-           id="datatable" cellspacing="0" style="width: 100%;text-align: left">
+           id="datatable" cellspacing="0" style="width: 100%;text-align: center">
         <thead>
         <tr>
-            <th style="text-align: left;">Tipo</th>
-            <th style="text-align: left;">Titulo</th>
-            <th style="text-align: left;">Mensagem</th>
-            <th style="text-align: left;">Data</th>
-            <th style="text-align: left;">Opções</th>
+            <th style="text-align: center;">Tipo</th>
+            <th style="text-align: center;">Titulo</th>
+            <th class="one" style="text-align: center;">Mensagem</th>
+            <th class="one" style="text-align: center;">Data</th>
+            <th style="table-layout: fixed">Opções</th>
         </tr>
         </thead>
-        <tfoot>
-        <tr>
-            <th style="text-align: left;">Tipo</th>
-            <th style="text-align: left;">Titulo</th>
-            <th style="text-align: left;">Mensagem</th>
-            <th style="text-align: left;">Data</th>
-            <th style="text-align: left;">Opções</th>
-        </tr>
-        </tfoot>
+
         <tbody>
 
         </tbody>
