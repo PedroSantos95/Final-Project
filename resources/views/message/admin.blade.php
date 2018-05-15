@@ -26,7 +26,7 @@
             width: 50%;
         }
 
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 1200px) {
             .one {
                 display: none;
             }
