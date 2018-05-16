@@ -105,10 +105,11 @@
                     <div  class="btn-group btn-group-toggle" data-toggle="buttons">
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                             <label class="btn btn-outline-info">
-                                <div style="width: 120px"><input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
+                                <div style="width: 120px">
+                                    <input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
                                     <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
-                                    {{$tiposNoticia[$i]->nome}}</div>
-
+                                    {{$tiposNoticia[$i]->nome}}
+                                </div>
                             </label>
                         @endfor
                     </div>
@@ -139,7 +140,7 @@
     <div class="container col-lg-10">
         <div style="margin-top: 1%">
             <table class="table table-striped table-bordered custom-datatable display nowrap" id="datatable"
-                   cellspacing="0" style="width: 100%; text-align: center">
+                   cellspacing="0" style="width: 100%">
                 <thead>
                 <tr>
                     <th style="text-align: center">Tipo</th>

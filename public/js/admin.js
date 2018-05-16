@@ -32,7 +32,7 @@
             {
                 data: null,
                 render: function (data) {
-                    return '<img src="icons/' + data.path + '" height="32" width="32">';
+                    return '<div style="text-align: center"><img src="icons/\' + data.path + \'" height="32" width="32"></div>';
                 }
             },
             {
@@ -60,7 +60,7 @@
                 className: "one",
                 data:null,
                 render: function (data) {
-                    return '<div>'+ data.visivelBonito +'</div>'
+                    return '<div style="text-align: center">'+ data.visivelBonito +'</div>'
                 }
                 // data: 'updated_at'
             },
