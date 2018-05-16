@@ -50,6 +50,7 @@
                 }
             },
             {
+                sWidth: '12%',
                 className: "one",
                 data:null,
                 render: function (data) {

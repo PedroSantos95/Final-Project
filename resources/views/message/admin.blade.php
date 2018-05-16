@@ -31,6 +31,7 @@
                 display: none;
             }
         }
+
     </style>
     <style type="text/css">
         a:hover {
@@ -138,23 +139,21 @@
     <hr class="style-two">
 
     <div class="container col-lg-10">
-        <div style="margin-top: 1%">
             <table class="table table-striped table-bordered custom-datatable display nowrap" id="datatable"
-                   cellspacing="0" style="width: 100%">
+                   cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th style="text-align: center">Tipo</th>
-                    <th style="text-align: center">Titulo</th>
-                    <th style="text-align: center">Mensagem</th>
-                    <th style="text-align: center">Data</th>
-                    <th style="text-align: center" width="10%">Estado</th>
-                    <th style="text-align: center" >Opções</th>
+                    <th style="text-align: center;">Tipo</th>
+                    <th style="text-align: center;">Titulo</th>
+                    <th style="text-align: center;">Mensagem</th>
+                    <th style="text-align: center;">Data</th>
+                    <th style="text-align: center;">Estado</th>
+                    <th style="text-align: center;" >Opções</th>
                 </tr>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
-        </div>
 
     </div>
 @endif

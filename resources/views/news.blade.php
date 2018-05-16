@@ -95,7 +95,7 @@
 <br>
 <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
-           id="datatable" cellspacing="0" style="width: 100%">
+           id="datatable" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th style="text-align: center;">Tipo</th>

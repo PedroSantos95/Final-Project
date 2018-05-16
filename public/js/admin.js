@@ -30,9 +30,10 @@
         },
         columns: [
             {
+                sWidth: '15%',
                 data: null,
                 render: function (data) {
-                    return '<div style="text-align: center"><img src="icons/\' + data.path + \'" height="32" width="32"></div>';
+                    return '<div style="text-align: center"><img src="icons/' + data.path + '" height="32" width="32"></div>';
                 }
             },
             {
@@ -49,14 +50,16 @@
                 }
             },
             {
+                sWidth: '12%',
                 className: "one",
                 data:null,
                 render: function (data) {
-                    return '<div>'+ data.updated_at +'</div>'
+                    return '<div style="text-align: center">'+ data.updated_at +'</div>'
                 }
                 // data: 'updated_at'
             },
             {
+                sWidth: '10%',
                 className: "one",
                 data:null,
                 render: function (data) {
@@ -67,7 +70,7 @@
             {
                 data: null,
                 render: function (data) {
-                    let modal = '<a style="padding-right:10px" data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
+                    let modal = '<div style="text-align: center"><a data-toggle="modal"  data-target="#mensagem" onclick="updateModalHeader(\'';
                     modal = modal + data.titulo + '\',\'' + data.path;
                     modal = modal + '\'); updateModalInfo(\'';
                     modal = modal + data.informacao;
@@ -75,17 +78,17 @@
                     modal = modal + data.updated_at;
                     modal = modal + '\'); updateModalVisivel(\'';
                     modal = modal + data.visivel;
-                    modal = modal + '\') "><img height="28" width="30" src="icons/loupe.png"></a>';
-                    
-                    let edit = '<a style="padding-right: 10px" href="';
+                    modal = modal + '\') "><img height="28" width="30" src="icons/loupe.png"></a>&nbsp&nbsp';
+
+                    let edit = '<a href="';
                     edit = edit + '/admin/' + data.id + '/editarMensagem';
-                    edit = edit + '"><img height="25" width="25" src="icons/edit.png"></a>';
+                    edit = edit + '"><img height="25" width="25" src="icons/edit.png"></a>&nbsp&nbsp';
 
-                    let eliminate = '<a onclick="return confirm(\'Deseja eliminar a noticia selecionada??\');" style="padding-right: 10px" href="';
+                    let eliminate = '<a onclick="return confirm(\'Deseja eliminar a noticia selecionada??\');" href="';
                     eliminate = eliminate + '/admin/'+ data.id +'/eliminarMensagem';
-                    eliminate = eliminate + '"><img height="25" width="25" src="icons/cancel.png"></a>';
+                    eliminate = eliminate + '"><img height="25" width="25" src="icons/cancel.png"></a>&nbsp&nbsp';
 
-                    let visibility = '<a style="padding-right: 10px" href="';
+                    let visibility = '<a href="';
                     visibility = visibility + '/admin/'+ data.id +'/alterarEstado';
                     visibility = visibility + '"><img height="32" width="32"src="';
 
@@ -95,7 +98,7 @@
                     }else{
                         visibility = visibility + 'icons/view.png">'
                     }
-                    visibility = visibility + '</a>';
+                    visibility = visibility + '</a></div>';
 
                     return modal+edit+eliminate+visibility;
                 }
