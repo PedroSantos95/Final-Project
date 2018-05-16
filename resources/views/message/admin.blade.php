@@ -79,7 +79,9 @@
 </nav>
 @if(!Auth::check())
 
-erro
+<div style="margin-top: 80px">
+	erro
+</div>
 
 @endif
 @if(Auth::check())
