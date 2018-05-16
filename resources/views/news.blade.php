@@ -102,7 +102,7 @@
             <th style="text-align: center;">Titulo</th>
             <th class="one" style="text-align: center;">Mensagem</th>
             <th class="one" style="text-align: center;">Data</th>
-            <th style="table-layout: fixed">Opções</th>
+            <th style="table-layout: fixed">Detalhes</th>
         </tr>
         </thead>
 
