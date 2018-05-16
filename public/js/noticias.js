@@ -46,7 +46,7 @@
                 className: "one",
                 data: null,
                 render: function (data) {
-                    return '<div style="max-width: 380px; word-wrap: break-word">'+ data.informacao +'</div>'
+                    return '<div style="max-width: 380px; word-wrap: break-word; text-align: left;">'+ data.informacao +'</div>'
                 }
             },
             {

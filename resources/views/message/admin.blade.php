@@ -102,12 +102,13 @@
 
                 <label style="padding-top: 10px; padding-right: 10px; text-align-all: left "><strong>Tipo de noticia: </strong></label>
                 <div class="wrapper text-left">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div  class="btn-group btn-group-toggle" data-toggle="buttons">
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                             <label class="btn btn-outline-info">
-                                <input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
-                                <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
-                                {{$tiposNoticia[$i]->nome}}
+                                <div style="width: 120px"><input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
+                                    <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
+                                    {{$tiposNoticia[$i]->nome}}</div>
+
                             </label>
                         @endfor
                     </div>
@@ -150,56 +151,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{--@foreach ($mensagens as $mensagem)--}}
-                    {{--<tr>--}}
-
-                        {{--<td class="block">--}}
-                                {{--@if ( $mensagem->tipoNoticia->nome == "Noticias")--}}
-                                {{--<img align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">--}}
-                                {{--@endif--}}
-                                {{--@if ( $mensagem->tipoNoticia->nome == "Acidente")--}}
-                                    {{--<img align="left" hspace="20" src="/icons/crash_black.png" height="32" width="32">--}}
-                                {{--@endif--}}
-                                {{--@if ( $mensagem->tipoNoticia->nome == "Tempo")--}}
-                                    {{--<img align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">--}}
-                                {{--@endif--}}
-                                {{--@if ( $mensagem->tipoNoticia->nome == "Informacao")--}}
-                                    {{--<img align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">--}}
-                                {{--@endif--}}
-                        {{--</td>--}}
-                        {{--<td style="overflow: auto; text-align: left; padding-left: 20px">{{$mensagem->titulo}}</td>--}}
-                        {{--<td style="overflow: auto; text-align: left; padding-left: 20px" class="one">{{$mensagem->informacao}}</td>--}}
-                        {{--<td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">{{$mensagem->created_at}}</td>--}}
-                        {{--<td style="overflow: hidden; text-align: left; padding-left: 20px" class="one">--}}
-                            {{--@if($mensagem->visivel == true)--}}
-                                {{--Visivel--}}
-                            {{--@endif--}}
-                            {{--@if($mensagem->visivel == false)--}}
-                                {{--Oculto--}}
-                            {{--@endif--}}
-                        {{--</td>--}}
-                        {{--<td style="overflow: hidden">--}}
-                            {{--<a data-toggle="modal" data-target="#mensagem" style="padding-right: 10px"--}}
-
-                                    {{--onclick="updateModalInfo('{{$mensagem->informacao}}'); updateModalHeader('{{$mensagem->titulo}}', '{{$mensagem->tipo_noticia_id}}');--}}
-                                            {{--updateModalCreatedAt('{{$mensagem->created_at}}'); updateModalVisivel('{{$mensagem->visivel}}')">--}}
-                                {{--<img height="28" width="30"src="icons/loupe.png">--}}
-                            {{--</a>--}}
-                            {{--<a style="padding-right: 10px"--}}
-                               {{--href="{{route('editarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/edit.png"></a>--}}
-                            {{--@if($mensagem->visivel == true)--}}
-                                {{--<a style="padding-right: 10px"--}}
-                                   {{--href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/hide.png"></a>--}}
-                            {{--@endif--}}
-                            {{--@if($mensagem->visivel == false)--}}
-                                {{--<a style="padding-right: 10px"--}}
-                                   {{--href="{{route('alterarEstadoMensagem', ['id' => $mensagem->id])}}"><img height="32" width="32"src="icons/view.png"></a>--}}
-                            {{--@endif--}}
-                            {{--<a onclick="return confirm('Deseja eliminar a noticia selecionada»??');" style="padding-right: 10px"--}}
-                               {{--href="{{route('eliminarMensagem', ['id' => $mensagem->id])}}"><img height="25" width="25"src="icons/cancel.png"></a>--}}
-                        {{--</td>--}}
-                    {{--</tr>--}}
-                {{--@endforeach--}}
                 </tbody>
             </table>
         </div>
