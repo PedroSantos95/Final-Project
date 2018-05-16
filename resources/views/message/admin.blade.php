@@ -77,7 +77,11 @@
         </div>
     </div>
 </nav>
+@if(!Auth::check())
 
+erro
+
+@endif
 @if(Auth::check())
     <div class="container col-lg-6" style="padding-top: 65px;text-align: center; padding-bottom: 20px;">
         <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none">
