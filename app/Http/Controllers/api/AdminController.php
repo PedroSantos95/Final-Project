@@ -30,7 +30,7 @@ class AdminController extends Controller
 
         foreach ($mensagens as $msg) {
             $array_msg[] = ['path' => $msg->tipoNoticia->path_black, 'titulo' => $msg->titulo, 'informacao' => $msg->informacao,
-                'updated_at' => $msg->updated_at->format('d/m/Y H:i'), 'id'=>$msg->id, 'visivel' =>$msg->visivel, 'visivelBonito' => $msg->visivel == 1 ? 'Visivel' : 'Oculto'];
+                'updated_at' => $msg->updated_at->format('d/m/Y H:i'), 'id'=>$msg->id, 'visivel' =>$msg->visivel, 'imagem' => $msg->file,'visivelBonito' => $msg->visivel == 1 ? 'Visivel' : 'Oculto'];
         }
 
 

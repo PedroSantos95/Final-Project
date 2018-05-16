@@ -13,6 +13,7 @@ use App\Http\Mensagem;
 use App\Http\TipoNoticia;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class MessageController extends Controller
 {
@@ -85,6 +86,12 @@ class MessageController extends Controller
         $mensagem->titulo = $request['titulo'];
         $mensagem->informacao = $request['corpo'];
         $mensagem->tipoNoticia()->associate($tipoNoticia);
+        if($request->file('image') != null){
+            $mensagem->file = $request->file('image')->getClientOriginalName();
+
+            $request->file('image')->move(
+                base_path() . '/public/img/uploads/', $mensagem->file);
+        }
 
         if($mensagem->save()){
             $saved = 1;
@@ -92,6 +99,8 @@ class MessageController extends Controller
         else{
             $saved = -1;
         }
+
+
 
         return $this->index($saved);
     }

@@ -18,6 +18,7 @@ class CreateNoticiasTable extends Migration {
 			$table->integer('id_rally')->unsigned()->nullable()->index('noticias_id_rally_foreign');
 			$table->string('titulo');
 			$table->boolean('tipo_noticia_id');
+			$table->string('file')->nullable();
 			$table->boolean('visivel');
 			$table->string('informacao');
 			$table->timestamps();
