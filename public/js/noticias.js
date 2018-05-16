@@ -33,13 +33,13 @@
             {
                 data: null,
                 render: function (data) {
-                    return '<img src="icons/' + data.path + '" height="32" width="32">';
+                    return '<div style="text-align: center"><img src="icons/' + data.path + '" height="32" width="32"></div>';
                 }
             },
             {
                 data: null,
                 render: function (data) {
-                    return '<div style="width: 100%; word-wrap: break-word; text-align: center">'+ data.titulo +'</div>'
+                    return '<div style="width: 100%; word-wrap: break-word; text-align: left">'+ data.titulo +'</div>'
                 }
             },
             {
@@ -53,20 +53,20 @@
                 className: "one",
                 data:null,
                 render: function (data) {
-                    return '<div>'+ data.updated_at +'</div>'
+                    return '<div style="text-align: center;">'+ data.updated_at +'</div>'
                 }
                 // data: 'updated_at'
             },
             {
                 data: null,
                 render: function (data) {
-                    let button = '<a data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
+                    let button = '<div style="text-align: center"><a data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
                     button = button + data.titulo + '\',\'' + data.path;
                     button = button + '\'); updateModalInfo(\'';
                     button = button + data.informacao;
                     button = button + '\'); updateModalCreatedAt(\'';
                     button = button + data.updated_at;
-                    button = button + '\') "><img height="28" width="30" src="icons/loupe.png"></a>';
+                    button = button + '\') "><img height="28" width="30" src="icons/loupe.png"></a></div>';
                     return button;
                 }
             }
