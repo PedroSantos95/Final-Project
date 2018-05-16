@@ -202,9 +202,6 @@
                 {{--@endforeach--}}
                 </tbody>
             </table>
-            <div style="float: right">
-                {{$mensagens->links()}}
-            </div>
         </div>
 
     </div>
