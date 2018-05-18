@@ -33,7 +33,8 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Tempos Online</a>
+        <a style="margin-left: -180px; margin-right: 100px  "class="navbar-brand" href="#">Tempos Online</a>
+        <img src="img/teste.png" height="80" width="320">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
