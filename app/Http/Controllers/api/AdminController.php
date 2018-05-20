@@ -29,7 +29,7 @@ class AdminController extends Controller
         $array_msg = [];
 
         foreach ($mensagens as $msg) {
-            $array_msg[] = ['path' => $msg->tipoNoticia->path_black, 'titulo' => $msg->titulo, 'informacao' => $msg->informacao,
+            $array_msg[] = ['path' => $msg->tipoNoticia->path_black, 'titulo' => $msg->titulo, 'informacao' => $msg->informacao, 'tipo' => $msg->tipo_noticia_id,
                 'updated_at' => $msg->updated_at->format('d/m/Y H:i'), 'id'=>$msg->id, 'visivel' =>$msg->visivel, 'imagem' => $msg->file,'visivelBonito' => $msg->visivel == 1 ? 'Visivel' : 'Oculto'];
         }
 

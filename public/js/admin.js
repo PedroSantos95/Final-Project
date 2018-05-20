@@ -76,7 +76,7 @@
                         img = img + '"><img height="25" width="25" src="icons/edit.png"></a>&nbsp&nbsp';
                     }
                     let modal = '<div style="text-align: center"><a data-toggle="modal"  data-target="#mensagem" onclick="updateModalHeader(\'';
-                    modal = modal + data.titulo + '\',\'' + data.path;
+                    modal = modal + data.titulo + '\',\'' + data.tipo;
                     modal = modal + '\'); updateModalInfo(\'';
                     modal = modal + data.informacao;
                     modal = modal + '\'); updateModalCreatedAt(\'';
