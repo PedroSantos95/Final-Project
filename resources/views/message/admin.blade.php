@@ -267,6 +267,7 @@
 
 <script>
     function updateModalHeader(titulo, tipo) {
+        console.log(tipo);
         if(tipo==1){
             $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">');
         }
