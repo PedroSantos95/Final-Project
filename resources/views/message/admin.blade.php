@@ -290,7 +290,7 @@
 
 <script>
     function updateModalVisivel(visivel) {
-        visibility = visivel == 1 ?
+        visibility = visivel == false ?
             '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/view.png" height="32" width="32">' :
             '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/hide.png" height="32" width="32">';
         $('.modal-visivel').html(visibility);
