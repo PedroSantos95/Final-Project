@@ -29,8 +29,10 @@ class NewsController extends Controller
         $array_msg = [];
 
         foreach ($mensagens as $msg) {
-            $array_msg[] = ['path' => $msg->tipoNoticia->path_black, 'titulo' => $msg->titulo, 'informacao' => $msg->informacao,
-                'updated_at' => $msg->updated_at->format('d/m/Y H:i')];
+            if($msg->visivel == true){
+                $array_msg[] = ['path' => $msg->tipoNoticia->path_black, 'titulo' => $msg->titulo, 'informacao' => $msg->informacao,
+                    'updated_at' => $msg->updated_at->format('d/m/Y H:i')];
+            }
         }
 
 
