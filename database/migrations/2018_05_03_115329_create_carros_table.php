@@ -21,6 +21,7 @@ class CreateCarrosTable extends Migration {
 			$table->string('nacionalidade');
 			$table->string('equipa');
 			$table->string('campeonato');
+            $table->unique(['id_carro', 'id_rally']);
 			$table->timestamps();
 		});
 	}

@@ -36,4 +36,4 @@ class AdminController extends Controller
 
         return $array_msg;
     }
-}   
+}

@@ -16,7 +16,7 @@ class CreateTemposIntermediosTable extends Migration {
 		{
 			$table->increments('id_pec');
 			$table->integer('id_rally')->unsigned()->index('tempos_intermedios_id_rally_foreign');
-			$table->integer('id_carro')->unsigned()->index('tempos_intermedios_id_carro_foreign');
+            $table->integer('id_carro')->unsigned()->index('tempos_intermedios_id_carro_foreign');
 			$table->dateTime('tempoPartida');
 			$table->dateTime('tempoIntermedio_1');
 			$table->dateTime('tempoIntermedio_2');
@@ -29,6 +29,7 @@ class CreateTemposIntermediosTable extends Migration {
 			$table->dateTime('tempoIntermedio_9');
 			$table->dateTime('tempoIntermedio_10');
 			$table->dateTime('tempoChegada');
+            $table->unique(['id_pec', 'id_rally', 'id_carro']);
 			$table->timestamps();
 		});
 	}
