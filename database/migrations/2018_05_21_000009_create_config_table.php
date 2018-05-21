@@ -15,13 +15,14 @@ class CreateConfigTable extends Migration {
 		Schema::create('config', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_pec')->unsigned()->index('config_id_pec_foreign');
-			$table->integer('numero_tempos_intermedios')->unsigned();
-			$table->integer('numero_carro_referencia')->unsigned()->index('config_numero_carro_referencia_foreign');
+			$table->tinyInteger('id_pec')->unsigned()->references('id_pec')->on('pecs')->onUpdate('RESTRICT')->onDelete('CASCADE');
+            $table->integer('numero_tempos_intermedios')->unsigned();
+			$table->integer('numero_carro_referencia')->unsigned();
+            $table->foreign('numero_carro_referencia')->references('id_carro')->on('carros')->onUpdate('RESTRICT')->onDelete('CASCADE');
 			$table->timestamps();
 		});
-	}
 
+	}
 
 	/**
 	 * Reverse the migrations.
@@ -31,6 +32,7 @@ class CreateConfigTable extends Migration {
 	public function down()
 	{
 		Schema::drop('config');
+
 	}
 
 }

@@ -14,10 +14,10 @@ class CreateNoticiasTable extends Migration {
 	{
 		Schema::create('noticias', function(Blueprint $table)
 		{
+            $table->integer('id_rally')->unsigned()->nullable()->index('noticias_id_rally_foreign');
 			$table->increments('id');
-			$table->integer('id_rally')->unsigned()->nullable()->index('noticias_id_rally_foreign');
 			$table->string('titulo');
-			$table->boolean('tipo_noticia_id');
+			$table->tinyInteger('tipo_noticia_id');
 			$table->string('file')->nullable();
 			$table->boolean('visivel');
 			$table->string('informacao');
