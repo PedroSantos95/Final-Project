@@ -3,7 +3,7 @@
 
     var table = $('#datatable').DataTable({
         "bInfo" : false,
-        responsive: true,
+        "autoWidth":false,
         "language": {
             "sProcessing":   "A processar...",
             "sLengthMenu":   "Mostrar _MENU_ registos",
@@ -31,6 +31,7 @@
         },
         columns: [
             {
+                sWidth: '15%',
                 data: null,
                 render: function (data) {
                     return '<div style="text-align: center"><img src="icons/' + data.path + '" height="32" width="32"></div>';
@@ -50,7 +51,7 @@
                 }
             },
             {
-                sWidth: '12%',
+                sWidth: '17%',
                 className: "one",
                 data:null,
                 render: function (data) {
@@ -59,6 +60,7 @@
                 // data: 'updated_at'
             },
             {
+                sWidth:'20%',
                 data: null,
                 render: function (data) {
                     let button = '<div style="text-align: center"><a data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
