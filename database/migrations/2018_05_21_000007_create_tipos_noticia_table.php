@@ -19,6 +19,38 @@ class CreateTiposNoticiaTable extends Migration {
 			$table->string('path_white', 100);
 			$table->string('path_black', 100);
 		});
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'Notícias',
+                'path_white' => 'news_white.png',
+                'path_black' => 'news_black.png'
+            )
+        );
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'Acidente',
+                'path_white' => 'crash_white.png',
+                'path_black' => 'crash_black.png'
+            )
+        );
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'Tempo',
+                'path_white' => 'time_white.png',
+                'path_black' => 'time_black.png'
+            )
+        );
+
+        DB::table('tipos_noticia')->insert(
+            array(
+                'nome' => 'Informação',
+                'path_white' => 'info_white.png',
+                'path_black' => 'info_black.png'
+            )
+        );
 	}
 
 
