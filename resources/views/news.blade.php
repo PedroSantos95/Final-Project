@@ -13,6 +13,11 @@
             cursor: pointer;
         }
 
+        .custom-datatable {
+            table-layout: fixed;
+        }
+
+
         table {
             width: 50%;
         }
@@ -31,10 +36,9 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a style="margin-left: -180px; margin-right: 100px  "class="navbar-brand" href="#">Tempos Online</a>
-        <img src="img/teste.png" height="80" width="320">
+        <a style="margin-left: 6% " class="navbar-brand" href="#"><img src="img/teste.png" height="80" width="250"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -66,7 +70,7 @@
     </div>
 </nav>
 
-<div class="container col-lg-6" style="padding-top: 80px;text-align: center;">
+<div class="container col-lg-6" style="padding-top: 10px;text-align: center;">
     <h3>Notícias</h3>
 </div>
 <div class="container col-lg-8" style="margin-top: 1%;">
@@ -103,7 +107,7 @@
             <th style="text-align: center;">Titulo</th>
             <th class="one" style="text-align: center;">Mensagem</th>
             <th class="one" style="text-align: center;">Data</th>
-            <th style="table-layout: fixed">Detalhes</th>
+            <th style="text-align: center;">Detalhes</th>
         </tr>
         </thead>
 
