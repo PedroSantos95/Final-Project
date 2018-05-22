@@ -169,7 +169,7 @@
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                             <label class="btn btn-outline-info">
                                 <div style="width: 120px">
-                                    <input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
+                                    <input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id_tipo_noticia}}" autocomplete="off">
                                     <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                                     {{$tiposNoticia[$i]->nome}}
                                 </div>

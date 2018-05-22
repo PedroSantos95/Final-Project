@@ -21,6 +21,7 @@ class MessageController extends Controller
     {
         $mensagens = Mensagem::orderBy('created_at','desc')->paginate(6);
         $tiposNoticia = TipoNoticia::all();
+
         $tamanhoImagem = env('IMAGE_SIZE','');
 
         return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem', 'saved'));
@@ -79,13 +80,13 @@ class MessageController extends Controller
             return view('message.admin', ['error' => 'Todos os campos têm que estar preenchidos']);
         }
 
-        $tipoNoticia = TipoNoticia::find($request['tipo']);
+        $tipoNoticia = TipoNoticia::where('id_tipo_noticia', $request['tipo'])->first();
 
         $mensagem = new Mensagem;
         $mensagem->visivel = true;
         $mensagem->titulo = $request['titulo'];
+        $mensagem->id_tipo_noticia = $request['tipo'];
         $mensagem->informacao = $request['corpo'];
-        $mensagem->tipoNoticia()->associate($tipoNoticia);
         if($request->file('image') != null){
             $mensagem->file = $request->file('image')->getClientOriginalName();
 
@@ -99,8 +100,6 @@ class MessageController extends Controller
         else{
             $saved = -1;
         }
-
-
 
         return $this->index($saved);
     }
