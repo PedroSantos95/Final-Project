@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use App\Http\Mensagem;
 use App\Http\TipoNoticia;
 use Carbon\Carbon;
+use App\Http\Controllers\api\RallyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -24,7 +25,9 @@ class MessageController extends Controller
 
         $tamanhoImagem = env('IMAGE_SIZE','');
 
-        return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem', 'saved'));
+        $rallys = RallyController::all();
+
+        return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem', 'saved', 'rallys'));
     }
 
     public function showMensagens()

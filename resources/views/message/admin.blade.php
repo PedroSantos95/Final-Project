@@ -119,6 +119,19 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Rallys</label>
+                                <div class="col-md-6">
+
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        @foreach($rallys as $rally)
+                                        <option>{{$rally->nome}}</option>
+                                         @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
@@ -139,6 +152,8 @@
                                     </a>
                                 </div>
                             </div>
+
+
                         </form>
                     </div>
                 </div>
