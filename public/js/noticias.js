@@ -29,6 +29,9 @@
             url: '/api/news',
             dataSrc: ''
         },
+        columnDefs: [
+            { orderable: false, targets:[-1, -3, -4, -5] }
+        ],
         columns: [
             {
                 sWidth: '15%',

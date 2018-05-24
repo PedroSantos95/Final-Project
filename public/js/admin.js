@@ -25,7 +25,7 @@
                 "Accept": "application/json",
                 "Content-Type": "application/json",
             },
-            url: '/api/admin',
+            url: '/api/admin/'+rally,
             dataSrc: ''
         },
         columns: [
@@ -111,7 +111,7 @@
         ]
     });
 
-    let radios = document.getElementsByClassName('selecao-tipo');
+    let radios = document.getElementsByClassName('');
     for(let i=0; i<radios.length; i++){
         radios[i].addEventListener("click", function clickUpdate (){
             let tipo = radios[i].id;

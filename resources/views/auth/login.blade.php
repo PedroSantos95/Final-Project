@@ -68,6 +68,22 @@
                             </div>
                         </div>
 
+                        <?php
+                        use App\Http\Controllers\api\RallyController;
+                        $rallys = RallyController::all();
+                            ?>
+
+                        <div class="form-group row">
+                            <label for="select-rally" class="col-md-4 col-form-label text-md-right">Rallys</label>
+                            <div class="col-md-6">
+                                <select name="rally" class="form-control" id="select-rally">
+                                    @foreach($rallys as $rally)
+                                        <option {{$rally->ativo == 1 ? 'selected' : ''}} value="{{$rally->id}}">{{$rally->nome}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="checkbox">

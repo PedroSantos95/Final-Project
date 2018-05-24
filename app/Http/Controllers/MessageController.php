@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Mensagem;
+use App\Http\Rally;
 use App\Http\TipoNoticia;
 use Carbon\Carbon;
 use App\Http\Controllers\api\RallyController;
@@ -22,20 +23,17 @@ class MessageController extends Controller
     {
         $mensagens = Mensagem::orderBy('created_at','desc')->paginate(6);
         $tiposNoticia = TipoNoticia::all();
-
         $tamanhoImagem = env('IMAGE_SIZE','');
+        $rally = session('rally');
 
-        $rallys = RallyController::all();
-
-        return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem', 'saved', 'rallys'));
+        return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem', 'saved', 'rally'));
     }
 
-    public function showMensagens()
+    public function showMensagens() //agr o problema e aqui ne?
     {
-        $mensagens = Mensagem::orderBy('created_at','desc')->get();
         $tiposNoticia = TipoNoticia::all();
 
-        return view('news', compact('mensagens', 'tiposNoticia'));
+        return view('news', compact('tiposNoticia'));
     }
 
     public function editarMensagem($id)
@@ -73,22 +71,20 @@ class MessageController extends Controller
         //$mensagem = Mensagem::findOrFail($id);
         $mensagem = Mensagem::where('id', $id)->first();
         $mensagem->visivel = $mensagem->visivel ? false : true;
-        $mensagem->save();
+        $mensagem->update();
         return redirect()->route('adminBoard');
     }
 
     public function create(Request $request)
     {
-        if(!$request['tipo'] || !$request['titulo'] || !$request['corpo']){
+        if(!$request['tipo'] || !$request['titulo'] || !$request['corpo']) {
             return view('message.admin', ['error' => 'Todos os campos têm que estar preenchidos']);
         }
-
-        $tipoNoticia = TipoNoticia::where('id_tipo_noticia', $request['tipo'])->first();
-
         $mensagem = new Mensagem;
         $mensagem->visivel = true;
+        $mensagem->id_rally = $request->session()->get('rally');
         $mensagem->titulo = $request['titulo'];
-        $mensagem->id_tipo_noticia = $request['tipo'];
+        $mensagem->tipo_noticia_id = $request['tipo'];
         $mensagem->informacao = $request['corpo'];
         if($request->file('image') != null){
             $mensagem->file = $request->file('image')->getClientOriginalName();

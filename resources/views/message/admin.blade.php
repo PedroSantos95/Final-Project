@@ -35,7 +35,7 @@
     </style>
     <style type="text/css">
         a:hover {
-            cursor:pointer;
+            cursor: pointer;
         }
     </style>
 
@@ -78,90 +78,96 @@
         </div>
     </div>
 </nav>
-@if(!Auth::check())
+{{--@if(!Auth::check())--}}
 
-    <div class="container" style="margin-top:120px">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+    {{--<div class="container" style="margin-top:120px">--}}
+        {{--<div class="row justify-content-center">--}}
+            {{--<div class="col-md-8">--}}
+                {{--<div class="card">--}}
+                    {{--<div class="card-header">{{ __('Login') }}</div>--}}
 
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
+                    {{--<div class="card-body">--}}
+                        {{--<form method="POST" action="{{ route('login') }}">--}}
+                            {{--@csrf--}}
 
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            {{--<div class="form-group row">--}}
+                                {{--<label for="email"--}}
+                                       {{--class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                {{--<div class="col-md-6">--}}
+                                    {{--<input id="email" type="email"--}}
+                                           {{--class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"--}}
+                                           {{--name="email" value="{{ old('email') }}" required autofocus>--}}
 
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
+                                    {{--@if ($errors->has('email'))--}}
+                                        {{--<span class="invalid-feedback">--}}
+                                        {{--<strong>{{ $errors->first('email') }}</strong>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            {{--<div class="form-group row">--}}
+                                {{--<label for="password"--}}
+                                       {{--class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                {{--<div class="col-md-6">--}}
+                                    {{--<input id="password" type="password"--}}
+                                           {{--class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"--}}
+                                           {{--name="password" required>--}}
 
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
+                                    {{--@if ($errors->has('password'))--}}
+                                        {{--<span class="invalid-feedback">--}}
+                                        {{--<strong>{{ $errors->first('password') }}</strong>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="form-group row">
-                                <label for="" class="col-md-4 col-form-label text-md-right">Rallys</label>
-                                <div class="col-md-6">
-
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        @foreach($rallys as $rally)
-                                        <option>{{$rally->nome}}</option>
-                                         @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Login') }}
-                                    </button>
-
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                </div>
-                            </div>
+                            {{--<div class="form-group row">--}}
+                                {{--<label for="select-rally" class="col-md-4 col-form-label text-md-right">Rallys</label>--}}
+                                {{--<div class="col-md-6">--}}
+                                    {{--<select name="rally" class="form-control" id="select-rally">--}}
+                                        {{--@foreach($rallys as $rally)--}}
+                                            {{--<option {{$rally->ativo == 1 ? 'selected' : ''}} value="{{$rally->id_rally}}">{{$rally->nome}}</option>--}}
+                                        {{--@endforeach--}}
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            {{--<div class="form-group row">--}}
+                                {{--<div class="col-md-6 offset-md-4">--}}
+                                    {{--<div class="checkbox">--}}
+                                        {{--<label>--}}
+                                            {{--<input type="checkbox"--}}
+                                                   {{--name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}--}}
+                                        {{--</label>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-@endif
+                            {{--<div class="form-group row mb-0">--}}
+                                {{--<div class="col-md-8 offset-md-4">--}}
+                                    {{--<button type="submit" class="btn btn-primary">--}}
+                                        {{--{{ __('Login') }}--}}
+                                    {{--</button>--}}
+
+                                    {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
+                                        {{--{{ __('Forgot Your Password?') }}--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+
+
+                        {{--</form>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
+{{--@endif--}}
 @if(Auth::check())
     <div class="container col-lg-6" style="padding-top: 65px;text-align: center; padding-bottom: 20px;">
         <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none">
@@ -178,13 +184,15 @@
         <form action="" method="POST" enctype="multipart/form-data">
             <div style="text-align: left;">
 
-                <label style="padding-top: 10px; padding-right: 10px; text-align-all: left "><strong>Tipo de noticia: </strong></label>
+                <label style="padding-top: 10px; padding-right: 10px; text-align-all: left "><strong>Tipo de
+                        noticia: </strong></label>
                 <div class="wrapper text-left">
-                    <div  class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         @for ($i = 0; $i <sizeof($tiposNoticia); $i++)
                             <label class="btn btn-outline-info">
                                 <div style="width: 120px">
-                                    <input required type="radio" name="tipo" value="{{$tiposNoticia[$i]->id_tipo_noticia}}" autocomplete="off">
+                                    <input required type="radio" name="tipo"
+                                           value="{{$tiposNoticia[$i]->id}}" autocomplete="off">
                                     <img src="/icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                                     {{$tiposNoticia[$i]->nome}}
                                 </div>
@@ -222,21 +230,21 @@
     <hr class="style-two">
 
     <div class="container col-lg-10">
-            <table class="table table-striped table-bordered custom-datatable display nowrap" id="datatable"
-                   cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                    <th style="text-align: center;">Tipo</th>
-                    <th style="text-align: center;">Titulo</th>
-                    <th style="text-align: center;">Mensagem</th>
-                    <th style="text-align: center;">Data</th>
-                    <th style="text-align: center;">Estado</th>
-                    <th style="text-align: center;" >Opções</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <table class="table table-striped table-bordered custom-datatable display nowrap" id="datatable"
+               cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th style="text-align: center;">Tipo</th>
+                <th style="text-align: center;">Titulo</th>
+                <th style="text-align: center;">Mensagem</th>
+                <th style="text-align: center;">Data</th>
+                <th style="text-align: center;">Estado</th>
+                <th style="text-align: center;">Opções</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 
     </div>
 @endif
@@ -283,17 +291,17 @@
 <script>
     function updateModalHeader(titulo, tipo) {
         console.log(tipo);
-        if(tipo==1){
-            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">');
+        if (tipo == 1) {
+            $('.modal-title').html(titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/news_black.png" height="32" width="32">');
         }
-        if(tipo==4){
-            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">');
+        if (tipo == 4) {
+            $('.modal-title').html(titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/info_black.png" height="32" width="32">');
         }
-        if(tipo==2){
-            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/crash_black.png" height="32" width="32">');
+        if (tipo == 2) {
+            $('.modal-title').html(titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/crash_black.png" height="32" width="32">');
         }
-        if(tipo==3){
-            $('.modal-title').html( titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">');
+        if (tipo == 3) {
+            $('.modal-title').html(titulo + '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/time_black.png" height="32" width="32">');
         }
     }
 </script>
@@ -317,14 +325,14 @@
     let saved = 0;
     saved = {{$saved}};
     let alert = document.getElementById("alert");
-    if(saved === 1){
-        alert.style.display='';
+    if (saved === 1) {
+        alert.style.display = '';
     }
 </script>
 
 <script>
-    window.setTimeout(function() {
-        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
             $(this).remove();
         });
     }, 4000);
@@ -347,6 +355,10 @@
 {{--src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>--}}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
-<script src="/js/admin.js"></script>
+<script>
+    var rally = {{$rally}};
+</script>
+<script src="/js/admin.js">
+</script>
 
 </body>

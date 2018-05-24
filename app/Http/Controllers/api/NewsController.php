@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Mensagem;
+use App\Http\Rally;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,11 +20,15 @@ class NewsController extends Controller
     {
         $mensagens = [];
         $tipo = $request->input('tipo');
+        $rally = RallyController::rallyActive();
 
+        if(is_null($rally)){
+            return [];
+        }
         if (is_null($tipo) || !is_string($tipo) || $tipo==0) {
-            $mensagens = Mensagem::orderBy('created_at', 'desc')->get();
+            $mensagens = Mensagem::where('id_rally', $rally->id)->orderBy('created_at', 'desc')->get();
         } else {
-            $mensagens = Mensagem::where('tipo_noticia_id', $request->input('tipo'))->orderBy('created_at', 'desc')->get();
+            $mensagens = Mensagem::where('id_rally', $rally->id)->where('id_tipo_noticia', $request->input('tipo'))->orderBy('created_at', 'desc')->get();
         }
 
         $array_msg = [];

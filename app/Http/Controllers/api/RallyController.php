@@ -6,9 +6,10 @@
  * Time: 12:07
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
 
+use App\Http\Controllers\Controller;
 use App\Http\Rally;
 
 class RallyController extends Controller
@@ -18,5 +19,12 @@ class RallyController extends Controller
         $rallys = Rally::all();
 
         return $rallys;
+    }
+
+    public static function rallyActive()
+    {
+        $active = Rally::where('ativo', 1)->first();
+
+        return $active;
     }
 }
