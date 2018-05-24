@@ -222,6 +222,7 @@
             {{ csrf_field() }}
 
             <input type="submit" class="btn btn-outline-info" onclick="functionAlert()" value="Submeter">
+
         </form>
     </div>
     <br>

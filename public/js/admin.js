@@ -28,6 +28,9 @@
             url: '/api/admin/'+rally,
             dataSrc: ''
         },
+        columnDefs: [
+            { orderable: false, targets:[-1, -2, -4, -5, -6] }
+        ],
         columns: [
             {
                 sWidth: '15%',
@@ -111,7 +114,7 @@
         ]
     });
 
-    let radios = document.getElementsByClassName('');
+    let radios = document.getElementsByClassName('selecao-tipo');
     for(let i=0; i<radios.length; i++){
         radios[i].addEventListener("click", function clickUpdate (){
             let tipo = radios[i].id;

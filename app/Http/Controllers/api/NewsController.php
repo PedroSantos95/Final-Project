@@ -28,7 +28,7 @@ class NewsController extends Controller
         if (is_null($tipo) || !is_string($tipo) || $tipo==0) {
             $mensagens = Mensagem::where('id_rally', $rally->id)->orderBy('created_at', 'desc')->get();
         } else {
-            $mensagens = Mensagem::where('id_rally', $rally->id)->where('id_tipo_noticia', $request->input('tipo'))->orderBy('created_at', 'desc')->get();
+            $mensagens = Mensagem::where('id_rally', $rally->id)->where('tipo_noticia_id', $request->input('tipo'))->orderBy('created_at', 'desc')->get();
         }
 
         $array_msg = [];

@@ -100,6 +100,14 @@ class MessageController extends Controller
             $saved = -1;
         }
 
+        if(isset($_POST['submit']))
+        {
+
+
+            header('Location: http://pgronline.test/admin');
+            exit();
+        }
+
         return $this->index($saved);
     }
 
