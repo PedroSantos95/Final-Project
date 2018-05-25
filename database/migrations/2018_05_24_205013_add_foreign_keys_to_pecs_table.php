@@ -14,7 +14,7 @@ class AddForeignKeysToPecsTable extends Migration {
 	{
 		Schema::table('pecs', function(Blueprint $table)
 		{
-			$table->foreign('id_rally')->references('id_rally')->on('rally')->onUpdate('RESTRICT')->onDelete('CASCADE');
+			$table->foreign('id_rally', 'FK_pecs_rallys')->references('id')->on('rallys')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
@@ -28,7 +28,7 @@ class AddForeignKeysToPecsTable extends Migration {
 	{
 		Schema::table('pecs', function(Blueprint $table)
 		{
-			$table->dropForeign('pecs_id_rally_foreign');
+			$table->dropForeign('FK_pecs_rallys');
 		});
 	}
 

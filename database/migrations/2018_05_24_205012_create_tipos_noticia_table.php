@@ -14,7 +14,7 @@ class CreateTiposNoticiaTable extends Migration {
 	{
 		Schema::create('tipos_noticia', function(Blueprint $table)
 		{
-			$table->boolean('id_tipo_noticia')->primary();
+			$table->boolean('id')->primary();
 			$table->string('nome', 40);
 			$table->string('path_white', 100);
 			$table->string('path_black', 100);

@@ -14,7 +14,7 @@ class CreateCarrosTable extends Migration {
 	{
 		Schema::create('carros', function(Blueprint $table)
 		{
-			$table->integer('id_rally')->unsigned()->index('IX_carros_id_rally');
+			$table->integer('id')->unsigned()->index('IX_carros_id_rally');
 			$table->smallInteger('numero_carro')->unsigned();
 			$table->string('piloto_nome', 100);
 			$table->string('piloto_firstname_lastname', 50)->nullable();
@@ -28,8 +28,8 @@ class CreateCarrosTable extends Migration {
 			$table->string('navegador_nacionalidade', 3)->nullable();
 			$table->string('equipa', 100);
 			$table->string('campeonato', 20)->nullable();
-			$table->primary(['id_rally','numero_carro']);
-			$table->unique(['id_rally','numero_carro'], 'UN_carros_numero_carro_id_rally');
+			$table->primary(['id','numero_carro']);
+			$table->unique(['id','numero_carro'], 'UN_carros_numero_carro_id_rally');
 		});
 	}
 

@@ -14,7 +14,8 @@ class AddForeignKeysToNoticiasTable extends Migration {
 	{
 		Schema::table('noticias', function(Blueprint $table)
 		{
-			$table->foreign('id_rally')->references('id_rally')->on('rally')->onUpdate('RESTRICT')->onDelete('CASCADE');
+			$table->foreign('id_rally', 'FK_noticias_rallys')->references('id')->on('rallys')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('tipo_noticia_id', 'FK_noticias_tipo_noticias')->references('id')->on('tipos_noticia')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
@@ -28,7 +29,8 @@ class AddForeignKeysToNoticiasTable extends Migration {
 	{
 		Schema::table('noticias', function(Blueprint $table)
 		{
-			$table->dropForeign('noticias_id_rally_foreign');
+			$table->dropForeign('FK_noticias_rallys');
+			$table->dropForeign('FK_noticias_tipo_noticias');
 		});
 	}
 

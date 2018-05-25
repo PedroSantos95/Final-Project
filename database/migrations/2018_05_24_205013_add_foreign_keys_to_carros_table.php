@@ -14,7 +14,7 @@ class AddForeignKeysToCarrosTable extends Migration {
 	{
 		Schema::table('carros', function(Blueprint $table)
 		{
-			$table->foreign('id_rally', 'PK_carros_rallys')->references('id_rally')->on('rallys')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('id', 'PK_carros_rallys')->references('id')->on('rallys')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
