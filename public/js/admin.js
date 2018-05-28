@@ -53,7 +53,7 @@
                 }
             },
             {
-                sWidth: '12%',
+                sWidth: '15%',
                 className: "one",
                 data:null,
                 render: function (data) {
