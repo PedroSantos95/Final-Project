@@ -22,9 +22,9 @@ class AdminController extends Controller
         $tipo = $request->input('tipo');
 
         if (is_null($tipo) || !is_string($tipo) || $tipo==0) {
-            $mensagens = Mensagem::where('id_rally', $rally)->orderBy('created_at', 'asc')->get();
+            $mensagens = Mensagem::where('id_rally', $rally)->orderBy('created_at', 'desc')->get();
         } else {
-            $mensagens = Mensagem::where('id_rally',$rally)->where('tipo_noticia_id', $request->input('tipo'))->orderBy('updated_at', 'asc')->get();
+            $mensagens = Mensagem::where('id_rally',$rally)->where('tipo_noticia_id', $request->input('tipo'))->orderBy('updated_at', 'desc')->get();
         }
 
         $array_msg = [];

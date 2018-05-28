@@ -26,6 +26,10 @@ class MessageController extends Controller
         $tamanhoImagem = env('IMAGE_SIZE','');
         $rally = session('rally');
 
+        if(isset($_GET['saved'])){
+            $saved = 1;
+        }
+
         return view('message.admin', compact('mensagens', 'tiposNoticia', 'tamanhoImagem', 'saved', 'rally'));
     }
 
@@ -98,14 +102,6 @@ class MessageController extends Controller
         }
         else{
             $saved = -1;
-        }
-
-        if(isset($_POST['submit']))
-        {
-
-
-            header('Location: http://pgronline.test/admin');
-            exit();
         }
 
         return $this->index($saved);

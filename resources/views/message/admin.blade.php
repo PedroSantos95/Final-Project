@@ -80,92 +80,92 @@
 </nav>
 {{--@if(!Auth::check())--}}
 
-    {{--<div class="container" style="margin-top:120px">--}}
-        {{--<div class="row justify-content-center">--}}
-            {{--<div class="col-md-8">--}}
-                {{--<div class="card">--}}
-                    {{--<div class="card-header">{{ __('Login') }}</div>--}}
+{{--<div class="container" style="margin-top:120px">--}}
+{{--<div class="row justify-content-center">--}}
+{{--<div class="col-md-8">--}}
+{{--<div class="card">--}}
+{{--<div class="card-header">{{ __('Login') }}</div>--}}
 
-                    {{--<div class="card-body">--}}
-                        {{--<form method="POST" action="{{ route('login') }}">--}}
-                            {{--@csrf--}}
+{{--<div class="card-body">--}}
+{{--<form method="POST" action="{{ route('login') }}">--}}
+{{--@csrf--}}
 
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="email"--}}
-                                       {{--class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
+{{--<div class="form-group row">--}}
+{{--<label for="email"--}}
+{{--class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
 
-                                {{--<div class="col-md-6">--}}
-                                    {{--<input id="email" type="email"--}}
-                                           {{--class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"--}}
-                                           {{--name="email" value="{{ old('email') }}" required autofocus>--}}
+{{--<div class="col-md-6">--}}
+{{--<input id="email" type="email"--}}
+{{--class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"--}}
+{{--name="email" value="{{ old('email') }}" required autofocus>--}}
 
-                                    {{--@if ($errors->has('email'))--}}
-                                        {{--<span class="invalid-feedback">--}}
-                                        {{--<strong>{{ $errors->first('email') }}</strong>--}}
-                                    {{--</span>--}}
-                                    {{--@endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+{{--@if ($errors->has('email'))--}}
+{{--<span class="invalid-feedback">--}}
+{{--<strong>{{ $errors->first('email') }}</strong>--}}
+{{--</span>--}}
+{{--@endif--}}
+{{--</div>--}}
+{{--</div>--}}
 
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="password"--}}
-                                       {{--class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
+{{--<div class="form-group row">--}}
+{{--<label for="password"--}}
+{{--class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
 
-                                {{--<div class="col-md-6">--}}
-                                    {{--<input id="password" type="password"--}}
-                                           {{--class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"--}}
-                                           {{--name="password" required>--}}
+{{--<div class="col-md-6">--}}
+{{--<input id="password" type="password"--}}
+{{--class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"--}}
+{{--name="password" required>--}}
 
-                                    {{--@if ($errors->has('password'))--}}
-                                        {{--<span class="invalid-feedback">--}}
-                                        {{--<strong>{{ $errors->first('password') }}</strong>--}}
-                                    {{--</span>--}}
-                                    {{--@endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+{{--@if ($errors->has('password'))--}}
+{{--<span class="invalid-feedback">--}}
+{{--<strong>{{ $errors->first('password') }}</strong>--}}
+{{--</span>--}}
+{{--@endif--}}
+{{--</div>--}}
+{{--</div>--}}
 
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="select-rally" class="col-md-4 col-form-label text-md-right">Rallys</label>--}}
-                                {{--<div class="col-md-6">--}}
-                                    {{--<select name="rally" class="form-control" id="select-rally">--}}
-                                        {{--@foreach($rallys as $rally)--}}
-                                            {{--<option {{$rally->ativo == 1 ? 'selected' : ''}} value="{{$rally->id_rally}}">{{$rally->nome}}</option>--}}
-                                        {{--@endforeach--}}
-                                    {{--</select>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-
-
-                            {{--<div class="form-group row">--}}
-                                {{--<div class="col-md-6 offset-md-4">--}}
-                                    {{--<div class="checkbox">--}}
-                                        {{--<label>--}}
-                                            {{--<input type="checkbox"--}}
-                                                   {{--name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}--}}
-                                        {{--</label>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-
-                            {{--<div class="form-group row mb-0">--}}
-                                {{--<div class="col-md-8 offset-md-4">--}}
-                                    {{--<button type="submit" class="btn btn-primary">--}}
-                                        {{--{{ __('Login') }}--}}
-                                    {{--</button>--}}
-
-                                    {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
-                                        {{--{{ __('Forgot Your Password?') }}--}}
-                                    {{--</a>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
+{{--<div class="form-group row">--}}
+{{--<label for="select-rally" class="col-md-4 col-form-label text-md-right">Rallys</label>--}}
+{{--<div class="col-md-6">--}}
+{{--<select name="rally" class="form-control" id="select-rally">--}}
+{{--@foreach($rallys as $rally)--}}
+{{--<option {{$rally->ativo == 1 ? 'selected' : ''}} value="{{$rally->id_rally}}">{{$rally->nome}}</option>--}}
+{{--@endforeach--}}
+{{--</select>--}}
+{{--</div>--}}
+{{--</div>--}}
 
 
-                        {{--</form>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+{{--<div class="form-group row">--}}
+{{--<div class="col-md-6 offset-md-4">--}}
+{{--<div class="checkbox">--}}
+{{--<label>--}}
+{{--<input type="checkbox"--}}
+{{--name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}--}}
+{{--</label>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+
+{{--<div class="form-group row mb-0">--}}
+{{--<div class="col-md-8 offset-md-4">--}}
+{{--<button type="submit" class="btn btn-primary">--}}
+{{--{{ __('Login') }}--}}
+{{--</button>--}}
+
+{{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
+{{--{{ __('Forgot Your Password?') }}--}}
+{{--</a>--}}
+{{--</div>--}}
+{{--</div>--}}
+
+
+{{--</form>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
 
 {{--@endif--}}
 @if(Auth::check())
@@ -180,6 +180,7 @@
     <div style="text-align: center">
         <h3>Noticias | Admin</h3>
     </div>
+
     <div class="container col-lg-6">
         <form action="" method="POST" enctype="multipart/form-data">
             <div style="text-align: left;">
@@ -282,6 +283,32 @@
     </div>
 </div>
 
+<script>
+    function functionAlert() {
+        var w = alert("Noticia Alterada com sucesso!");
+        setTimeout(function () {
+            w.close();
+        }, 1);
+    }
+</script>
+
+<?php
+if (isset($_POST['tipo'])) {
+    header('Location: http://pgronline.test/reload');
+}
+?>
+
+<script>
+    let saved;
+    saved = 0;
+    saved = <?= $saved ?>;
+    console.log(saved);
+    let alert = document.getElementById("alert");
+    if (saved === 1) {
+        alert.style.display = '';
+        history.pushState(null, null, '/admin');
+    }
+</script>
 
 <script>
     function updateModalInfo(informacao) {
@@ -319,15 +346,6 @@
             '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/view.png" height="32" width="32">' :
             '<img style="margin-top:5px; margin-left:5px" align="left" hspace="20" src="/icons/hide.png" height="32" width="32">';
         $('.modal-visivel').html(visibility);
-    }
-</script>
-
-<script>
-    let saved = 0;
-    saved = {{$saved}};
-    let alert = document.getElementById("alert");
-    if (saved === 1) {
-        alert.style.display = '';
     }
 </script>
 
