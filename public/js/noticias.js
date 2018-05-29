@@ -1,5 +1,8 @@
 (function () {
     'use strict';
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var id_rally = url.searchParams.get('id');
 
     var table = $('#datatable').DataTable({
         "bInfo" : false,
@@ -26,7 +29,7 @@
                 "Accept": "application/json",
                 "Content-Type": "application/json",
             },
-            url: '/api/news',
+            url: '/api/news?id='+ id_rally,
             dataSrc: ''
         },
         columnDefs: [

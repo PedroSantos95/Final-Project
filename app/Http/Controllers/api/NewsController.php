@@ -18,12 +18,13 @@ class NewsController extends Controller
 {
     public function index(Request $request)
     {
+        $rally = Rally::where('id',$request->input('id'))->first();
+
         $mensagens = [];
         $tipo = $request->input('tipo');
-        $rally = RallyController::rallyActive();
 
         if(is_null($rally)){
-            return [];
+            $rally = RallyController::rallyActive();
         }
         if (is_null($tipo) || !is_string($tipo) || $tipo==0) {
             $mensagens = Mensagem::where('id_rally', $rally->id)->orderBy('created_at', 'desc')->get();
