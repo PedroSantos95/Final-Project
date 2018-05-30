@@ -78,7 +78,7 @@
                         img = img + '/admin/' + data.id + '/editarMensagem';
                         img = img + '"><img height="25" width="25" src="icons/edit.png"></a>&nbsp&nbsp';
                     }
-                    let modal = '<div style="text-align: center"><a data-toggle="modal"  data-target="#mensagem" onclick="updateModalHeader(\'';
+                    let modal = '<div style="text-align: center"><a data-keyboard="true" data-toggle="modal"  data-target="#mensagem" onclick="updateModalHeader(\'';
                     modal = modal + data.titulo + '\',\'' + data.tipo;
                     modal = modal + '\'); updateModalInfo(\'';
                     modal = modal + data.informacao;
@@ -86,19 +86,19 @@
                     modal = modal + data.updated_at;
                     modal = modal + '\'); updateModalVisivel(\'';
                     modal = modal + data.visivel;
-                    modal = modal + '\') "><img height="28" width="30" src="icons/loupe.png"></a>&nbsp&nbsp';
+                    modal = modal + '\') "><img alt="Detalhes da noticia" height="28" width="30" src="icons/loupe.png"></a>&nbsp&nbsp';
 
                     let edit = '<a href="';
                     edit = edit + '/admin/' + data.id + '/editarMensagem';
-                    edit = edit + '"><img height="25" width="25" src="icons/edit.png"></a>&nbsp&nbsp';
+                    edit = edit + '"><img alt="Editar noticia" height="25" width="25" src="icons/edit.png"></a>&nbsp&nbsp';
 
                     let eliminate = '<a onclick="return confirm(\'Deseja eliminar a noticia selecionada??\');" href="';
                     eliminate = eliminate + '/admin/'+ data.id +'/eliminarMensagem';
-                    eliminate = eliminate + '"><img height="25" width="25" src="icons/cancel.png"></a>&nbsp&nbsp';
+                    eliminate = eliminate + '"><img alt="Eliminar noticia" height="25" width="25" src="icons/cancel.png"></a>&nbsp&nbsp';
 
                     let visibility = '<a href="';
                     visibility = visibility + '/admin/'+ data.id +'/alterarEstado';
-                    visibility = visibility + '"><img height="32" width="32"src="';
+                    visibility = visibility + '"><img alt="Visibilidade da noticia" height="32" width="32"src="';
 
 
                     if(data.visivel == 1) {

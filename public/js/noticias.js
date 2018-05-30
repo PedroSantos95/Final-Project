@@ -69,13 +69,13 @@
                 sWidth:'20%',
                 data: null,
                 render: function (data) {
-                    let button = '<div style="text-align: center"><a data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
+                    let button = '<div style="text-align: center"><a data-keyboard="true" data-toggle="modal" style="text-align:center" data-target="#mensagem" onclick="updateModalHeader(\'';
                     button = button + data.titulo + '\',\'' + data.path;
                     button = button + '\'); updateModalInfo(\'';
                     button = button + data.informacao;
                     button = button + '\'); updateModalCreatedAt(\'';
                     button = button + data.updated_at;
-                    button = button + '\') "><img height="28" width="30" src="icons/loupe.png"></a></div>';
+                    button = button + '\') "><img alt="Detalhes da noticia" height="28" width="30" src="icons/loupe.png"></a></div>';
                     return button;
                 }
             }

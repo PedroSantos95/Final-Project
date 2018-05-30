@@ -45,26 +45,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="{{route('tempos')}}">Tempos--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link active" href="{{route('noticias')}}">Noticias</a>--}}
+                    {{--<span class="sr-only">(current)</span>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>--}}
+                {{--</li>--}}
+                {{--@if(Auth::check())--}}
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="{{ route('logout') }}">Logout</a>--}}
+                    {{--</li>--}}
+                {{--@else--}}
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="{{route('login')}}">Login</a>--}}
+                    {{--</li>--}}
+                {{--@endif--}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('tempos')}}">Tempos
-                    </a>
+                    <a class="text-white" style="margin-right: 110px">Tempos Online</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{route('noticias')}}">Noticias</a>
-                    <span class="sr-only">(current)</span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>
-                </li>
-                @if(Auth::check())
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}">Login</a>
-                    </li>
-                @endif
             </ul>
         </div>
     </div>
@@ -117,7 +120,7 @@
     </table>
 
 </div><!-- Modal -->
-<div id="mensagem" class="modal fade" role="dialog">
+<div id="mensagem" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">

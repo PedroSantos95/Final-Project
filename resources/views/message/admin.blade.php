@@ -32,6 +32,10 @@
             }
         }
 
+        #upload_button {
+            display: inline-block;
+        }
+
     </style>
     <style type="text/css">
         a:hover {
@@ -53,18 +57,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('tempos')}}">Tempos
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="{{route('tempos')}}">Tempos--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="{{route('noticias')}}">Noticias</a>--}}
 
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{route('adminBoard')}}">Administrador</a>
-                    <span class="sr-only">(current)</span>
-                </li>
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link active" href="{{route('adminBoard')}}">Administrador</a>--}}
+                    {{--<span class="sr-only">(current)</span>--}}
+                {{--</li>--}}
                 @if(Auth::check())
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}">Logout</a>
@@ -214,15 +218,20 @@
                 <textarea required type="text" name="corpo" class="form-control" placeholder="Mensagem"
                           maxlength="255"></textarea>
             </div>
+            {{--<div class="form-group" style="text-align: left;">--}}
+                {{--<label for="" style="padding-right: 20px;"><strong>Carregar Imagem:</strong></label>--}}
+                {{--<br>--}}
+                {{--<input name="image" type="file" id="image">--}}
+            {{--</div>--}}
+
             <div class="form-group" style="text-align: left;">
-                <label for="" style="padding-right: 20px;"><strong>Carregar Imagem:</strong></label>
-                <br>
-                <input name="image" type="file" id="image">
+                <p><button class="btn btn-outline-info" id="upload_button">Carregar imagem</button></p>
+                <p><input  id="upload_input" name="image" type="file"/></p>
             </div>
 
             {{ csrf_field() }}
 
-            <input type="submit" class="btn btn-outline-info" onclick="functionAlert()" value="Submeter">
+            <input style="float: right; margin-top: -55.2px" type="submit" class="btn btn-outline-info" onclick="functionAlert()" value="Submeter">
 
         </form>
     </div>
@@ -252,7 +261,7 @@
 @endif
 
 <!-- Modal -->
-<div id="mensagem" class="modal fade" role="dialog">
+<div id="mensagem" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -282,6 +291,26 @@
 
     </div>
 </div>
+
+<script>
+    var button = document.getElementById('upload_button');
+    var input  = document.getElementById('upload_input');
+
+    // Making input invisible, but leaving shown fo graceful degradation
+    input.style.display = 'none';
+    button.style.display = 'initial';
+
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        input.click();
+    });
+
+    input.addEventListener('change', function () {
+        button.innerText = this.value;
+    });
+</script>
+
 
 <script>
     function functionAlert() {
