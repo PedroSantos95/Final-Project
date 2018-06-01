@@ -28,6 +28,15 @@
             }
         }
 
+
+        .navbar .navbar-brand {
+            padding-top: -1px;
+        }
+
+        .navbar
+        {
+            height: 82px;
+        }
     </style>
 
 
@@ -38,7 +47,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a style="margin-left: 6% " class="navbar-brand" href="#"><img src="img/teste.png" height="80" width="250"></a>
+        <a class="navbar-brand" href="#"><img src="img/navbar_img.png" height="80" width="250"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

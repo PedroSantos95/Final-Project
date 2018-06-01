@@ -36,6 +36,15 @@
             display: inline-block;
         }
 
+        .navbar .navbar-brand {
+            padding-top: -1px;
+        }
+
+        .navbar
+        {
+            height: 82px;
+        }
+
     </style>
     <style type="text/css">
         a:hover {
@@ -50,7 +59,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Tempos Online</a>
+        <a class="navbar-brand" href="#"><img src="img/navbar_img.png" height="80" width="250"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -69,6 +78,9 @@
                     {{--<a class="nav-link active" href="{{route('adminBoard')}}">Administrador</a>--}}
                     {{--<span class="sr-only">(current)</span>--}}
                 {{--</li>--}}
+                <li class="nav-item">
+                    <a class="nav-link text-white" style="text-align: center">Tempos Online</a>
+                </li>
                 @if(Auth::check())
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}">Logout</a>
