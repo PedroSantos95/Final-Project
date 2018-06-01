@@ -36,7 +36,7 @@
                 sWidth: '15%',
                 data: null,
                 render: function (data) {
-                    return '<div style="text-align: center"><img src="icons/' + data.path + '" height="32" width="32"></div>';
+                    return '<div style="text-align: center"><img alt="'+ data.nome_tipo +'" src="icons/' + data.path + '" height="32" width="32"></div>';
                 }
             },
             {
@@ -76,7 +76,7 @@
                     if(data.imagem != null){
                         let img = '<a href="';
                         img = img + '/admin/' + data.id + '/editarMensagem';
-                        img = img + '"><img height="25" width="25" src="icons/edit.png"></a>&nbsp&nbsp';
+                        img = img + '"><img alt="Editar noticia" height="25" width="25" src="icons/edit.png"></a>&nbsp&nbsp';
                     }
                     let modal = '<div style="text-align: center"><a data-keyboard="true" data-toggle="modal"  data-target="#mensagem" onclick="updateModalHeader(\'';
                     modal = modal + data.titulo + '\',\'' + data.tipo;
@@ -114,14 +114,14 @@
         ]
     });
 
-    let radios = document.getElementsByClassName('selecao-tipo');
-    for(let i=0; i<radios.length; i++){
-        radios[i].addEventListener("click", function clickUpdate (){
-            let tipo = radios[i].id;
-
-            table.ajax.url('/api/news?tipo='+tipo);
-            table.ajax.reload();
-        });
-
-    }
+    // let radios = document.getElementsByClassName('selecao-tipo');
+    // for(let i=0; i<radios.length; i++){
+    //     radios[i].addEventListener("click", function clickUpdate (){
+    //         let tipo = radios[i].id;
+    //
+    //         table.ajax.url('/api/news?tipo='+tipo);
+    //         table.ajax.reload();
+    //     });
+    //
+    // }
 })();

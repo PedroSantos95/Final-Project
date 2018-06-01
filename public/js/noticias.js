@@ -40,7 +40,7 @@
                 sWidth: '15%',
                 data: null,
                 render: function (data) {
-                    return '<div style="text-align: center"><img src="icons/' + data.path + '" height="32" width="32"></div>';
+                    return '<div style="text-align: center"><img alt="'+ data.nome_tipo +'" src="icons/' + data.path + '" height="32" width="32"></div>';
                 }
             },
             {
@@ -87,7 +87,7 @@
         radios[i].addEventListener("click", function clickUpdate (){
             let tipo = radios[i].id;
 
-            table.ajax.url('/api/news?tipo='+tipo);
+            table.ajax.url('/api/news?tipo='+tipo+'&id='+ id_rally);
             table.ajax.reload();
         });
 

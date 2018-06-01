@@ -90,7 +90,7 @@
                 <label class="btn btn-outline-info">
                     <div style="text-align: center; width: 110px;" class="selecao-tipo" id="{{$tiposNoticia[$i]->id}}">
                         <input id="type" type="radio" name="tipo" autocomplete="off">
-                        <img src="icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
+                        <img alt="Tipos de noticia" src="icons/{{$tiposNoticia[$i]->path_black}}" height="32" width="32">
                         {{$tiposNoticia[$i]->nome}}
                     </div>
                 </label>
