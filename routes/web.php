@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tempos');
 })->name('tempos');
 
 Route::get('/news', 'MessageController@showMensagens')->name('noticias');

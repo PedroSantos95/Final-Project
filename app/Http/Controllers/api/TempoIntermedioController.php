@@ -6,12 +6,13 @@
  * Time: 12:33
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
 
+use App\Http\Controllers\Controller;
 use App\Http\TempoIntermedio;
 
-class TableController extends Controller
+class TempoIntermedioController extends Controller
 {
 
     public function index()

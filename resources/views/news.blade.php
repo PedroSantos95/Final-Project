@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8" content="no-cache">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
 
     <title>Noticias</title>
     <style type="text/css">
@@ -37,6 +38,10 @@
         {
             height: 82px;
         }
+
+        .red {
+            background-color: lightblue !important;
+        }
     </style>
 
 
@@ -47,7 +52,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="img/navbar_img.png" height="80" width="250"></a>
+        <a class="navbar-brand" href="#"><img src="img/navbar_img.png" height="80" width="152"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -74,8 +79,11 @@
                         {{--<a class="nav-link" href="{{route('login')}}">Login</a>--}}
                     {{--</li>--}}
                 {{--@endif--}}
+                <?php
+                use \App\Http\Controllers\api\RallyController;
+                ?>
                 <li class="nav-item">
-                    <a class="text-white" style="margin-right: 110px">Tempos Online</a>
+                    <a class="nav-link text-white" style="text-align: center">{{RallyController::rallyActive()->nome}}</a>
                 </li>
             </ul>
         </div>
@@ -110,6 +118,18 @@
 </div>
 <br>
 <br>
+
+<div class="container col-lg-8">
+    <button type="button" id="reload-button" class="btn btn-outline-info">
+        <img src="icons/reload.png" height="21" width="21"> Atualizar
+    </button >
+    <button type="button" id="auto-button" class="btn btn-outline-info">
+        <img src="icons/refresh.png" height="20" width="20"> Atualizar Auto: ON
+    </button>
+</div>
+
+<br>
+
 <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
            id="datatable" cellspacing="0" width="100%">

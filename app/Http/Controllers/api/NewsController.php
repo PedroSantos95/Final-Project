@@ -34,11 +34,13 @@ class NewsController extends Controller
 
         $array_msg = [];
 
+        $last=1;
         foreach ($mensagens as $msg) {
             if($msg->visivel == true){
                 $array_msg[] = ['path' => $msg->tipoNoticia->path_black, 'titulo' => $msg->titulo, 'informacao' => $msg->informacao,
-                    'nome_tipo'=>$msg->tipoNoticia->nome ,'updated_at' => $msg->updated_at->format('d/m/Y H:i')];
+                    'nome_tipo'=>$msg->tipoNoticia->nome ,'updated_at' => $msg->updated_at->format('d/m/Y H:i'), 'last' => $last];
             }
+            $last = 0;
         }
 
 
