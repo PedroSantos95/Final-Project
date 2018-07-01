@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('tempos');
-})->name('tempos');
+Route::get('/', 'TempoIntermedioController@semCarroRef')->name('temposSemReferencia');
 
 Route::get('/news', 'MessageController@showMensagens')->name('noticias');
+
+Route::get('/teste', 'TempoIntermedioController@teste')->name('teste');
 
 Route::get('/admin', 'MessageController@index')->name('adminBoard');
 

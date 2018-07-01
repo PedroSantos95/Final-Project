@@ -71,8 +71,6 @@ class MessageController extends Controller
 
     public function alterarEstadoMensagem($id)
     {
-
-        //$mensagem = Mensagem::findOrFail($id);
         $mensagem = Mensagem::where('id', $id)->first();
         $mensagem->visivel = $mensagem->visivel ? false : true;
         $mensagem->update();

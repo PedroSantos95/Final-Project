@@ -16,7 +16,7 @@
 </head>
 
 <body>
-s
+
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -29,7 +29,7 @@ s
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{route('tempos')}}">Tempos</a>
+                    <a class="nav-link active" href="{{route('temposSemReferencia')}}">Tempos</a>
                     <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
@@ -53,8 +53,7 @@ s
 </nav>
 
 <!-- Page Content -->
-<div class="container">
-
+<div class="container" id="app">
     <div class="row">
 
         <div class="col-sm-4 col-sm-offset-4 col-lg-12">
@@ -63,54 +62,120 @@ s
             </div>
 
         </div>
+        <table style="width:100%" id="tabelaTempos">
+            <tr>
+                <th>Numero Carro</th>
+                <th>Tempo Partida</th>
+                @for($i=1; $i<=$numeroTemposIntermedios; $i++)
+                    <th>Tempo Intermedio <?= $i ?></th>
+                @endfor
+                <th>Tempo Chegada</th>
+            </tr>
+            <tr v-for="(value, index) in temposFinais">
+                <td>@{{ value.numero_carro }}</td>
+                <td>@{{ value.tempoPartida | formatDate }}</td>
+                @for($i=1; $i<=$numeroTemposIntermedios; $i++)
+                    <td>{{ value.tempoIntermedio_<?php echo $i ?>}}</td>
+                @endfor
+                <td>@{{ value.tempoChegada }}</td>
+            </tr>
 
-
-        <div class="col-sm-4 col-sm-offset-4 col-lg-12" style="margin-top: 1%">
-            <table class="table table-striped table-bordered" id="datatable" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                    <th>Carro</th>
-                    <th>Tempo Partida</th>
-                    <th>T1</th>
-                    <th>T2</th>
-                    <th>T3</th>
-                    <th>T4</th>
-                    <th>T5</th>
-                    <th>T6</th>
-                    <th>T7</th>
-                    <th>T8</th>
-                    <th>T9</th>
-                    <th>T10</th>
-                    <th>TT</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                </tbody>
-            </table>
-        </div>
+        </table>
     </div>
     <div>
     </div>
 
 </div>
 
-</div>
-
-<!-- Modal -->
-
-
-<!-- /.container -->
-
-<!-- Footer -->
-
-
 <!-- Bootstrap core JavaScript -->
 <script src="//code.jquery.com/jquery.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/temposintermedios.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            tempos: [],
+            teste: [],
+            temposFinais: [],
+            carroSelected: '',
+            numeroTemposIntermedios: ''
+        },
+        created() {
+            this.fetchTimes();
+        },
+        methods: {
+            fetchTimes() {
+                axios.get('/teste').then(response => {
+                    this.numeroTemposIntermedios = response.data.numeroTemposIntermedios;
+                    this.tempos = response.data.tempos;
+                    this.teste = response.data.tempos[0];
+                    this.formatArray();
+                }).catch(error => {
+                    console.log(error);
+                })
+            },
+
+            formatArray() {
+                var counter = 0;
+                var newElement = {};
+                var previousElement;
+                for (var carroRef in this.tempos) {
+                    newElement.numero_carro = this.tempos[carroRef].numero_carro;
+                    newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
+                    newElement.tempoChegada = this.tempos[carroRef].tempoChegada;
+                    for (var value in this.tempos[carroRef]) {
+                        if (value.indexOf('Intermedio') !== -1) {
+                            if (counter > 1 && previousElement !== undefined) {
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[carroRef].tempoPartida);
+                                previousElement = value;
+                            } else {
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[carroRef].tempoPartida);
+                                previousElement = value;
+                            }
+                        } else {
+                            if (value.indexOf('Chegada') !== -1) {
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[carroRef].tempoPartida);
+                            }
+                        }
+                        counter++;
+                    }
+                    this.temposFinais.push(newElement);
+                    newElement = {};
+                }
+            },
+
+            calculateDiffDates(date1, date2) {
+                if (date1 != null) {
+                    date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
+                    date2 = moment(date2, 'YY-mm-dd HH:mm:ss:ms');
+
+                    var duration = date1.diff(date2);
+                    var result = moment.duration(duration);
+
+                    return result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                }
+            },
+        },
+
+        filters: {
+            formatDate(data) {
+                return data.toString().split(' ')[1] != null ? data.toString().split(' ')[1] : data;
+            },
+
+            formatTime(data, dataAnterior) {
+                dataAnterior = dataAnterior.toString().split(' ')[1] != null ? dataAnterior.toString().split(' ')[1] : dataAnterior;
+                return moment(dataAnterior, 'hh:mm:ss').diff(moment(data, 'hh:mm:ss'));
+            },
+        }
+    });
+</script>
+
 </body>
 
 </html>
