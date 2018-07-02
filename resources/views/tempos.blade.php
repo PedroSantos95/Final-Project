@@ -74,9 +74,10 @@
             <tr v-for="(value, index) in temposFinais">
                 <td>@{{ value.numero_carro }}</td>
                 <td>@{{ value.tempoPartida | formatDate }}</td>
-                @for($i=1; $i<=$numeroTemposIntermedios; $i++)
-                    <td>{{ value.tempoIntermedio_<?php echo $i ?>}}</td>
-                @endfor
+                <td v-for="index2 in numeroTemposIntermedios">
+                    <span v-if="index != 0">@{{ getNameField(value, index2) }}</span>
+                    <span v-if="index == 0">@{{ getCarRefTimes(value, index2)}}</span>
+                </td>
                 <td>@{{ value.tempoChegada }}</td>
             </tr>
 
@@ -147,6 +148,31 @@
                     }
                     this.temposFinais.push(newElement);
                     newElement = {};
+                }
+            },
+
+            getNameField(value, index){
+                return this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
+            },
+
+            getCarRefTimes(value, index){
+                return value['tempoIntermedio_'+index];
+            },
+
+            calculateDiffTimes(date1, date2) {
+                if (date1 != null && date2 != null) {
+                    date1 = moment(date1, 'mm:ss:ms');
+                    date2 = moment(date2, 'mm:ss:ms');
+
+                    var duration = date1.diff(date2);
+                    var result = moment.duration(duration);
+
+                    if(result.minutes() == 0){
+                        return result.seconds() + '.' + result.milliseconds() + 's';
+                    }
+                    return result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                }else{
+                    return '--';
                 }
             },
 
