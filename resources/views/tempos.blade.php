@@ -13,6 +13,19 @@
 
     <title>Rally Sernancelhe Aguiar da Beira</title>
 
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: right;
+            padding: 9px;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
 </head>
 
 <body>
@@ -64,21 +77,32 @@
         </div>
         <table style="width:100%" id="tabelaTempos">
             <tr>
-                <th>Numero Carro</th>
-                <th>Tempo Partida</th>
+                <th class="text-right">Carro</th>
+                <th class="text-right">TP</th>
                 @for($i=1; $i<=$numeroTemposIntermedios; $i++)
-                    <th>Tempo Intermedio <?= $i ?></th>
+                    <th class="text-right" align="center">TI <?= $i ?></th>
                 @endfor
-                <th>Tempo Chegada</th>
+                <th class="text-right">TC</th>
             </tr>
-            <tr v-for="(value, index) in temposFinais">
-                <td>@{{ value.numero_carro }}</td>
-                <td>@{{ value.tempoPartida | formatDate }}</td>
-                <td v-for="index2 in numeroTemposIntermedios">
-                    <span v-if="index != 0">@{{ getNameField(value, index2) }}</span>
-                    <span v-if="index == 0">@{{ getCarRefTimes(value, index2)}}</span>
+            <tr class="text-right" v-for="(value, index) in temposFinais">
+                <td>
+                    <span v-if="index != 0">@{{ value.numero_carro }}</span>
+                    <span style="font-weight:bold" v-if="index == 0">@{{ value.numero_carro }}</span>
                 </td>
-                <td>@{{ value.tempoChegada }}</td>
+                <td>
+                    <span v-if="index != 0">@{{ value.tempoPartida | formatDate | formatPartida }}</span>
+                    <span style="font-weight:bold" v-if="index == 0">@{{ value.tempoPartida | formatDate | formatPartida}}</span>
+                </td>
+                <td v-for="index2 in numeroTemposIntermedios">
+                    <span style="color:green; font-weight: bold" v-if="index != 0 && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span>
+                    <span style="color:red; font-weight: bold" v-if="index != 0 && getNameField(value, index2).indexOf('-') !== -1">@{{ getNameField(value, index2) }}</span>
+                    <span style="content: 'center' ;font-weight:bold" v-if="index == 0">@{{ getCarRefTimes(value, index2)}}</span>
+                </td>
+                <td>
+                    <span v-if="index != 0">@{{ value.tempoChegada }}</span>
+                    </span>
+                    <span style="font-weight:bold" v-if="index == 0">@{{ value.tempoChegada }}</span>
+                </td>
             </tr>
 
         </table>
@@ -168,11 +192,48 @@
                     var result = moment.duration(duration);
 
                     if(result.minutes() == 0){
-                        return result.seconds() + '.' + result.milliseconds() + 's';
+                        if(result.seconds()>0){
+                            if(result.seconds()<10){
+                                return '+00:00:0' + result.seconds() + '.' + result.milliseconds();
+                            }
+                            return '+00:00:' + result.seconds() + '.' + result.milliseconds();
+                        }else{
+                            return result.seconds() + '.' + result.milliseconds();
+                        }
                     }
-                    return result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+
+                    if(result.minutes()>0){
+                        if(result.minutes()<10){
+                            if(result.seconds()<10){
+                                return '+00:0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                            }else{
+                                return '+00:0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                            }
+                        }else{
+                            if(result.seconds()<10){
+                                return '+00:' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                            }else{
+                                return '+00:' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                            }
+                        }
+                    }else{
+                        if(result.minutes()>-10){
+                            if(result.seconds()<10 || result.seconds()>-10){
+                                return '-00:0' + Math.abs(result.minutes()) + ':0' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                            }else{
+                                return '-00:0' + Math.abs(result.minutes()) + ':' + result.seconds() + '.' + Math.abs(result.milliseconds());
+                            }
+                        }else{
+                            if(result.seconds()<10 || result.seconds()>-10){
+                                return '-00:' + Math.abs(result.minutes()) + ':0' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                            }else{
+                                return '-00:' + Math.abs(result.minutes()) + ':' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                            }
+                        }
+                    }
+
                 }else{
-                    return '--';
+                    return '__';
                 }
             },
 
@@ -184,7 +245,118 @@
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
 
-                    return result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                    if (result.hours() == 0) {
+                        if (result.minutes() == 0) {
+                            if(result.seconds()==0){
+                                return '00' + result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                            }else{
+                                if(result.seconds()<10){
+                                    return '00' + result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    return '00' + result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                }
+                            }
+                        } else {
+                            if (result.minutes() < 10) {
+                                if(result.seconds()==0) {
+                                    return '0' + result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                        if(result.seconds()<10){
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+
+                                        }else{
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                            } else {
+                                if(result.seconds()==0){
+                                    return '0' + result.hours() + ':' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return '0' + result.hours() + ':' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+
+                                    }else{
+                                        return '0' + result.hours() + ':' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        if (result.hours() < 10) {
+                            if (result.minutes() == 0) {
+                                if(result.seconds()==0){
+                                    return '0' + result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+
+                                }else{
+                                    if(result.seconds()<10){
+                                        return '0' + result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return '0' + result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            } else {
+                                if (result.minutes() < 10) {
+                                    if(result.seconds()==0){
+                                        return '0' + result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+
+                                        }else{
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                } else {
+                                    if(result.seconds()==0){
+                                        return '0' + result.hours() + ':' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return '0' + result.hours() + ':' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+
+                                        }else{
+                                            return '0' + result.hours() + ':' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            if (result.minutes() == 0) {
+                                if(result.seconds() == 0){
+                                    return result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            } else {
+                                if (result.minutes() < 10) {
+                                    if(result.seconds()==0){
+                                        return result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                } else {
+                                    if(result.seconds()==0){
+                                        return result.hours() + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.hours() + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.hours() + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
         },
@@ -192,6 +364,10 @@
         filters: {
             formatDate(data) {
                 return data.toString().split(' ')[1] != null ? data.toString().split(' ')[1] : data;
+            },
+
+            formatPartida(data){
+                return data.toString().split(':')[2] != null ? data.toString().split(':')[0]+':'+ data.toString().split(':')[1]: data;
             },
 
             formatTime(data, dataAnterior) {
