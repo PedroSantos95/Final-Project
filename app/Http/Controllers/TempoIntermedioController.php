@@ -22,7 +22,7 @@ class TempoIntermedioController extends Controller
         $carroRef = DB::table('tempos_intermedios')->where('id_rally', 2)->first();
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
 
-        return view('tempos', compact('numeroTemposIntermedios'));
+        return view('tempos', compact('numeroTemposIntermedios', 'carroRef'));
     }
 
     public function teste(){

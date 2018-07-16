@@ -77,6 +77,7 @@
         </div>
         <table style="width:100%" id="tabelaTempos">
             <tr>
+                <th class="text-right"></th>
                 <th class="text-right">Carro</th>
                 <th class="text-right">TP</th>
                 @for($i=1; $i<=$numeroTemposIntermedios; $i++)
@@ -86,8 +87,16 @@
             </tr>
             <tr class="text-right" v-for="(value, index) in temposFinais">
                 <td>
-                    <span v-if="index != 0">@{{ value.numero_carro }}</span>
+                    <span v-if="value.numero_carro == <?php echo($carroRef->numero_carro); ?>">
+                        <img onclick="" alt="referencia" height="25" width="25" src="icons/placeholder.png">
+                    </span>
+                    <span v-else>
+                          <img alt="referencia" height="25" width="25" src="icons/substract.png">
+                    </span>
+                </td>
+                <td>
                     <span style="font-weight:bold" v-if="index == 0">@{{ value.numero_carro }}</span>
+                    <span v-if="index != 0">@{{ value.numero_carro }}</span>
                 </td>
                 <td>
                     <span v-if="index != 0">@{{ value.tempoPartida | formatDate | formatPartida }}</span>
