@@ -160,7 +160,9 @@
                 var counter = 0;
                 var newElement = {};
                 var previousElement;
-            
+                
+                this.temposFinais = [];    
+                
                 for (var carroRef in this.tempos) {
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
@@ -373,7 +375,7 @@
 
             changeCarroRef(carroRef){
                 this.carroRef = carroRef;
-                this.formatArray();
+                
             },
         },
 
