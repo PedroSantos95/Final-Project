@@ -160,7 +160,7 @@
                 var counter = 0;
                 var newElement = {};
                 var previousElement;
-                
+
                 for (var carroRef in this.tempos) {
                     console.log(carroRef);
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
@@ -169,15 +169,15 @@
                     for (var value in this.tempos[carroRef]) {
                         if (value.indexOf('Intermedio') !== -1) {
                             if (counter > 1 && previousElement !== undefined) {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[carroRef].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[0].tempoPartida);
                                 previousElement = value;
                             } else {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[carroRef].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[0].tempoPartida);
                                 previousElement = value;
                             }
                         } else {
                             if (value.indexOf('Chegada') !== -1) {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[carroRef].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[0].tempoPartida);
                             }
                         }
                         counter++;
