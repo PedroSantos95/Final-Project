@@ -95,22 +95,22 @@
                     </span>
                 </td>
                 <td>
-                    <span style="font-weight:bold" v-if="index == 0">@{{ value.numero_carro }}</span>
-                    <span v-if="index != 0">@{{ value.numero_carro }}</span>
+                    <span style="font-weight:bold" v-if="index == carroRef">@{{ value.numero_carro }}</span>
+                    <span v-if="index != carroRef">@{{ value.numero_carro }}</span>
                 </td>
                 <td>
-                    <span v-if="index != 0">@{{ value.tempoPartida | formatDate | formatPartida }}</span>
-                    <span style="font-weight:bold" v-if="index == 0">@{{ value.tempoPartida | formatDate | formatPartida}}</span>
+                    <span v-if="index != carroRef">@{{ value.tempoPartida | formatDate | formatPartida }}</span>
+                    <span style="font-weight:bold" v-if="index == carroRef">@{{ value.tempoPartida | formatDate | formatPartida}}</span>
                 </td>
                 <td v-for="index2 in numeroTemposIntermedios">
-                    <span style="color:green; font-weight: bold" v-if="index != 0 && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span>
-                    <span style="color:red; font-weight: bold" v-if="index != 0 && getNameField(value, index2).indexOf('-') !== -1">@{{ getNameField(value, index2) }}</span>
-                    <span style="content: 'center' ;font-weight:bold" v-if="index == 0">@{{ getCarRefTimes(value, index2)}}</span>
+                    <span style="color:green; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span>
+                    <span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('-') !== -1">@{{ getNameField(value, index2) }}</span>
+                    <span style="content: 'center' ;font-weight:bold" v-if="index == carroRef">@{{ getCarRefTimes(value, index2)}}</span>
                 </td>
                 <td>
-                    <span v-if="index != 0">@{{ value.tempoChegada }}</span>
+                    <span v-if="index != carroRef">@{{ value.tempoChegada }}</span>
                     </span>
-                    <span style="font-weight:bold" v-if="index == 0">@{{ value.tempoChegada }}</span>
+                    <span style="font-weight:bold" v-if="index == carroRef">@{{ value.tempoChegada }}</span>
                 </td>
             </tr>
 
@@ -134,7 +134,7 @@
     new Vue({
         el: '#app',
         data: {
-            carroRef: '',
+            carroRef: 0,
             tempos: [],
             teste: [],
             temposFinais: [],
