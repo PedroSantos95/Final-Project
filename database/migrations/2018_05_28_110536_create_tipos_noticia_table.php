@@ -21,12 +21,6 @@ class CreateTiposNoticiaTable extends Migration {
 		});
 	}
 
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('tipos_noticia');

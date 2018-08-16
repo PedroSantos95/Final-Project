@@ -18,7 +18,6 @@
             table-layout: fixed;
         }
 
-
         table {
             width: 50%;
         }
@@ -28,7 +27,6 @@
                 display: none;
             }
         }
-
 
         .navbar .navbar-brand {
             padding-top: -1px;
