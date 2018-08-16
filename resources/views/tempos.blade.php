@@ -164,6 +164,7 @@
                 this.temposFinais = [];    
                 
                 for (var carroRef in this.tempos) {
+                    console.log(carroRef);
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
                     newElement.tempoChegada = this.tempos[carroRef].tempoChegada;
