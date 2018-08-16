@@ -171,7 +171,7 @@
                     newElement.tempoChegada = this.tempos[carroRef].tempoChegada;
                     for (var value in this.tempos[carroRef]) {
                         if (value.indexOf('Intermedio') !== -1) {
-                            if (counter > 1 && previousElement !== undefined) {
+                            if (previousElement !== undefined) {
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
