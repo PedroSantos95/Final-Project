@@ -91,7 +91,7 @@
                         <img onclick="" alt="referencia" height="25" width="25" src="icons/placeholder.png">
                     </span>
                     <span v-else>
-                          <img @click="changeCarroRef(value.numero_carro)" alt="referencia" height="25" width="25" src="icons/substract.png">
+                          <img @click="changeCarroRef(index)" alt="referencia" height="25" width="25" src="icons/substract.png">
                     </span>
                 </td>
                 <td>
@@ -160,6 +160,7 @@
                 var counter = 0;
                 var newElement = {};
                 var previousElement;
+                var index = this.carroRef != "" ? this.carroRef : 0;
 
                 for (var carroRef in this.tempos) {
                     console.log(carroRef);
@@ -169,15 +170,15 @@
                     for (var value in this.tempos[carroRef]) {
                         if (value.indexOf('Intermedio') !== -1) {
                             if (counter > 1 && previousElement !== undefined) {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[0].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[0].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             }
                         } else {
                             if (value.indexOf('Chegada') !== -1) {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[0].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                             }
                         }
                         counter++;
@@ -374,7 +375,7 @@
 
             changeCarroRef(carroRef){
                 this.carroRef = carroRef;
-                
+                this.formatArray();
             },
         },
 
