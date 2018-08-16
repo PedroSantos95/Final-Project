@@ -91,7 +91,7 @@
                         <img onclick="" alt="referencia" height="25" width="25" src="icons/placeholder.png">
                     </span>
                     <span v-else>
-                          <img alt="referencia" height="25" width="25" src="icons/substract.png">
+                          <img @click="changeCarroRef(value)" alt="referencia" height="25" width="25" src="icons/substract.png">
                     </span>
                 </td>
                 <td>
@@ -367,6 +367,10 @@
                         }
                     }
                 }
+            },
+
+            changeCarroRef(value){
+                console.log(value);
             },
         },
 
