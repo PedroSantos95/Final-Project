@@ -162,6 +162,8 @@
                 var previousElement;
                 var index = this.carroRef != "" ? this.carroRef : 0;
 
+                this.temposFinais = [];
+
                 for (var carroRef in this.tempos) {
                     console.log(carroRef);
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
