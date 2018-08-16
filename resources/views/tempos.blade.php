@@ -160,7 +160,7 @@
                 var counter = 0;
                 var newElement = {};
                 var previousElement;
-                var index = this.carrpRef != "" ? this.carroRef : carroRef;
+                
                 this.temposFinais = [];    
                 
                 for (var carroRef in this.tempos) {
