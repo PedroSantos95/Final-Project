@@ -164,8 +164,7 @@
 
                 this.temposFinais = [];
 
-                for (var carroRef in this.tempos) {
-                    
+                for (var carroRef in this.tempos) {                    
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
                     newElement.tempoChegada = this.tempos[carroRef].tempoChegada;
@@ -175,6 +174,7 @@
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
+                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             }
