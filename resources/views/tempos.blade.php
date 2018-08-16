@@ -87,7 +87,7 @@
             </tr>
             <tr class="text-right" v-for="(value, index) in temposFinais">
                 <td>
-                    <span v-if="value.numero_carro == <?php echo($carroRef->numero_carro); ?>">
+                    <span v-if="index == carroRef">
                         <img onclick="" alt="referencia" height="25" width="25" src="icons/placeholder.png">
                     </span>
                     <span v-else>
