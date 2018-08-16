@@ -91,7 +91,7 @@
                         <img onclick="" alt="referencia" height="25" width="25" src="icons/placeholder.png">
                     </span>
                     <span v-else>
-                          <img @click="changeCarroRef(value)" alt="referencia" height="25" width="25" src="icons/substract.png">
+                          <img @click="changeCarroRef(value.numero_carro)" alt="referencia" height="25" width="25" src="icons/substract.png">
                     </span>
                 </td>
                 <td>
@@ -134,6 +134,7 @@
     new Vue({
         el: '#app',
         data: {
+            carroRef: '',
             tempos: [],
             teste: [],
             temposFinais: [],
@@ -159,6 +160,9 @@
                 var counter = 0;
                 var newElement = {};
                 var previousElement;
+                if(this.carroRef = ""){
+                    carroRef=0;
+                }
                 for (var carroRef in this.tempos) {
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
@@ -369,8 +373,9 @@
                 }
             },
 
-            changeCarroRef(value){
-                console.log(value);
+            changeCarroRef(carroRef){
+                this.carroRef = carroRef;
+                this.formatArray();
             },
         },
 
