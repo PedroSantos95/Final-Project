@@ -66,6 +66,9 @@
 </nav>
 
 <!-- Page Content -->
+
+        
+<div class="container" id="app">
 <div class="container col-lg-8">
             <button type="button" id="reload-button" class="btn btn-outline-info">
                 <img src="icons/reload.png" height="21" width="21"> Atualizar
@@ -74,8 +77,6 @@
                 <img src="icons/refresh.png" height="20" width="20"> Atualizar Auto: ON
             </button>
         </div>
-        
-<div class="container" id="app">
     <div class="row">
 
         <div class="col-sm-4 col-sm-offset-4 col-lg-12">
