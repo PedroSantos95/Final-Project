@@ -75,6 +75,16 @@
             </div>
 
         </div>
+
+        <div class="container col-lg-8">
+            <button type="button" id="reload-button" class="btn btn-outline-info">
+                <img src="icons/reload.png" height="21" width="21"> Atualizar
+            </button >
+            <button type="button" id="auto-button" class="btn btn-outline-info">
+                <img src="icons/refresh.png" height="20" width="20"> Atualizar Auto: ON
+            </button>
+        </div>
+        
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
