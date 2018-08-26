@@ -69,7 +69,12 @@
 
         
 <div class="container" id="app">
-<div class="container col-lg-8">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4 col-lg-12">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 8%;">
+            </div>
+        </div>
+        <div>
             <button type="button" id="reload-button" class="btn btn-outline-info">
                 <img src="icons/reload.png" height="21" width="21"> Atualizar
             </button >
@@ -77,16 +82,6 @@
                 <img src="icons/refresh.png" height="20" width="20"> Atualizar Auto: ON
             </button>
         </div>
-    <div class="row">
-
-        <div class="col-sm-4 col-sm-offset-4 col-lg-12">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 8%;">
-
-            </div>
-
-        </div>
-
-
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
