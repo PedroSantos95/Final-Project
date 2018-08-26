@@ -406,6 +406,8 @@
     });
 </script>
 
+<script src="/js/noticias.js"></script>
+
 </body>
 
 </html>
