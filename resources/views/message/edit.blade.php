@@ -27,10 +27,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('tempos')}}">Tempos
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
                     <span class="sr-only">(current)</span>
                 </li>
