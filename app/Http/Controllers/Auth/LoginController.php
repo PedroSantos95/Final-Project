@@ -22,7 +22,6 @@ class LoginController extends Controller
         logout as performLogout;
     }
 
-
     /**
      * Where to redirect users after login.
      *
