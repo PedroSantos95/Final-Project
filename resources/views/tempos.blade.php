@@ -51,15 +51,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>
                 </li>
-                @if(Auth::check())
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}">Logout</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}">Login</a>
-                    </li>
-                @endif
             </ul>
         </div>
     </div>
