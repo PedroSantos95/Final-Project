@@ -102,7 +102,9 @@ class MessageController extends Controller
             $saved = -1;
         }
 
-        return $this->index($saved);
+        $this->index($saved);
+
+        return redirect()->route('adminBoard');
     }
 
 
