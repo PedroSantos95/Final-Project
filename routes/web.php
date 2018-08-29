@@ -34,5 +34,3 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/reload', function (){return redirect()->route('adminBoard', ['saved']);})->name('reload');
