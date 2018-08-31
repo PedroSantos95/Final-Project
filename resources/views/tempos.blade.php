@@ -128,10 +128,8 @@
     </div>
     <div>
     </div>
-
-</div>
-<div align="left">
-<table id="tabelaHistoricoNoticias">
+    <div class="row">
+        <table id="tabelaHistoricoNoticias">
             <tr>
                 <th>Data/Hora</th>
                 <th>Titulo</th>
@@ -149,6 +147,7 @@
                  @endfor   
             </tr>
         </table>
+    </div>
 </div>
 <!-- Bootstrap core JavaScript -->
 <script src="//code.jquery.com/jquery.js"></script>
