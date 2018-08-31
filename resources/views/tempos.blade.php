@@ -135,7 +135,12 @@
     <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
            id="historicoNoticias" cellspacing="0" width="100%">
-           <caption>Locust mating habits</caption>
+           <caption>
+           <a href="{{ route("noticias") }}">
+            <img alt="referencia" height="25" width="25" src="icons/add.png">
+            Mais informações sobre as noticias.
+            </a>
+           </caption>
         <thead>
         <tr>
             <th width="25%" style="text-align: center;">Data/Hora</th>
