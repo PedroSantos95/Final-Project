@@ -22,11 +22,12 @@ class TempoIntermedioController extends Controller
     {
         $carroRef = DB::table('tempos_intermedios')->where('id_rally', 2)->first();
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
+        $id_rally = 2;
         $pecs = Pecs::all();
 
         dd($pecs);
 
-        return view('tempos', compact('numeroTemposIntermedios', 'carroRef'), compact('pecs'));
+        return view('tempos', compact('numeroTemposIntermedios', 'carroRef'), compact('pecs', 'id_rally'));
     }
 
     public function teste(){
