@@ -25,11 +25,10 @@ class TempoIntermedioController extends Controller
         $id_rally = 2;
         $pecs = Pecs::all();
         $historicoNoticias = DB::table('noticias')->where('id_rally',2)->get();
-        dd($historicoNoticias);
         $numeroTemposIntermediosPec = 0;
 
 
-        return view('tempos', compact('numeroTemposIntermedios', 'carroRef'), compact('pecs', 'id_rally'));
+        return view('tempos', compact('numeroTemposIntermedios', 'carroRef'), compact('pecs', 'id_rally'), compact('historicoNoticias'));
     }
 
     public function teste(){

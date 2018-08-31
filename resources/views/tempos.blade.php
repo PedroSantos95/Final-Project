@@ -122,6 +122,13 @@
             </tr>
 
         </table>
+        <div>
+            @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
+                        {{$historicoNoticias[$i]->created_at}}
+                        {{$historicoNoticias[$i]->titulo}}
+            @endfor
+
+        </div>
     </div>
     <div>
     </div>
