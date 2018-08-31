@@ -128,7 +128,10 @@
     </div>
     <div>
     </div>
-    <table id="tabelaHistoricoNoticias">
+
+</div>
+<div>
+<table id="tabelaHistoricoNoticias">
             <tr>
                 <th>Data/Hora</th>
                 <th>Titulo</th>
@@ -147,7 +150,6 @@
             </tr>
         </table>
 </div>
-
 <!-- Bootstrap core JavaScript -->
 <script src="//code.jquery.com/jquery.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
