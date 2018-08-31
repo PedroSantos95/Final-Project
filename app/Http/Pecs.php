@@ -9,4 +9,3 @@ class Pecs extends Model
     protected $table = 'pecs';
     public $timestamps = false;
 }
-}
