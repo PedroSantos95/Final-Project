@@ -65,15 +65,7 @@
             <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 8%;">
             </div>
             
-        </div>
-        @for ($i = 0; $i <sizeof($pecs); $i++)  
-                <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 40px;" class="selecao-pec" id="{{$pecs[$i]->nome}}">
-                        {{$pecs[$i]->nome}}
-                    </div>
-                </label>
-            @endfor
-            <hr>
+        </div>    
         <div>
             <button type="button" id="reload-button" class="btn btn-outline-info">
                 <img src="icons/reload.png" height="21" width="21"> Atualizar
@@ -82,6 +74,14 @@
                 <img src="icons/refresh.png" height="20" width="20"> Atualizar Auto: ON
             </button>
         </div>
+        <hr>
+        @for ($i = 0; $i <sizeof($pecs); $i++)  
+                <label class="btn btn-outline-info">
+                    <div style="text-align: center; width: 40px;" class="selecao-pec" id="{{$pecs[$i]->nome}}">
+                        {{$pecs[$i]->nome}}
+                    </div>
+                </label>
+            @endfor
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
