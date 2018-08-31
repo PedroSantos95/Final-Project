@@ -123,12 +123,25 @@
 
         </table>
         <hr>
+        <table style="width:100%" id="tabelaHistoricoNoticias">
+            <tr>
+                <th class="text-right">Data/Hora</th>
+                <th class="text-right">Titulo</th>
+            </tr>
+            <tr class="text-right">
+                @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
+                    <td>
+                       {{$historicoNoticias[$i]->created_at}}
+                    </td>                   
+                 @endfor                   
+                 @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
+                    <td>
+                       {{$historicoNoticias[$i]->titulo}}
+                    </td>                   
+                 @endfor   
+            </tr>
+        </table>
         <div>
-            @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
-                        {{$historicoNoticias[$i]->created_at}}
-                        {{$historicoNoticias[$i]->titulo}}
-            @endfor
-
         </div>
     </div>
     <div>
