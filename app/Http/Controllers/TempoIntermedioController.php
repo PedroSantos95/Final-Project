@@ -20,7 +20,7 @@ class TempoIntermedioController extends Controller
 
     public function semCarroRef()
     {
-        $carroRef = DB::table('tempos_intermedios')->where('id_rally', 2)->first();
+        $carroRef = DB::table('tempos_intermedios')->where('id_rally', 2)->where('id_pec', 1)->first();
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
         $id_rally = 2;
         $pecs = Pecs::all();
