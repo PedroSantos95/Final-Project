@@ -151,7 +151,7 @@
                 {{$historicoNoticias[$i]->titulo}}
                 </td>                   
             @endfor
-            <td>
+            <td style="text-align: center">
             <img onclick="" alt="referencia" height="25" width="25" src="icons/add.png">
             </td>
         </tr>
