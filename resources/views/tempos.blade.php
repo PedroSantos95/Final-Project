@@ -137,7 +137,8 @@
         <thead>
         <tr>
             <th width="30%" style="text-align: center;">Data/Hora</th>
-            <th width="70%" style="text-align: center;">Titulo</th>
+            <th width="60%" style="text-align: center;">Notícia</th>
+            <th width="10%" style="text-align: center;">Detalhes</th>
         </tr>
         <tr>
             @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
@@ -149,7 +150,7 @@
                 <td style="text-align: left;">
                 {{$historicoNoticias[$i]->titulo}}
                 </td>                   
-            @endfor   
+            @endfor
         </tr>
         </thead>
 
