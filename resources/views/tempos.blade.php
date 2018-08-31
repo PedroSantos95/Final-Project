@@ -129,7 +129,7 @@
     <div>
     </div>
     <div class="row">
-        <div class="col-sm-2 col-sm-offset-2 col-lg-2">
+        <div class="col-sm-2 col-sm-offset-2 col-lg-12">
             <table id="tabelaHistoricoNoticias">
                 <tr>
                     <th>Data/Hora</th>
