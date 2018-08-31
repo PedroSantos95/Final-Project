@@ -154,11 +154,13 @@
                 </td>                   
             @endfor
             </tr>  
+            <tr>
             <td style="text-align: center">
             <a href="{{ route("noticias") }}">
             <img alt="referencia" height="25" width="25" src="icons/add.png">
             </a>
             </td>
+            </tr>
         </tr>
         </thead>
 
