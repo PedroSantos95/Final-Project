@@ -123,7 +123,7 @@
 
         </table>
         <hr>
-        <table style="width:100%" id="tabelaHistoricoNoticias">
+        <table  id="tabelaHistoricoNoticias">
             <tr>
                 <th>Data/Hora</th>
                 <th>Titulo</th>
