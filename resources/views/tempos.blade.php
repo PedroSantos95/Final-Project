@@ -130,7 +130,6 @@
     </div>
     <br>
     <br>
-    <br>
     <h3 align="center"> Histórico de Notícias </h3>
     <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
