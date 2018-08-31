@@ -150,6 +150,25 @@
             </table>
         </div>
     </div>
+    <div class="container col-lg-8">
+    <table class="table table-striped table-bordered custom-datatable display responsive"
+           id="datatable" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th style="text-align: center;">Tipo</th>
+            <th style="text-align: center;">Titulo</th>
+            <th class="one" style="text-align: center;">Mensagem</th>
+            <th class="one" style="text-align: center;">Data</th>
+            <th style="text-align: center;">Detalhes</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+    </table>
+
+</div>
 </div>
 <!-- Bootstrap core JavaScript -->
 <script src="//code.jquery.com/jquery.js"></script>
