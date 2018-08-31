@@ -123,7 +123,12 @@
 
         </table>
         <hr>
-        <table  id="tabelaHistoricoNoticias">
+        <div>
+        </div>
+    </div>
+    <div>
+    </div>
+    <table id="tabelaHistoricoNoticias">
             <tr>
                 <th>Data/Hora</th>
                 <th>Titulo</th>
@@ -141,12 +146,6 @@
                  @endfor   
             </tr>
         </table>
-        <div>
-        </div>
-    </div>
-    <div>
-    </div>
-
 </div>
 
 <!-- Bootstrap core JavaScript -->
