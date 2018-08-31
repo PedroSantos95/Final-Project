@@ -24,7 +24,7 @@ class TempoIntermedioController extends Controller
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
         $id_rally = 2;
         $pecs = Pecs::all();
-        $historicoNoticias = DB::table('noticias')->where('id_rally',2)->get();
+        $historicoNoticias = DB::table('noticias')->where('id_rally',2)->orderBy('created_at', 'DESC');->get();
         $numeroTemposIntermediosPec = 0;
 
 
