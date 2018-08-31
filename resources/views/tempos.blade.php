@@ -73,6 +73,7 @@
                     </div>
                 </label>
             @endfor
+            <hr>
         <div>
             <button type="button" id="reload-button" class="btn btn-outline-info">
                 <img src="icons/reload.png" height="21" width="21"> Atualizar
