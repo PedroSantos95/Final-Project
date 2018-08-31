@@ -146,22 +146,14 @@
                 {{$historicoNoticias[$i]->created_at}}
                 </td>                   
             @endfor   
-            </tr>      
-            <tr>       
+        </tr>      
+        <tr>       
             @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
                 <td style="text-align: left;">
                 {{$historicoNoticias[$i]->titulo}}
                 </td>                   
             @endfor
-            </tr>  
-            <tr>
-            <td style="text-align: center">
-            <a href="{{ route("noticias") }}">
-            <img alt="referencia" height="25" width="25" src="icons/add.png">
-            </a>
-            </td>
-            </tr>
-        </tr>
+        </tr>  
         </thead>
 
         <tbody>
