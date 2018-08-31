@@ -152,7 +152,7 @@
                 </td>                   
             @endfor
             <td style="text-align: center">
-            <img onclick="window.location='{{ route("news") }}'" alt="referencia" height="25" width="25" src="icons/add.png">
+            <img onclick="window.location='{{ route("noticias") }}'" alt="referencia" height="25" width="25" src="icons/add.png">
             </td>
         </tr>
         </thead>
