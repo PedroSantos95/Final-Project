@@ -136,8 +136,8 @@
            id="historicoNoticias" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th width="20%" style="text-align: center;">Data/Hora</th>
-            <th width="80%" style="text-align: center;">Notícia</th>
+            <th width="25%" style="text-align: center;">Data/Hora</th>
+            <th width="75%" style="text-align: center;">Notícia</th>
         </tr>
             @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
             <tr>
