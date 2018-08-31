@@ -136,7 +136,7 @@
     <table class="table table-striped table-bordered custom-datatable display responsive"
            id="historicoNoticias" cellspacing="0" width="100%">
            <caption>
-           <a href="{{ route("noticias") }} target="_blank"">
+           <a href="{{ route("noticias") }} " target="_blank">
             <img style="margin-bottom: 6px;" alt="referencia" height="13" width="13" src="icons/add.png">
             Mais informações sobre as noticias.
             </a>
