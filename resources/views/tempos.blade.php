@@ -130,7 +130,7 @@
     </div>
 
 </div>
-<div>
+<div align="left">
 <table id="tabelaHistoricoNoticias">
             <tr>
                 <th>Data/Hora</th>
