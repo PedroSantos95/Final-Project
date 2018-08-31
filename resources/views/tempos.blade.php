@@ -122,6 +122,7 @@
             </tr>
 
         </table>
+        <hr>
         <div>
             @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
                         {{$historicoNoticias[$i]->created_at}}
