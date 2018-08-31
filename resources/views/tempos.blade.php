@@ -137,7 +137,7 @@
            id="historicoNoticias" cellspacing="0" width="100%">
            <caption>
            <a href="{{ route("noticias") }}">
-            <img style="margin-bottom: 10px;" alt="referencia" height="15" width="15" src="icons/add.png">
+            <img style="margin-bottom: 6px;" alt="referencia" height="15" width="15" src="icons/add.png">
             Mais informações sobre as noticias.
             </a>
            </caption>
