@@ -125,10 +125,10 @@
         <hr>
         <table style="width:100%" id="tabelaHistoricoNoticias">
             <tr>
-                <th class="text-right">Data/Hora</th>
-                <th class="text-right">Titulo</th>
+                <th class="text-left">Data/Hora</th>
+                <th class="text-left">Titulo</th>
             </tr>
-            <tr class="text-right">
+            <tr class="text-left">
                 @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
                     <td>
                        {{$historicoNoticias[$i]->created_at}}
