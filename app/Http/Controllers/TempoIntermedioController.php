@@ -28,7 +28,7 @@ class TempoIntermedioController extends Controller
         $numeroTemposIntermediosPec = 0;
 
 
-        return view('tempos', compact('numeroTemposIntermedios', 'carroRef'), compact('pecs', 'id_rally'), compact('historicoNoticias'));
+        return view('tempos', compact('numeroTemposIntermedios', 'carroRef'), compact('pecs', 'id_rally', 'historicoNoticias'));
     }
 
     public function teste(){
