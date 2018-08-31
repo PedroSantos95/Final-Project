@@ -136,16 +136,7 @@
                     <th>Titulo</th>
                 </tr>
                 <tr>
-                    @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
-                        <td>
-                        {{$historicoNoticias[$i]->created_at}}
-                        </td>                   
-                    @endfor                   
-                    @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
-                        <td>
-                        {{$historicoNoticias[$i]->titulo}}
-                        </td>                   
-                    @endfor   
+                    
                 </tr>
             </table>
         </div>
@@ -155,11 +146,20 @@
            id="historicoNoticias" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th style="text-align: center;">Tipo</th>
-            <th style="text-align: center;">Titulo</th>
-            <th class="one" style="text-align: center;">Mensagem</th>
-            <th class="one" style="text-align: center;">Data</th>
-            <th style="text-align: center;">Detalhes</th>
+            <th style="text-align: center;">Data/Hora</th>
+            <th class="one" style="text-align: center;">Titulo</th>
+        </tr>
+        <tr>
+            @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
+                <td>
+                {{$historicoNoticias[$i]->created_at}}
+                </td>                   
+            @endfor                   
+            @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
+                <td>
+                {{$historicoNoticias[$i]->titulo}}
+                </td>                   
+            @endfor   
         </tr>
         </thead>
 
