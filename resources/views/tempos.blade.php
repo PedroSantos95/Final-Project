@@ -130,10 +130,12 @@
     </div>
     <br>
     <br>
-    <h3 align="center"> Histórico de Notícias </h3>
+    <h3 align="center"> Histórico de Notícias </h3>~
+    <br>
     <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
            id="historicoNoticias" cellspacing="0" width="100%">
+           <caption>Locust mating habits</caption>
         <thead>
         <tr>
             <th width="25%" style="text-align: center;">Data/Hora</th>
