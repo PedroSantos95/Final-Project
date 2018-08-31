@@ -68,7 +68,7 @@
         </div>
         @for ($i = 0; $i <sizeof($pecs); $i++)  
                 <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 110px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
+                    <div style="text-align: center; width: 40px;" class="selecao-pec" id="{{$pecs[$i]->nome}}">
                         {{$pecs[$i]->nome}}
                     </div>
                 </label>
