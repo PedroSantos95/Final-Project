@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\TempoIntermedio;
+use App\Http\Pecs;
 use DB;
 use PhpParser\Node\Expr\Array_;
 
