@@ -129,24 +129,26 @@
     <div>
     </div>
     <div class="row">
-        <table id="tabelaHistoricoNoticias">
-            <tr>
-                <th>Data/Hora</th>
-                <th>Titulo</th>
-            </tr>
-            <tr>
-                @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
-                    <td>
-                       {{$historicoNoticias[$i]->created_at}}
-                    </td>                   
-                 @endfor                   
-                 @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
-                    <td>
-                       {{$historicoNoticias[$i]->titulo}}
-                    </td>                   
-                 @endfor   
-            </tr>
-        </table>
+        <div class="col-sm-2 col-sm-offset-2 col-lg-2">
+            <table id="tabelaHistoricoNoticias">
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>Titulo</th>
+                </tr>
+                <tr>
+                    @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
+                        <td>
+                        {{$historicoNoticias[$i]->created_at}}
+                        </td>                   
+                    @endfor                   
+                    @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
+                        <td>
+                        {{$historicoNoticias[$i]->titulo}}
+                        </td>                   
+                    @endfor   
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <!-- Bootstrap core JavaScript -->
