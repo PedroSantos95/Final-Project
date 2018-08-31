@@ -24,6 +24,8 @@ class TempoIntermedioController extends Controller
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
         $pecs = Pecs::all()->where('id_rally', 2);
 
+        console.log($pecs);
+
         return view('tempos', compact('numeroTemposIntermedios', 'carroRef'), compact('pecs'));
     }
 
