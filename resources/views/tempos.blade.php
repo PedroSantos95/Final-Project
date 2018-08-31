@@ -64,11 +64,11 @@
         <div class="col-sm-4 col-sm-offset-4 col-lg-12">
             <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 8%;">
             </div>
+            
         </div>
-            @for ($i = 0; $i <sizeof($pecs); $i++)  
+        @for ($i = 0; $i <sizeof($pecs); $i++)  
                 <label class="btn btn-outline-info">
                     <div style="text-align: center; width: 110px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
-                        <input id="type" type="radio" name="tipo" autocomplete="off">
                         {{$pecs[$i]->nome}}
                     </div>
                 </label>
