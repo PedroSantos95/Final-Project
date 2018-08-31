@@ -151,12 +151,12 @@
         </tr>
         <tr>
             @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
-                <td>
+                <td align="left">
                 {{$historicoNoticias[$i]->created_at}}
                 </td>                   
             @endfor                   
             @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
-                <td>
+                <td align="left">
                 {{$historicoNoticias[$i]->titulo}}
                 </td>                   
             @endfor   
