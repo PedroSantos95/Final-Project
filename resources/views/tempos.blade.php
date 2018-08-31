@@ -65,6 +65,13 @@
             <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 8%;">
             </div>
         </div>
+        @for ($i = 0; $i <sizeof($pecs); $i++)
+                <label class="btn btn-outline-info">
+                    <div style="text-align: center; width: 110px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
+                        {{$pecs[$i]->nome}}
+                    </div>
+                </label>
+            @endfor
         <div>
             <button type="button" id="reload-button" class="btn btn-outline-info">
                 <img src="icons/reload.png" height="21" width="21"> Atualizar
