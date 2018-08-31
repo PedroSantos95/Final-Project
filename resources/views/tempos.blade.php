@@ -128,7 +128,10 @@
     </div>
     <div>
     </div>
-    <h2 align="center"> Histórico de Notícias </h2>
+    <hr>
+    <hr>
+    <hr>
+    <h3 align="center"> Histórico de Notícias </h3>
     <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
            id="historicoNoticias" cellspacing="0" width="100%">
