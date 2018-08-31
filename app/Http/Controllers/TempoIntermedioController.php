@@ -22,7 +22,7 @@ class TempoIntermedioController extends Controller
     {
         $carroRef = DB::table('tempos_intermedios')->where('id_rally', 2)->first();
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
-        $pecs = Pecs::all()->where('id_rally', 2)->select('nome');
+        $pecs = Pecs::all()->where('id_rally', 2)->get(['nome']);
 
         dd($pecs);
 
