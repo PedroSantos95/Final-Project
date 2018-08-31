@@ -21,7 +21,6 @@ class TempoIntermedioController extends Controller
     public function semCarroRef()
     {
         $carroRef = DB::table('tempos_intermedios')->where('id_rally', 2)->first();
-        dd($carroRef);
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
         $id_rally = 2;
         $pecs = Pecs::all();
@@ -34,7 +33,7 @@ class TempoIntermedioController extends Controller
     public function teste(){
         $tempos = TempoIntermedio::select(['numero_carro', 'tempoPartida', 'tempoIntermedio_1', 'tempoIntermedio_2',
             'tempoIntermedio_3', 'tempoIntermedio_4', 'tempoIntermedio_5', 'tempoIntermedio_6', 'tempoIntermedio_7',
-            'tempoIntermedio_8', 'tempoIntermedio_9', 'tempoIntermedio_10', 'tempoChegada'])->where('id_rally', 2)->get();
+            'tempoIntermedio_8', 'tempoIntermedio_9', 'tempoIntermedio_10', 'tempoChegada'])->where('id_rally', 2)->where('id_pec', 2)->get();
 
         $carroRef = DB::table('tempos_intermedios')->where('id_rally', 2)->first();
         $numeroTemposIntermedios = $this->numeroTempos($carroRef);
