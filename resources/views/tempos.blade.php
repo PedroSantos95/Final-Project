@@ -128,19 +128,7 @@
     </div>
     <div>
     </div>
-    <div class="row">
-        <div class="col-sm-2 col-sm-offset-2 col-lg-12">
-            <table id="tabelaHistoricoNoticias">
-                <tr>
-                    <th>Data/Hora</th>
-                    <th>Titulo</th>
-                </tr>
-                <tr>
-                    
-                </tr>
-            </table>
-        </div>
-    </div>
+    <h2 align="center"> Histórico de Notícias </h2>
     <div class="container col-lg-8">
     <table class="table table-striped table-bordered custom-datatable display responsive"
            id="historicoNoticias" cellspacing="0" width="100%">
