@@ -220,7 +220,9 @@
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
-                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
+                                console.log(this.tempos[carroRef][value]);
+                                console.log(this.tempos[index].tempoPartida);
+                                console.log("-------------");
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             }
