@@ -256,6 +256,7 @@
                     console.log(date2);
                     */
                     console.log(duration);
+                    console.log(result.milliseconds());
 
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
