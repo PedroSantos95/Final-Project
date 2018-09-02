@@ -452,8 +452,9 @@
                         }
                     }
                 }
+            }
 
-            },
+        },
 
             changeCarroRef(carroRef){
                 this.carroRef = carroRef;
