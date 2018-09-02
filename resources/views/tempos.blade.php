@@ -245,17 +245,18 @@
             },
 
             calculateDiffTimes(date1, date2) {
-                    console.log(date1);
-                    console.log(date2);
+                    /*console.log(date1);
+                    console.log(date2);*/
                 if (date1 != null && date2 != null) {
                     date1 = moment(date1, 'HH:mm:ss.sss');
                     date2 = moment(date2, 'HH:mm:ss.sss');
 
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration, 'HH:mm:ss.sss');
-                              
+                            
+                    return result;
                     //console.log(duration);
-
+/*
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
                             if(result.seconds()<10){
@@ -299,7 +300,8 @@
 
                 }else{
                     return '__';
-                }
+                }*/
+                
             },
 
             calculateDiffDates(date1, date2) {
@@ -309,7 +311,7 @@
 
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
-/*
+
                     if (result.hours() == 0) {
                         if (result.minutes() == 0) {
                             if(result.seconds()==0){
@@ -421,7 +423,7 @@
                                 }
                             }
                         }
-                    }*/
+                    }
                 }
             },
 
