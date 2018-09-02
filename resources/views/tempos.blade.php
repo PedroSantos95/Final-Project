@@ -245,17 +245,15 @@
             },
 
             calculateDiffTimes(date1, date2) {
+                    console.log(date1);
+                    console.log(date2);
                 if (date1 != null && date2 != null) {
                     date1 = moment(date1, 'YYYY-MM-DD HH:mm:ss');
                     date2 = moment(date2, 'YYYY-MM-DD HH:mm:ss');
 
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration, 'YYYY-MM-DD HH:mm:ss');
-                    console.log(result);
-                    /*
-                    console.log(date1);
-                    console.log(date2);
-                    */
+                              
                     //console.log(duration);
 
                     if(result.minutes() == 0){
