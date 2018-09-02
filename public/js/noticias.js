@@ -4,6 +4,10 @@
     var url = new URL(url_string);
     var id_rally = url.searchParams.get('id');
 
+    button:active{
+        background:olive;
+    }
+    
     var table = $('#datatable').DataTable({
         "aaSorting": [],
         "bInfo": false,
