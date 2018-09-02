@@ -246,8 +246,8 @@
 
             calculateDiffTimes(date1, date2) {
                 if (date1 != null && date2 != null) {
-                    date1 = moment(date1, 'mm:ss:ms');
-                    date2 = moment(date2, 'mm:ss:ms');
+                    date1 = moment(date1, 'HH:mm:ss.ms');
+                    date2 = moment(date2, 'HH:mm:ss.ms');
 
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
