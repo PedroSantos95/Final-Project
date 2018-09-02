@@ -306,6 +306,7 @@
 
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
+                    console.log(date1);
                     date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
                     date2 = moment(date2, 'YY-mm-dd HH:mm:ss:ms');
 
