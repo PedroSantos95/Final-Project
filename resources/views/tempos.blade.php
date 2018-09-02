@@ -305,7 +305,6 @@
 
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
-                    var durantion = date1.diff(date2);
                     date1 = moment(date1).format('HH:mm:ss');
                     date2 = moment(date2).format('HH:mm:ss');
 
