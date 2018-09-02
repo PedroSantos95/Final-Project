@@ -248,11 +248,11 @@
                     console.log(date1);
                     console.log(date2);
                 if (date1 != null && date2 != null) {
-                    date1 = moment(date1, 'YYYY-MM-DD HH:mm:ss');
-                    date2 = moment(date2, 'YYYY-MM-DD HH:mm:ss');
+                    date1 = moment(date1, 'HH:mm:ss.ms');
+                    date2 = moment(date2, 'HH:mm:ss.ms');
 
                     var duration = date1.diff(date2);
-                    var result = moment.duration(duration, 'YYYY-MM-DD HH:mm:ss');
+                    var result = moment.duration(duration, 'HH:mm:ss.ms');
                               
                     //console.log(duration);
 
