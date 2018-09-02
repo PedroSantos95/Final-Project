@@ -309,6 +309,7 @@
                     date2 = moment(date2).format('HH:mm:ss');
 
                     console.log(date1);
+                    console.log(date_diff(date1, date2));
                     console.log(date2);
                     //var duration = date1.diff(date2);
                     //var result = moment.duration(duration, 'HH:mm:ss.sss');
