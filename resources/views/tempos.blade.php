@@ -253,7 +253,8 @@
 
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration, 'HH:mm:ss.sss');
-                            
+                    
+                    console.log(result);
                     //console.log(duration);
 
                     if(result.minutes() == 0){
@@ -454,7 +455,7 @@
                 }
             }
 
-        },
+        }, 
 
             changeCarroRef(carroRef){
                 this.carroRef = carroRef;
