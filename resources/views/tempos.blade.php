@@ -26,6 +26,39 @@
 
         tr:nth-child(even) {background-color: #f2f2f2;}
     </style>
+
+        <style type="text/css">
+        a:hover {
+            cursor: pointer;
+        }
+
+        .custom-datatable {
+            table-layout: fixed;
+        }
+
+        table {
+            width: 50%;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .one {
+                display: none;
+            }
+        }
+
+        .navbar .navbar-brand {
+            padding-top: -1px;
+        }
+
+        .navbar
+        {
+            height: 82px;
+        }
+
+        .red {
+            background-color: lightblue !important;
+        }
+    </style>
     
 </head>
 
