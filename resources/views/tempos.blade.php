@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,14 +41,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="http://pgronline.myddns.me">Tempos</a>
+                    <a class="nav-link active" href="{{route('temposSemReferencia')}}">Tempos</a>
                     <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://pgronline.myddns.me/news">Noticias</a>
+                    <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://pgronline.myddns.me/admin">Administrador</a>
+                    <a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>
                 </li>
             </ul>
         </div>
@@ -76,54 +75,24 @@
         </div>
         <hr>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-             
+            @for ($i = 0; $i <sizeof($pecs); $i++) 
                 <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="PEC1">
+                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
                         <input id="type" type="radio" name="tipo" autocomplete="off">
-                        PEC1
+                        {{$pecs[$i]->nome}}
                     </div>
                 </label>
-             
-                <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="SS1">
-                        <input id="type" type="radio" name="tipo" autocomplete="off">
-                        SS1
-                    </div>
-                </label>
-             
-                <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="SS2">
-                        <input id="type" type="radio" name="tipo" autocomplete="off">
-                        SS2
-                    </div>
-                </label>
-             
-                <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="SS3">
-                        <input id="type" type="radio" name="tipo" autocomplete="off">
-                        SS3
-                    </div>
-                </label>
-             
-                <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="SS4">
-                        <input id="type" type="radio" name="tipo" autocomplete="off">
-                        SS4
-                    </div>
-                </label>
-                    </div>
+            @endfor
+        </div>
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
                 <th class="text-right">Carro</th>
                 <th class="text-right">TP</th>
-                                    <th class="text-right" align="center">TI 1</th>
-                                    <th class="text-right" align="center">TI 2</th>
-                                    <th class="text-right" align="center">TI 3</th>
-                                    <th class="text-right" align="center">TI 4</th>
-                                    <th class="text-right" align="center">TI 5</th>
-                                    <th class="text-right" align="center">TI 6</th>
-                                <th class="text-right">TC</th>
+                @for($i=1; $i<=$numeroTemposIntermedios; $i++)
+                    <th class="text-right" align="center">TI <?= $i ?></th>
+                @endfor
+                <th class="text-right">TC</th>
             </tr>
             <tr class="text-right" v-for="(value, index) in temposFinais">
                 <td>
@@ -135,22 +104,22 @@
                     </span>
                 </td>
                 <td>
-                    <span style="font-weight:bold" v-if="index == carroRef">{{ value.numero_carro }}</span>
-                    <span v-if="index != carroRef">{{ value.numero_carro }}</span>
+                    <span style="font-weight:bold" v-if="index == carroRef">@{{ value.numero_carro }}</span>
+                    <span v-if="index != carroRef">@{{ value.numero_carro }}</span>
                 </td>
                 <td>
-                    <span v-if="index != carroRef">{{ value.tempoPartida | formatDate | formatPartida }}</span>
-                    <span style="font-weight:bold" v-if="index == carroRef">{{ value.tempoPartida | formatDate | formatPartida}}</span>
+                    <span v-if="index != carroRef">@{{ value.tempoPartida | formatDate | formatPartida }}</span>
+                    <span style="font-weight:bold" v-if="index == carroRef">@{{ value.tempoPartida | formatDate | formatPartida}}</span>
                 </td>
                 <td v-for="index2 in numeroTemposIntermedios">
-                    <span style="color:green; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">{{ getNameField(value, index2) }}</span>
-                    <span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('-') !== -1">{{ getNameField(value, index2) }}</span>
-                    <span style="content: 'center' ;font-weight:bold" v-if="index == carroRef">{{ getCarRefTimes(value, index2)}}</span>
+                    <span style="color:green; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span>
+                    <span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('-') !== -1">@{{ getNameField(value, index2) }}</span>
+                    <span style="content: 'center' ;font-weight:bold" v-if="index == carroRef">@{{ getCarRefTimes(value, index2)}}</span>
                 </td>
                 <td>
-                    <span v-if="index != carroRef">{{ value.tempoChegada }}</span>
+                    <span v-if="index != carroRef">@{{ value.tempoChegada }}</span>
                     </span>
-                    <span style="font-weight:bold" v-if="index == carroRef">{{ value.tempoChegada }}</span>
+                    <span style="font-weight:bold" v-if="index == carroRef">@{{ value.tempoChegada }}</span>
                 </td>
             </tr>
 
@@ -169,7 +138,7 @@
     <table class="table table-striped table-bordered custom-datatable display responsive"
            id="historicoNoticias" cellspacing="0" width="100%">
            <caption>
-           <a href="http://pgronline.myddns.me/news " target="_blank">
+           <a href="{{ route("noticias") }} " target="_blank">
             <img style="margin-bottom: 6px;" alt="referencia" height="13" width="13" src="icons/add.png">
             Mais informações sobre as noticias.
             </a>
@@ -179,27 +148,18 @@
             <th width="25%" style="text-align: center;">Data/Hora</th>
             <th width="75%" style="text-align: center;">Notícia</th>
         </tr>
-              
+            @for ($i = 0; $i <sizeof($historicoNoticias); $i++)  
             <tr>
                 <td style="text-align: left;">
-                2018-08-29 22:21:00
+                {{$historicoNoticias[$i]->created_at}}
                 </td> 
                          
                 <td style="text-align: left;">
-                Carros em ligação para a PE9
+                {{$historicoNoticias[$i]->titulo}}
                 </td>     
             </tr>                   
-              
-            <tr>
-                <td style="text-align: left;">
-                2018-06-09 15:41:49
-                </td> 
-                         
-                <td style="text-align: left;">
-                Rali parado.
-                </td>     
-            </tr>                   
-                    </tr>  
+            @endfor
+        </tr>  
         </thead>
         <tbody>
         </tbody>
