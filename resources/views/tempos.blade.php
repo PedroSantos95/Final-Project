@@ -313,12 +313,12 @@
                     if (result.hours() == 0) {
                         if (result.minutes() == 0) {
                             if(result.seconds()==0){
-                                return '00' + result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                return '00' + result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
                             }else{
                                 if(result.seconds()<10){
-                                    return '00' + result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                    return '00' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
                                 }else{
-                                    return '00' + result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                    return '00' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
                                 }
                             }
                         } else {
@@ -351,13 +351,13 @@
                         if (result.hours() < 10) {
                             if (result.minutes() == 0) {
                                 if(result.seconds()==0){
-                                    return '0' + result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    return '0' + result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
 
                                 }else{
                                     if(result.seconds()<10){
-                                        return '0' + result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        return '0' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
                                     }else{
-                                        return '0' + result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        return '0' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
                                     }
                                 }
                             } else {
@@ -389,23 +389,23 @@
                         } else {
                             if (result.minutes() == 0) {
                                 if(result.seconds() == 0){
-                                    return result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    return result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
                                 }else{
                                     if(result.seconds()<10){
-                                        return result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        return result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
                                     }else{
-                                        return result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        return result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
                                     }
                                 }
                             } else {
                                 if (result.minutes() < 10) {
                                     if(result.seconds()==0){
-                                        return result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                        return result.hours() + ':' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
                                     }else{
                                         if(result.seconds()<10){
-                                            return result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                            return result.hours() + ':' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
                                         }else{
-                                            return result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                            return result.hours() + ':' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
                                         }
                                     }
                                 } else {
