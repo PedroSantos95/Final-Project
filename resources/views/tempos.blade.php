@@ -251,6 +251,8 @@
 
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
+                    console.log(date1);
+                    console.log(date2);
                     console.log(duration);
 
                     if(result.minutes() == 0){
