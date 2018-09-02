@@ -247,7 +247,7 @@
             calculateDiffTimes(date1, date2) {
                     /*console.log(date1);
                     console.log(date2);*/
-                if (date1 != null && date2 != null) {
+                    if (date1 != null && date2 != null) {
                     date1 = moment(date1, 'HH:mm:ss.sss');
                     date2 = moment(date2, 'HH:mm:ss.sss');
 
@@ -302,9 +302,23 @@
                 }
              
             },
-
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
+                    //date1 = moment(date1).format('HH:mm:ss');
+                    //date2 = moment(date2).format('HH:mm:ss');
+
+                    console.log(date1);
+                    console.log(date2);
+                    var date1 = moment(date1, "YYYY-MM-DD HH:mm:ss");
+                    var date2 = moment(date2, "YYYY-MM-DD HH:mm:ss");
+                    /*
+                    var teste = (moment.duration(date1.diff(date2)).asSeconds());
+                    console.log(teste);
+                    */
+                    //Difference in number of days
+                    
+
+                   if (date1 != null) {
                     //date1 = moment(date1).format('HH:mm:ss');
                     //date2 = moment(date2).format('HH:mm:ss');
 
