@@ -76,17 +76,7 @@
         </div>
         <hr>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-outline-info">
-            </label>
             @for ($i = 0; $i <sizeof($pecs); $i++) 
-            @if ($i == 1)
-            <label class="btn btn-outline-info active">
-                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
-                        <input id="type" type="radio" name="tipo" autocomplete="off">
-                        {{$pecs[$i]->nome}}
-                    </div>
-                </label>
-            @endif 
                 <label class="btn btn-outline-info">
                     <div style="text-align: center; width: 40px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
                         <input id="type" type="radio" name="tipo" autocomplete="off">
