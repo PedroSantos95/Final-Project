@@ -230,7 +230,7 @@
                         }
                         counter++;
                     }
-                    console.log(newElement);
+                 
                     this.temposFinais.push(newElement);
                     newElement = {};
                 }
