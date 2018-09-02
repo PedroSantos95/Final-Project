@@ -89,6 +89,7 @@
 </nav>
 
 <div class="container col-lg-6" style="padding-top: 10px;text-align: center;">
+<hr>
     <h3>Notícias</h3>
 </div>
 <div class="container col-lg-8" style="margin-top: 1%;">
