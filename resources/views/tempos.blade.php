@@ -18,12 +18,10 @@
             border-collapse: collapse;
             width: 100%;
         }
-
         th, td {
             text-align: right;
             padding: 9px;
         }
-
         tr:nth-child(even) {background-color: #f2f2f2;}
     </style>
   
@@ -201,15 +199,12 @@
                     console.log(error);
                 })
             },
-
             formatArray() {
                 var counter = 0;
                 var newElement = {};
                 var previousElement;
                 var index = this.carroRef != "" ? this.carroRef : 0;
-
                 this.temposFinais = [];
-
                 for (var carroRef in this.tempos) {                    
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
@@ -220,6 +215,9 @@
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
+                                console.log(this.tempos[carroRef][value]);
+                                console.log(this.tempos[index].tempoPartida);
+                                console.log("-------------");
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             }
@@ -230,33 +228,23 @@
                         }
                         counter++;
                     }
-                 
+                    console.log(newElement);
                     this.temposFinais.push(newElement);
                     newElement = {};
                 }
             },
-
             getNameField(value, index){
                 return this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
             },
-
             getCarRefTimes(value, index){
                 return value['tempoIntermedio_'+index];
             },
-
             calculateDiffTimes(date1, date2) {
-                    /*console.log(date1);
-                    console.log(date2);*/
-                    if (date1 != null && date2 != null) {
-                    date1 = moment(date1, 'HH:mm:ss.sss');
-                    date2 = moment(date2, 'HH:mm:ss.sss');
-
+                if (date1 != null && date2 != null) {
+                    date1 = moment(date1, 'mm:ss:ms');
+                    date2 = moment(date2, 'mm:ss:ms');
                     var duration = date1.diff(date2);
-                    var result = moment.duration(duration, 'HH:mm:ss.sss');
-                    
-                    console.log(result);
-                    //console.log(duration);
-
+                    var result = moment.duration(duration);
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
                             if(result.seconds()<10){
@@ -267,7 +255,6 @@
                             return result.seconds() + '.' + result.milliseconds();
                         }
                     }
-
                     if(result.minutes()>0){
                         if(result.minutes()<10){
                             if(result.seconds()<10){
@@ -297,50 +284,16 @@
                             }
                         }
                     }
-
                 }else{
                     return '__';
                 }
-             
             },
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
-                    //date1 = moment(date1).format('HH:mm:ss');
-                    //date2 = moment(date2).format('HH:mm:ss');
-
-                    console.log(date1);
-                    console.log(date2);
-                    var date1 = moment(date1, "YYYY-MM-DD HH:mm:ss");
-                    var date2 = moment(date2, "YYYY-MM-DD HH:mm:ss");
-                    /*
-                    var teste = (moment.duration(date1.diff(date2)).asSeconds());
-                    console.log(teste);
-                    */
-                    //Difference in number of days
-                    
-
-                   if (date1 != null) {
-                    //date1 = moment(date1).format('HH:mm:ss');
-                    //date2 = moment(date2).format('HH:mm:ss');
-
-                    console.log(date1);
-                    console.log(date2);
-                    var date1 = moment(date1, "YYYY-MM-DD HH:mm:ss");
-                    var date2 = moment(date2, "YYYY-MM-DD HH:mm:ss");
-                    /*
-                    var teste = (moment.duration(date1.diff(date2)).asSeconds());
-                    console.log(teste);
-                    */
-                    //Difference in number of days
-                    
-
+                    date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
+                    date2 = moment(date2, 'YY-mm-dd HH:mm:ss:ms');
                     var duration = date1.diff(date2);
-                    var result = moment.duration(duration, 'HH:mm:ss.sss');
-                    
-                   
-
-                    //return teste;
-                    
+                    var result = moment.duration(duration);
                     if (result.hours() == 0) {
                         if (result.minutes() == 0) {
                             if(result.seconds()==0){
@@ -359,7 +312,6 @@
                                 }else{
                                         if(result.seconds()<10){
                                             return '0' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
-
                                         }else{
                                             return '0' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
                                         }
@@ -370,7 +322,6 @@
                                 }else{
                                     if(result.seconds()<10){
                                         return '0' + result.hours() + ':' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
-
                                     }else{
                                         return '0' + result.hours() + ':' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
                                     }
@@ -382,7 +333,6 @@
                             if (result.minutes() == 0) {
                                 if(result.seconds()==0){
                                     return '0' + result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
-
                                 }else{
                                     if(result.seconds()<10){
                                         return '0' + result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
@@ -397,7 +347,6 @@
                                     }else{
                                         if(result.seconds()<10){
                                             return '0' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
-
                                         }else{
                                             return '0' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
                                         }
@@ -408,10 +357,8 @@
                                     }else{
                                         if(result.seconds()<10){
                                             return '0' + result.hours() + ':' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
-
                                         }else{
                                             return '0' + result.hours() + ':' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
-
                                         }
                                     }
                                 }
@@ -453,25 +400,19 @@
                         }
                     }
                 }
-            }
-
-        }, 
-
+            },
             changeCarroRef(carroRef){
                 this.carroRef = carroRef;
                 this.formatArray();
             },
         },
-
         filters: {
             formatDate(data) {
                 return data.toString().split(' ')[1] != null ? data.toString().split(' ')[1] : data;
             },
-
             formatPartida(data){
                 return data.toString().split(':')[2] != null ? data.toString().split(':')[0]+':'+ data.toString().split(':')[1]: data;
             },
-
             formatTime(data, dataAnterior) {
                 dataAnterior = dataAnterior.toString().split(' ')[1] != null ? dataAnterior.toString().split(' ')[1] : dataAnterior;
                 return moment(dataAnterior, 'hh:mm:ss').diff(moment(data, 'hh:mm:ss'));
