@@ -310,8 +310,8 @@
 
                     console.log(date1);
                     console.log(date2);
-                    var date1 = moment(date1, "YYYY-MM-DD");
-                    var date2 = moment(date2, "YYYY-MM-DD");
+                    var date1 = moment(date1, "YYYY-MM-DD HH:mm:ss");
+                    var date2 = moment(date2, "YYYY-MM-DD HH:mm:ss");
 
                     //Difference in number of days
                     console.log(moment.duration(date1.diff(date2)).asDays());
