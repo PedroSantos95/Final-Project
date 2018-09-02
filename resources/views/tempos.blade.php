@@ -254,9 +254,8 @@
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration, 'HH:mm:ss.sss');
                             
-                    return result;
                     //console.log(duration);
-/*
+
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
                             if(result.seconds()<10){
@@ -299,7 +298,7 @@
                     }
 
                 }else{
-                    return '__';*/
+                    return '__';
                 }
              
             },
@@ -310,8 +309,10 @@
                     date2 = moment(date2, 'HH:mm:ss.sss');
 
                     var duration = date1.diff(date2);
-                    var result = moment.duration(duration);
-
+                    var result = moment.duration(duration, 'HH:mm:ss.sss');
+                    
+                    return result;
+                    /*
                     if (result.hours() == 0) {
                         if (result.minutes() == 0) {
                             if(result.seconds()==0){
@@ -424,7 +425,11 @@
                             }
                         }
                     }
+                    
+
                 }
+
+
             },
 
             changeCarroRef(carroRef){
