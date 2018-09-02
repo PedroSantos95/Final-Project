@@ -314,7 +314,7 @@
                     var date2 = moment(date2, "YYYY-MM-DD HH:mm:ss");
 
                     //Difference in number of days
-                    console.log((moment.duration(date1.diff(date2)).asSeconds());
+                    console.log((moment.duration(date1.diff(date2)).asSeconds()));
 
                     //var duration = date1.diff(date2);
                     //var result = moment.duration(duration, 'HH:mm:ss.sss');
