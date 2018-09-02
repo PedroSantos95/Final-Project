@@ -246,17 +246,16 @@
 
             calculateDiffTimes(date1, date2) {
                 if (date1 != null && date2 != null) {
-                    date1 = moment(date1, 'HH:mm:ss.ms');
-                    date2 = moment(date2, 'HH:mm:ss.ms');
+                    date1 = moment(date1, 'HH:mm:ss');
+                    date2 = moment(date2, 'HH:mm:ss');
 
                     var duration = date1.diff(date2);
-                    var result = moment.duration(duration);
+                    var result = moment.duration(duration).format('HH:mm:ss.ms');
                     /*
                     console.log(date1);
                     console.log(date2);
                     */
                     console.log(duration);
-                    console.log(result.seconds());
 
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
