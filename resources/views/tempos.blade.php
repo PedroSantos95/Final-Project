@@ -305,8 +305,8 @@
 
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
-                    date1 = moment(date1).format('HH:mm:ss.sss');
-                    date2 = moment(date2).format('HH:mm:ss.sss');
+                    date1 = moment(date1).format('HH:mm:ss.ms');
+                    date2 = moment(date2).format('HH:mm:ss.ms');
 
                     console.log(date1);
                     console.log(date2);
