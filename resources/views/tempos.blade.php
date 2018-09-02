@@ -307,12 +307,11 @@
                 if (date1 != null) {
                     date1 = moment(date1, 'HH:mm:ss.sss').format('HH:mm:ss.sss');
                     date2 = moment(date2, 'HH:mm:ss.sss').format('HH:mm:ss.sss');
-                    
+
                     console.log(date1);
                     console.log(date2);
-
-                    var duration = date1.diff(date2);
-                    var result = moment.duration(duration, 'HH:mm:ss.sss');
+                    //var duration = date1.diff(date2);
+                    //var result = moment.duration(duration, 'HH:mm:ss.sss');
                     
                    
 
