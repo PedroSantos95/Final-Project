@@ -217,6 +217,8 @@
                     for (var value in this.tempos[carroRef]) {
                         if (value.indexOf('Intermedio') !== -1) {
                             if (previousElement !== undefined) {
+                                console.log(this.tempos[carroRef][value]); 
+                                console.log(this.tempos[index].tempoPartida);
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
@@ -251,12 +253,12 @@
 
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration, 'HH:mm:ss:ms');
-                    console.log(result);
+                    //console.log(result);
                     /*
                     console.log(date1);
                     console.log(date2);
                     */
-                    console.log(duration);
+                    //console.log(duration);
 
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
