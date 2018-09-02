@@ -84,6 +84,7 @@
                 </label>
             @endfor
         </div>
+        <hr>
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
