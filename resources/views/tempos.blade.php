@@ -78,6 +78,7 @@
         @for ($i = 0; $i <sizeof($pecs); $i++)  
                 <label class="btn btn-outline-info">
                     <div style="text-align: center; width: 40px;" class="selecao-pec" id="{{$pecs[$i]->nome}}">
+                    <input id="type" type="radio" name="pec" value="0" autocomplete="off">
                         {{$pecs[$i]->nome}}
                     </div>
                 </label>
