@@ -311,10 +311,10 @@
                     console.log(date1);
                     console.log(date2);
                     var start = moment("2018-03-10", "YYYY-MM-DD");
-                     var end = moment("2018-03-15", "YYYY-MM-DD");
+                    var end = moment("2018-03-15", "YYYY-MM-DD");
 
                     //Difference in number of days
-                     moment.duration(start.diff(end)).asDays();
+                    console.log(moment.duration(start.diff(end)).asDays());
 
                     //var duration = date1.diff(date2);
                     //var result = moment.duration(duration, 'HH:mm:ss.sss');
