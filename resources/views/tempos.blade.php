@@ -225,7 +225,6 @@
                         }
                         counter++;
                     }
-                    console.log(newElement);
                     this.temposFinais.push(newElement);
                     newElement = {};
                 }
@@ -237,12 +236,13 @@
                 return value['tempoIntermedio_'+index];
             },
             calculateDiffTimes(date1, date2) {
-                if (date1 != null && date2 != null) {
+                    if (date1 != null && date2 != null) {
+                        console.log(date1);
+                        console.log(date2);
                     date1 = moment(date1, 'mm:ss:ms');
                     date2 = moment(date2, 'mm:ss:ms');
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
-                    console.log(result);
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
                             if(result.seconds()<10){
