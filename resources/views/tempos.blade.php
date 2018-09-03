@@ -288,6 +288,7 @@
                     return '__';
                 }
             },
+            
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
                     date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
