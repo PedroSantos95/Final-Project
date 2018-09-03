@@ -24,10 +24,9 @@
         }
         tr:nth-child(even) {background-color: #f2f2f2;}
     </style>
+  
 </head>
-
 <body>
-
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -73,14 +72,16 @@
             </button>
         </div>
         <hr>
-        @for ($i = 0; $i <sizeof($pecs); $i++)  
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            @for ($i = 0; $i <sizeof($pecs); $i++) 
                 <label class="btn btn-outline-info">
-                    <div style="text-align: center; width: 40px;" class="selecao-pec" id="{{$pecs[$i]->nome}}">
-                    <input id="type" type="radio" name="pec" value="0" autocomplete="off">
+                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
+                        <input id="type" type="radio" name="tipo" autocomplete="off">
                         {{$pecs[$i]->nome}}
                     </div>
                 </label>
             @endfor
+        </div>
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
@@ -214,7 +215,6 @@
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
-                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             }
@@ -242,6 +242,7 @@
                     date2 = moment(date2, 'mm:ss:ms');
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
+                    console.log(result);
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
                             if(result.seconds()<10){
