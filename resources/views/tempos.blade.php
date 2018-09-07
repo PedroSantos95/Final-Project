@@ -45,9 +45,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>
-                </li>
             </ul>
         </div>
     </div>

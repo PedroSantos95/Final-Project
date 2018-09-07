@@ -61,13 +61,13 @@
                     {{--<a class="nav-link" href="{{route('tempos')}}">Tempos--}}
                     {{--</a>--}}
                 {{--</li>--}}
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link active" href="{{route('noticias')}}">Noticias</a>--}}
-                    {{--<span class="sr-only">(current)</span>--}}
-                {{--</li>--}}
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="{{route('adminBoard')}}">Administrador</a>--}}
-                {{--</li>--}}
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{route('temposSemReferencia')}}">Tempos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{route('noticias')}}">Noticias</a>
+                    <span class="sr-only">(current)</span>
+                </li>
                 {{--@if(Auth::check())--}}
                     {{--<li class="nav-item">--}}
                         {{--<a class="nav-link" href="{{ route('logout') }}">Logout</a>--}}
