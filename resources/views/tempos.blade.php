@@ -210,17 +210,17 @@
                         if (value.indexOf('Intermedio') !== -1) {
                             if (previousElement !== undefined) {
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
-                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
+                                //console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                                 previousElement = value;
                             } else {
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
-                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
+                                //console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                                 previousElement = value;
                             }
                         } else {
                             if (value.indexOf('Chegada') !== -1) {
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
-                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
+                                //console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                             }
                         }
                         counter++;
@@ -294,114 +294,7 @@
 
                     //console.log(result.seconds());
 
-                    if (result.hours() == 0) {
-                        //console.log("if1");
-                        if (result.minutes() == 0) {
-                            //console.log("if2");
-                            if(result.seconds()==0){
-                                //console.log("if3");
-                                return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                            }else{
-                                if(result.seconds()<10){
-                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                }else{
-                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                }
-                            }
-                        } else {
-                            if (result.minutes() < 10) {
-                                if(result.seconds()==0) {
-                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                }else{
-                                        if(result.seconds()<10){
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }else{
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }
-                                    }
-                            } else {
-                                if(result.seconds()==0){
-                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                }else{
-                                    if(result.seconds()<10){
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }else{
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        if (result.hours() < 10) {
-                            if (result.minutes() == 0) {
-                                if(result.seconds()==0){
-                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                }else{
-                                    if(result.seconds()<10){
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }else{
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }
-                                }
-                            } else {
-                                if (result.minutes() < 10) {
-                                    if(result.seconds()==0){
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }else{
-                                        if(result.seconds()<10){
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }else{
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }
-                                    }
-                                } else {
-                                    if(result.seconds()==0){
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }else{
-                                        if(result.seconds()<10){
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }else{
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }
-                                    }
-                                }
-                            }
-                        } else {
-                            if (result.minutes() == 0) {
-                                if(result.seconds() == 0){
-                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                }else{
-                                    if(result.seconds()<10){
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }else{
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }
-                                }
-                            } else {
-                                if (result.minutes() < 10) {
-                                    if(result.seconds()==0){
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }else{
-                                        if(result.seconds()<10){
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }else{
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }
-                                    }
-                                } else {
-                                    if(result.seconds()==0){
-                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                    }else{
-                                        if(result.seconds()<10){
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }else{
-                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    return result.minutes() + result.seconds();
                 }
             },
             changeCarroRef(carroRef){
