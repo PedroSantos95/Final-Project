@@ -239,6 +239,7 @@
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
                    return result;
+                    }
             },
             changeCarroRef(carroRef){
                 this.carroRef = carroRef;
