@@ -209,15 +209,15 @@
                     for (var value in this.tempos[carroRef]) {
                         if (value.indexOf('Intermedio') !== -1) {
                             if (previousElement !== undefined) {
-                                newElement[value] = this.calculateDiffTimes(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
-                                newElement[value] = this.calculateDiffTimes(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             }
                         } else {
                             if (value.indexOf('Chegada') !== -1) {
-                                newElement[value] = this.calculateDiffTimes(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                             }
                         }
                         counter++;
@@ -227,19 +227,124 @@
                 }
             },
             getNameField(value, index){
-                return this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
+                return this.calculateDiffDates(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
             },
             getCarRefTimes(value, index){
                 return value['tempoIntermedio_'+index];
             },
-            calculateDiffTimes(date1, date2) {
-                    if (date1 != null && date2 != null) {
-                    date1 = moment(date1, 'mm:ss:ms');
-                    date2 = moment(date2, 'mm:ss:ms');
+            calculateDiffDates(date1, date2) {
+                if (date1 != null) {
+                    date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
+                    date2 = moment(date2, 'YY-mm-dd HH:mm:ss:ms');
                     var duration = date1.diff(date2);
+    
                     var result = moment.duration(duration);
-                    
-                    return result.seconds();
+                    console.log(result);
+                    if (result.hours() == 0) {
+                        if (result.minutes() == 0) {
+                            if(result.seconds()==0){
+                                return '00' + result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                            }else{
+                                if(result.seconds()<10){
+                                    return '00' + result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    return '00' + result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                }
+                            }
+                        } else {
+                            if (result.minutes() < 10) {
+                                if(result.seconds()==0) {
+                                    return '0' + result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                        if(result.seconds()<10){
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                            } else {
+                                if(result.seconds()==0){
+                                    return '0' + result.hours() + ':' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return '0' + result.hours() + ':' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return '0' + result.hours() + ':' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        if (result.hours() < 10) {
+                            if (result.minutes() == 0) {
+                                if(result.seconds()==0){
+                                    return '0' + result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return '0' + result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return '0' + result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            } else {
+                                if (result.minutes() < 10) {
+                                    if(result.seconds()==0){
+                                        return '0' + result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return '0' + result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                } else {
+                                    if(result.seconds()==0){
+                                        return '0' + result.hours() + ':' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return '0' + result.hours() + ':' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return '0' + result.hours() + ':' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            if (result.minutes() == 0) {
+                                if(result.seconds() == 0){
+                                    return result.hours() + ':00' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return result.hours() + ':00' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return result.hours() + ':00' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            } else {
+                                if (result.minutes() < 10) {
+                                    if(result.seconds()==0){
+                                        return result.hours() + ':0' + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.hours() + ':0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.hours() + ':0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                } else {
+                                    if(result.seconds()==0){
+                                        return result.hours() + result.minutes() + ':00' + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.hours() + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.hours() + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             changeCarroRef(carroRef){
