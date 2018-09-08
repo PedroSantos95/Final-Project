@@ -231,7 +231,7 @@
             },
             getNameField(value, index){
                 if(index == 4){
-                    console.log(value);
+                    console.log(this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]));
                 }
                 return this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
             },
