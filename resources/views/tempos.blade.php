@@ -238,6 +238,7 @@
                     date2 = moment(date2, 'mm:ss:ms');
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
+                    
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
                             if(result.seconds()<10){
@@ -284,11 +285,12 @@
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
                     date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
+                    console.log(date1);
                     date2 = moment(date2, 'YY-mm-dd HH:mm:ss:ms');
                     var duration = date1.diff(date2);
     
                     var result = moment.duration(duration);
-                    console.log(result);
+
                     if (result.hours() == 0) {
                         if (result.minutes() == 0) {
                             if(result.seconds()==0){
