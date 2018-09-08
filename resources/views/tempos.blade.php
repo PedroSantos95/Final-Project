@@ -109,7 +109,9 @@
                 <td v-for="index2 in numeroTemposIntermedios">
                     <!--<span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span> <!-->    
                     <span style="content: 'center' ;font-weight:bold" v-if="index == carroRef">@{{ getCarRefTimes(value, index2)}}</span>
-                    <span style="color:green; font-weight: bold" v-else>@{{ getNameField(value, index2) }}</span>
+                    <span :class="{index != carroRef && getNameField(value, index2).indexOf('+') !== -1 ? 'is-red' : 'is-green'}" style="font-weight: bold" v-else>
+                    @{{ getNameField(value, index2) }}
+                    </span>
                 </td>
                 <td>
                     <span v-if="index != carroRef">@{{ value.tempoChegada }}</span>
@@ -208,7 +210,7 @@
                     if(this.tempos[carroRef].tempoChegada){
                         newElement.tempoChegada = moment(this.tempos[carroRef].tempoChegada, 'YYYY-MM-DD HH:mm:ss').format('mm:ss');
                     }else{
-                        newElement.tempoChegada = "---"
+                        newElement.tempoChegada = "--"
                     }
                     
                     for (var value in this.tempos[carroRef]) {
@@ -438,6 +440,15 @@
 </script>
 
 <script src="/js/noticias.js"></script>
+
+<style>
+.is-green{
+    color:green;
+}
+.is-red{
+    color:red;
+}
+</style>
 
 </body>
 
