@@ -209,15 +209,15 @@
                     for (var value in this.tempos[carroRef]) {
                         if (value.indexOf('Intermedio') !== -1) {
                             if (previousElement !== undefined) {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
+                                newElement[value] = this.calculateDiffTimes(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             } else {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
+                                newElement[value] = this.calculateDiffTimes(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                                 previousElement = value;
                             }
                         } else {
                             if (value.indexOf('Chegada') !== -1) {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
+                                newElement[value] = this.calculateDiffTimes(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
                             }
                         }
                         counter++;
