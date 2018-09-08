@@ -236,10 +236,11 @@
                 return value['tempoIntermedio_'+index];
             },
             calculateDiffTimes(date1, date2) { //Tempos Carro Referencia
-                    console.log(date2);
                     if (date1 && date2) {
                     date1 = moment(date1, 'mm:ss:ms');
+                    console.log("antes" + date2);
                     date2 = moment(date2, 'mm:ss:ms');
+                    console.log("d" + date2);
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
                     console.log("data1 " + date1);
