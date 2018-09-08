@@ -70,7 +70,18 @@
         </div>
         <hr> 
 
-
+        <!-->
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            @for ($i = 0; $i <sizeof($pecs); $i++) 
+                <label class="btn btn-outline-info">
+                    <div style="text-align: center; width: 40px;" class="selecao-tipo" id="{{$pecs[$i]->nome}}">
+                        <input id="type" type="radio" name="tipo" autocomplete="off">
+                        {{$pecs[$i]->nome}}
+                    </div>
+                </label>
+            @endfor
+        </div>
+        <!-->
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
