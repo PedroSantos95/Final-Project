@@ -109,7 +109,10 @@
                 <td v-for="index2 in numeroTemposIntermedios">
                     <!--<span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span> <!-->    
                     <span style="content: 'center' ;font-weight:bold" v-if="index == carroRef">@{{ getCarRefTimes(value, index2)}}</span>
-                    <span :style="{'color:red': index != carroRef && getNameField(value, index2).indexOf('+') !== -1, 'color:green' : index != carroRef && getNameField(value, index2).indexOf('-') !== -1}" v-else>
+                    <span v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1" style="color:red;">
+                    @{{ getNameField(value, index2) }}
+                    </span>
+                    <span v-if="index != carroRef && getNameField(value, index2).indexOf('-') !== -1" style="color:green;">
                     @{{ getNameField(value, index2) }}
                     </span>
                 </td>
