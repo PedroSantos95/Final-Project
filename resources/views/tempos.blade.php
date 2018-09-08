@@ -69,6 +69,7 @@
             </button>
         </div>
         <hr>
+        <!-->
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             @for ($i = 0; $i <sizeof($pecs); $i++) 
                 <label class="btn btn-outline-info">
@@ -79,6 +80,7 @@
                 </label>
             @endfor
         </div>
+        <!-->
         <table style="width:100%" id="tabelaTempos">
             <tr>
                 <th class="text-right"></th>
