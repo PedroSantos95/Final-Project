@@ -232,7 +232,7 @@
             getCarRefTimes(value, index){
                 return value['tempoIntermedio_'+index];
             },
-            calculateDiffTimes(date1, date2) {
+            calculateDiffTimes(date1, date2) { //Tempos Carro Referencia
                     if (date1 != null && date2 != null) {
                     date1 = moment(date1, 'mm:ss:ms');
                     date2 = moment(date2, 'mm:ss:ms');
@@ -284,12 +284,12 @@
             },
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
-                    date1 = moment(date1, 'mm:ss:ms');
-                    console.log(date1);
-                    date2 = moment(date2, 'mm:ss:ms');
+                    date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
+                    date2 = moment(date2, 'YY-mm-dd HH:mm:ss:ms');
                     var duration = date1.diff(date2);
-    
                     var result = moment.duration(duration);
+
+                    console.log(result);
 
                     if (result.hours() == 0) {
                         if (result.minutes() == 0) {
