@@ -219,7 +219,7 @@
                             }
                         } else {
                             if (value.indexOf('Chegada') !== -1) {
-                                newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
+                                newElement[value] = this.calculateDiffDates(this.tempos[index].tempoChegada, this.tempos[index].tempoPartida);
                                 //console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                             }
                         }
