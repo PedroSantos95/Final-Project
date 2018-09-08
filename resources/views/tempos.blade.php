@@ -289,11 +289,14 @@
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
 
-                    console.log(result);
+                    console.log(result.seconds());
 
                     if (result.hours() == 0) {
+                        console.log("if1");
                         if (result.minutes() == 0) {
+                            console.log("if2");
                             if(result.seconds()==0){
+                                console.log("if3");
                                 return result.minutes() + result.seconds() + '.' + result.milliseconds();
                             }else{
                                 if(result.seconds()<10){
