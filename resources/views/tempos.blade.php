@@ -210,17 +210,17 @@
                         if (value.indexOf('Intermedio') !== -1) {
                             if (previousElement !== undefined) {
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
-                                //console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
+                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                                 previousElement = value;
                             } else {
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
-                                //console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
+                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                                 previousElement = value;
                             }
                         } else {
                             if (value.indexOf('Chegada') !== -1) {
                                 newElement[value] = this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida);
-                                //console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
+                                console.log(this.calculateDiffDates(this.tempos[carroRef][value], this.tempos[index].tempoPartida));
                             }
                         }
                         counter++;
@@ -243,7 +243,7 @@
                     var result = moment.duration(duration);
 
                     return result.minutes() + result.seconds() + '.' + result.milliseconds();
-                    
+
                     /*
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
@@ -423,7 +423,7 @@
             },
             formatTime(data, dataAnterior) {
                 dataAnterior = dataAnterior.toString().split(' ')[1] != null ? dataAnterior.toString().split(' ')[1] : dataAnterior;
-                return moment(dataAnterior, 'hh:mm:ss').diff(moment(data, 'hh:mm:ss'));
+                return moment(dataAnterior, 'hh:mm:ss.ms').diff(moment(data, 'hh:mm:ss.ms'));
             },
         }
     });
