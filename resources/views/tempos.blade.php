@@ -288,7 +288,9 @@
                     date1 = moment(date1, 'YY-mm-dd HH:mm:ss:ms');
                     date2 = moment(date2, 'YY-mm-dd HH:mm:ss:ms');
                     var duration = date1.diff(date2);
+    
                     var result = moment.duration(duration);
+                    console.log(result);
                     if (result.hours() == 0) {
                         if (result.minutes() == 0) {
                             if(result.seconds()==0){
