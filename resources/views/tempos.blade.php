@@ -230,15 +230,13 @@
                 }
             },
             getNameField(value, index){
-                if(index == 4){
-                    console.log(this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]));
-                }
                 return this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
             },
             getCarRefTimes(value, index){
                 return value['tempoIntermedio_'+index];
             },
             calculateDiffTimes(date1, date2) { //Tempos Carro Referencia
+                    console.log(date2);
                     if (date1 && date2) {
                     date1 = moment(date1, 'mm:ss:ms');
                     date2 = moment(date2, 'mm:ss:ms');
