@@ -251,29 +251,29 @@
                     if(result.minutes()>0){
                         if(result.minutes()<10){
                             if(result.seconds()<10){
-                                return result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                return result.minutes() + result.seconds() + '.' + result.milliseconds();
                             }else{
-                                return result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                return result.minutes() + result.seconds() + '.' + result.milliseconds();
                             }
                         }else{
                             if(result.seconds()<10){
-                                return result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                                return result.minutes() + result.seconds() + '.' + result.milliseconds();
                             }else{
-                                return result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                                return result.minutes() + result.seconds() + '.' + result.milliseconds();
                             }
                         }
                     }else{
                         if(result.minutes()>-10){
                             if(result.seconds()<10 || result.seconds()>-10){
-                                return Math.abs(result.minutes()) + ':0' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                                return Math.abs(result.minutes()) + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
                             }else{
-                                return Math.abs(result.minutes()) + ':' + result.seconds() + '.' + Math.abs(result.milliseconds());
+                                return Math.abs(result.minutes()) + result.seconds() + '.' + Math.abs(result.milliseconds());
                             }
                         }else{
                             if(result.seconds()<10 || result.seconds()>-10){
-                                return Math.abs(result.minutes()) + ':0' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                                return Math.abs(result.minutes()) + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
                             }else{
-                                return Math.abs(result.minutes()) + ':' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                                return Math.abs(result.minutes()) + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
                             }
                         }
                     }
