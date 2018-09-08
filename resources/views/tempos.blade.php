@@ -238,8 +238,9 @@
                     date2 = moment(date2, 'mm:ss:ms');
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
-                   return result;
-                    }
+                    
+                    return result.seconds();
+                }
             },
             changeCarroRef(carroRef){
                 this.carroRef = carroRef;
