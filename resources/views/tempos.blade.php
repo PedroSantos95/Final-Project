@@ -107,9 +107,9 @@
                     <span style="font-weight:bold" v-if="index == carroRef">@{{ value.tempoPartida | formatDate | formatPartida}}</span>
                 </td>
                 <td v-for="index2 in numeroTemposIntermedios">
-                    <!--<span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span> <!-->
-                    <span style="color:green; font-weight: bold">@{{ getNameField(value, index2) }}</span>
+                    <!--<span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span> <!-->    
                     <span style="content: 'center' ;font-weight:bold" v-if="index == carroRef">@{{ getCarRefTimes(value, index2)}}</span>
+                    <span style="color:green; font-weight: bold" v-else>@{{ getNameField(value, index2) }}</span>
                 </td>
                 <td>
                     <span v-if="index != carroRef">@{{ value.tempoChegada }}</span>
