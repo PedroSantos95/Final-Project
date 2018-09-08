@@ -241,7 +241,10 @@
                     date2 = moment(date2, 'mm:ss:ms');
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
+
+                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
                     
+                    /*
                     if(result.minutes() == 0){
                         if(result.seconds()>0){
                             if(result.seconds()<10){
@@ -280,10 +283,11 @@
                                 return Math.abs(result.minutes()) + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
                             }
                         }
-                    }
+                    }*/
                 }else{
                     return '__';
                 }
+                
             },
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
@@ -293,8 +297,116 @@
                     var result = moment.duration(duration);
 
                     //console.log(result.seconds());
-
-                    return result.minutes() + result.seconds();
+                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                    /*
+                    if (result.hours() == 0) {
+                        //console.log("if1");
+                        if (result.minutes() == 0) {
+                            //console.log("if2");
+                            if(result.seconds()==0){
+                                //console.log("if3");
+                                return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                            }else{
+                                if(result.seconds()<10){
+                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                }
+                            }
+                        } else {
+                            if (result.minutes() < 10) {
+                                if(result.seconds()==0) {
+                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                        if(result.seconds()<10){
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                            } else {
+                                if(result.seconds()==0){
+                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        if (result.hours() < 10) {
+                            if (result.minutes() == 0) {
+                                if(result.seconds()==0){
+                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            } else {
+                                if (result.minutes() < 10) {
+                                    if(result.seconds()==0){
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                } else {
+                                    if(result.seconds()==0){
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            if (result.minutes() == 0) {
+                                if(result.seconds() == 0){
+                                    return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                }else{
+                                    if(result.seconds()<10){
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }
+                                }
+                            } else {
+                                if (result.minutes() < 10) {
+                                    if(result.seconds()==0){
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                } else {
+                                    if(result.seconds()==0){
+                                        return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                    }else{
+                                        if(result.seconds()<10){
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }else{
+                                            return result.minutes() + result.seconds() + '.' + result.milliseconds();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }*/
                 }
             },
             changeCarroRef(carroRef){
