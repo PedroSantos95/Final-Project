@@ -109,7 +109,7 @@
                 <td v-for="index2 in numeroTemposIntermedios">
                     <!--<span style="color:red; font-weight: bold" v-if="index != carroRef && getNameField(value, index2).indexOf('+') !== -1">@{{ getNameField(value, index2) }}</span> <!-->    
                     <span style="content: 'center' ;font-weight:bold" v-if="index == carroRef">@{{ getCarRefTimes(value, index2)}}</span>
-                    <span :class="{'is-red': index != carroRef && getNameField(value, index2).indexOf('+') !== -1, 'is_green' : index != carroRef && getNameField(value, index2).indexOf('-') !== -1}" v-else>
+                    <span :style="{'color:red; font-weight:bold': index != carroRef && getNameField(value, index2).indexOf('+') !== -1, 'color:green; font-weight:bold' : index != carroRef && getNameField(value, index2).indexOf('-') !== -1}" v-else>
                     @{{ getNameField(value, index2) }}
                     </span>
                 </td>
@@ -440,15 +440,6 @@
 </script>
 
 <script src="/js/noticias.js"></script>
-
-<style>
-.is-green{
-    color:green;
-}
-.is-red{
-    color:red;
-}
-</style>
 
 </body>
 
