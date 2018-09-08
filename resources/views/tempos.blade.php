@@ -227,10 +227,59 @@
                 }
             },
             getNameField(value, index){
-                return this.calculateDiffDates(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
+                return this.calculateDiffTimes(this.temposFinais[0]['tempoIntermedio_'+index], value['tempoIntermedio_'+index]);
             },
             getCarRefTimes(value, index){
                 return value['tempoIntermedio_'+index];
+            },
+            calculateDiffTimes(date1, date2) {
+                    if (date1 != null && date2 != null) {
+                    date1 = moment(date1, 'mm:ss:ms');
+                    date2 = moment(date2, 'mm:ss:ms');
+                    var duration = date1.diff(date2);
+                    var result = moment.duration(duration);
+                    if(result.minutes() == 0){
+                        if(result.seconds()>0){
+                            if(result.seconds()<10){
+                                return '+00:00:0' + result.seconds() + '.' + result.milliseconds();
+                            }
+                            return '+00:00:' + result.seconds() + '.' + result.milliseconds();
+                        }else{
+                            return result.seconds() + '.' + result.milliseconds();
+                        }
+                    }
+                    if(result.minutes()>0){
+                        if(result.minutes()<10){
+                            if(result.seconds()<10){
+                                return '+00:0' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                            }else{
+                                return '+00:0' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                            }
+                        }else{
+                            if(result.seconds()<10){
+                                return '+00:' + result.minutes() + ':0' + result.seconds() + '.' + result.milliseconds();
+                            }else{
+                                return '+00:' + result.minutes() + ':' + result.seconds() + '.' + result.milliseconds();
+                            }
+                        }
+                    }else{
+                        if(result.minutes()>-10){
+                            if(result.seconds()<10 || result.seconds()>-10){
+                                return '-00:0' + Math.abs(result.minutes()) + ':0' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                            }else{
+                                return '-00:0' + Math.abs(result.minutes()) + ':' + result.seconds() + '.' + Math.abs(result.milliseconds());
+                            }
+                        }else{
+                            if(result.seconds()<10 || result.seconds()>-10){
+                                return '-00:' + Math.abs(result.minutes()) + ':0' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                            }else{
+                                return '-00:' + Math.abs(result.minutes()) + ':' + Math.abs(result.seconds()) + '.' + Math.abs(result.milliseconds());
+                            }
+                        }
+                    }
+                }else{
+                    return '__';
+                }
             },
             calculateDiffDates(date1, date2) {
                 if (date1 != null) {
