@@ -86,11 +86,11 @@
             <tr>
                 <th class="text-right"></th>
                 <th class="text-right">Carro</th>
-                <th class="text-right">TP</th>
+                <th class="text-right">P</th>
                 @for($i=1; $i<=$numeroTemposIntermedios; $i++)
                     <th class="text-right" align="center">TI <?= $i ?></th>
                 @endfor
-                <th class="text-right">TC</th>
+                <th class="text-right">TT</th>
             </tr>
             <tr class="text-right" v-for="(value, index) in temposFinais">
                 <td>
