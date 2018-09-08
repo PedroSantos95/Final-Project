@@ -205,7 +205,12 @@
                 for (var carroRef in this.tempos) {               
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
-                    newElement.tempoChegada = moment(this.tempos[carroRef].tempoChegada, 'YYYY-MM-DD HH:mm:ss').format('mm:ss');
+                    if(this.tempos[carroRef].tempoChegada){
+                        newElement.tempoChegada = moment(this.tempos[carroRef].tempoChegada, 'YYYY-MM-DD HH:mm:ss').format('mm:ss');
+                    }else{
+                        newElement.tempoChegada = "---"
+                    }
+                    
                     for (var value in this.tempos[carroRef]) {
                         if (value.indexOf('Intermedio') !== -1) {
                             if (previousElement !== undefined) {
