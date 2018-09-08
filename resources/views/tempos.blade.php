@@ -241,7 +241,7 @@
                     date2 = moment(date2, 'mm:ss:ms');
                     var duration = date1.diff(date2);
                     var result = moment.duration(duration);
-
+                    console.log(result);
                     return result.minutes() + result.seconds() + '.' + result.milliseconds();
 
                     /*
