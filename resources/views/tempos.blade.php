@@ -212,8 +212,8 @@
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
                     if(this.tempos[carroRef].tempoChegada){
-                        console.log(this.calculateDiffDates(this.tempos[carroRef].tempoChegada, this.tempos[carroRef].tempoPartida))
-                        newElement.tempoChegada = moment("AQUIAQUIAUQI: "+this.tempos[carroRef].tempoChegada, 'YYYY-MM-DD HH:mm:ss').format('mm:ss');
+                        console.log("AQUIAQUIAUQI" + this.calculateDiffDates(this.tempos[carroRef].tempoChegada, this.tempos[carroRef].tempoPartida))
+                        newElement.tempoChegada = moment(this.tempos[carroRef].tempoChegada, 'YYYY-MM-DD HH:mm:ss').format('mm:ss');
                     }else{
                         newElement.tempoChegada = "--"
                     }
