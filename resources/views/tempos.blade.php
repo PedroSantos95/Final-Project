@@ -212,7 +212,7 @@
                     newElement.numero_carro = this.tempos[carroRef].numero_carro;
                     newElement.tempoPartida = this.tempos[carroRef].tempoPartida;
                     if(this.tempos[carroRef].tempoChegada){
-                        newElement.tempoChegada = moment(this.tempos[carroRef].tempoChegada, 'YYYY-MM-DD HH:mm:ss').format('mm:ss');
+                        newElement.tempoChegada = moment(calculateDiffDates(this.tempos[carroRef].tempoPartida, this.tempos[carroRef].tempoChegada), 'YYYY-MM-DD HH:mm:ss').format('mm:ss');
                     }else{
                         newElement.tempoChegada = "--"
                     }
