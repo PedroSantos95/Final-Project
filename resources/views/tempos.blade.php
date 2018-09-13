@@ -73,6 +73,7 @@
 
         
 <div class="container" id="app">
+<h3>Notícias</h3>
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4 col-lg-12">
             <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 8%;">
