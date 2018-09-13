@@ -29,21 +29,40 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Tempos Online</a>
+        <a class="navbar-brand" href="#"><img src="img/navbar_img.png" height="80" width="152"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="{{route('tempos')}}">Tempos--}}
+                    {{--</a>--}}
+                {{--</li>--}}
                 <li class="nav-item">
                     <a class="nav-link active" href="{{route('temposSemReferencia')}}">Tempos</a>
                     <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('noticias')}}">Noticias</a>
+                    <a class="nav-link active" href="{{route('noticias')}}">Noticias</a>
+                </li>
+                {{--@if(Auth::check())--}}
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="{{ route('logout') }}">Logout</a>--}}
+                    {{--</li>--}}
+                {{--@else--}}
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="nav-link" href="{{route('login')}}">Login</a>--}}
+                    {{--</li>--}}
+                {{--@endif--}}
+                <?php
+                use \App\Http\Controllers\api\RallyController;
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link text-white" style="text-align: center">{{RallyController::rallyActive()->nome}}</a>
                 </li>
             </ul>
         </div>
