@@ -71,7 +71,6 @@
 
 <!-- Page Content -->
 
-       <h3 style="margin-top:10px;">Notícias</h3> 
 <div class="container" id="app">
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4 col-lg-12">
